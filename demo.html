@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AXINA — Démo interactive</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,700;0,9..40,900&family=DM+Mono:wght@400;500&display=swap');
+@font-face{font-family:'DM Sans','Century Gothic','DM Sans','Century Gothic',CenturyGothic,AppleGothic,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif,AppleGothic,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;src:local('Century Gothic'),local('DM Sans','Century Gothic','DM Sans','Century Gothic',CenturyGothic,AppleGothic,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif,AppleGothic,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif);font-weight:400}
+@font-face{font-family:'DM Sans','Century Gothic','DM Sans','Century Gothic',CenturyGothic,AppleGothic,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif,AppleGothic,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;src:local('Century Gothic Bold'),local(''DM Sans','Century Gothic',CenturyGothic,AppleGothic,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif-Bold');font-weight:700 900}
+:root{
+  --bg:#0B1623;--card:#111F2E;--card2:#162338;
+  --gold:#F5A623;--gold2:#E8943A;--gold-l:#FFB84D;
+  --green:#22C55E;--red:#EF4444;--blue:#3B82F6;
+  --txt1:#EDF2F7;--txt2:#7A93AC;--txt3:#4A6480;
+  --border:rgba(255,255,255,.07);--accent:#F4500C;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans','Century Gothic','DM Sans','Century Gothic',CenturyGothic,AppleGothic,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif,AppleGothic,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif,'Century Gothic','DM Sans','Century Gothic','DM Sans','Century Gothic',CenturyGothic,AppleGothic,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif,AppleGothic,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--txt1);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--gold)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;height:60px;z-index:100;background:rgba(11,22,35,.95);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 28px}
+.nav-logo{font-size:18px;font-weight:900;letter-spacing:-.04em;color:#fff}
+.nav-logo span{color:var(--gold)}
+.nav-back{font-size:13px;color:var(--txt2);text-decoration:none;display:flex;align-items:center;gap:6px;transition:color .2s}
+.nav-back:hover{color:var(--gold)}
+.nav-cta{background:var(--gold);color:#0B1623;font-size:13px;font-weight:800;padding:9px 18px;border-radius:8px;border:none;cursor:pointer;font-family:inherit}
+
+/* HERO */
+.demo-hero{padding:100px 24px 48px;text-align:center}
+.demo-hero h1{font-size:clamp(28px,4vw,48px);font-weight:900;letter-spacing:-.04em;margin-bottom:12px}
+.demo-hero h1 span{color:var(--gold)}
+.demo-hero p{font-size:16px;color:var(--txt2);max-width:500px;margin:0 auto 36px}
+.demo-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.2);border-radius:100px;padding:6px 16px;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:.06em;margin-bottom:20px}
+
+/* TABS */
+.demo-tabs{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:40px;padding:0 24px}
+.tab{padding:10px 20px;border-radius:10px;border:1.5px solid var(--border);font-size:13px;font-weight:700;color:var(--txt2);cursor:pointer;transition:all .2s;background:transparent;font-family:inherit;display:flex;align-items:center;gap:8px}
+.tab:hover{border-color:rgba(245,166,35,.3);color:var(--txt1)}
+.tab.active{background:rgba(245,166,35,.1);border-color:var(--gold);color:var(--gold)}
+
+/* DEMO FRAME */
+.demo-frame{max-width:960px;margin:0 auto;padding:0 24px 80px}
+.screen{display:none}
+.screen.active{display:block;animation:fadeIn .4s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+/* PHONE FRAME */
+.phone{background:var(--card);border:1px solid var(--border);border-radius:24px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.4)}
+.phone-bar{background:var(--card2);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
+.phone-title{font-size:13px;font-weight:700;color:var(--txt1)}
+.phone-status{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--green)}
+.pulse-dot{width:7px;height:7px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.phone-body{padding:24px}
+
+/* ═══ SCREEN 1 — COCKPIT ═══ */
+.kpi-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+.kpi{background:var(--card2);border:1px solid var(--border);border-radius:14px;padding:16px}
+.kpi-label{font-size:10.5px;color:var(--txt3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.kpi-val{font-family:'DM Mono',monospace;font-size:22px;font-weight:500;letter-spacing:-.02em}
+.kpi-val.up{color:var(--green)}
+.kpi-val.warn{color:var(--gold)}
+.kpi-val.white{color:var(--txt1)}
+.kpi-sub{font-size:10.5px;color:var(--txt3);margin-top:3px}
+.section-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--txt3);margin-bottom:12px}
+.alert-item{display:flex;align-items:flex-start;gap:12px;padding:12px;background:var(--card2);border-radius:10px;margin-bottom:8px;border-left:3px solid transparent}
+.alert-item.critical{border-left-color:var(--red)}
+.alert-item.warning{border-left-color:var(--gold)}
+.alert-item.ok{border-left-color:var(--green)}
+.alert-icon{font-size:16px;flex-shrink:0}
+.alert-title{font-size:13px;font-weight:700;margin-bottom:2px}
+.alert-desc{font-size:11.5px;color:var(--txt2);line-height:1.4}
+.alert-action{font-size:11px;font-weight:700;color:var(--gold);margin-top:4px}
+.score-bar-wrap{background:var(--card2);border-radius:14px;padding:16px;margin-bottom:12px}
+.score-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.score-num{font-family:'DM Mono',monospace;font-size:36px;font-weight:500;color:var(--gold)}
+.score-label{font-size:12px;color:var(--txt2)}
+.score-bar-track{height:8px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden}
+.score-bar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--gold),var(--gold-l));transition:width 1.5s ease}
+
+/* ═══ SCREEN 2 — FACTURE ═══ */
+.invoice-card{background:#fff;border-radius:16px;padding:24px;color:#111;position:relative;overflow:hidden}
+.invoice-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;padding-bottom:16px;border-bottom:2px solid #F4500C}
+.invoice-logo{font-size:20px;font-weight:900;color:#111;letter-spacing:-.04em}
+.invoice-logo span{color:#F4500C}
+.invoice-number{font-size:11px;color:#666;text-align:right}
+.invoice-number strong{display:block;font-size:14px;color:#111;margin-top:2px}
+.invoice-parties{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+.party-label{font-size:10px;color:#999;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.party-name{font-size:14px;font-weight:700;color:#111}
+.party-info{font-size:12px;color:#666;line-height:1.6}
+.invoice-lines{margin-bottom:16px}
+.invoice-line-header{display:grid;grid-template-columns:1fr 80px 80px 90px;gap:8px;font-size:10px;color:#999;text-transform:uppercase;letter-spacing:.06em;padding-bottom:6px;border-bottom:1px solid #eee;margin-bottom:8px}
+.invoice-line{display:grid;grid-template-columns:1fr 80px 80px 90px;gap:8px;padding:8px 0;border-bottom:1px solid #f5f5f5;font-size:13px;color:#111;align-items:center}
+.invoice-totals{background:#F7F7F5;border-radius:8px;padding:12px 14px}
+.total-row{display:flex;justify-content:space-between;font-size:13px;color:#666;margin-bottom:4px}
+.total-row.main{font-size:16px;font-weight:800;color:#111;border-top:1px solid #ddd;padding-top:8px;margin-top:4px}
+.dip-zone{margin-top:16px;padding:12px;background:#0B1623;border-radius:10px;display:flex;gap:16px;align-items:center}
+.qr-mock{width:56px;height:56px;background:#fff;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:8px;color:#111;font-weight:700;text-align:center;padding:4px}
+.dip-info{flex:1}
+.dip-title{font-size:11px;font-weight:700;color:var(--gold);margin-bottom:3px}
+.dip-hash{font-family:'DM Mono',monospace;font-size:9px;color:var(--txt3);word-break:break-all}
+.dip-badge{display:inline-flex;align-items:center;gap:4px;background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.3);border-radius:4px;padding:2px 8px;font-size:10px;font-weight:700;color:var(--green);margin-top:4px}
+.sim-btn{width:100%;padding:12px;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.2);border-radius:10px;color:var(--gold);font-size:13px;font-weight:700;cursor:pointer;margin-top:14px;font-family:inherit;transition:all .2s}
+.sim-btn:hover{background:rgba(245,166,35,.2)}
+
+/* ═══ SCREEN 3 — SCORE ═══ */
+.score-circle-wrap{text-align:center;padding:24px 0}
+.score-circle{width:160px;height:160px;margin:0 auto 20px;position:relative}
+.score-circle svg{transform:rotate(-90deg)}
+.score-circle-text{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.score-big{font-family:'DM Mono',monospace;font-size:44px;font-weight:500;color:var(--gold);line-height:1}
+.score-max{font-size:12px;color:var(--txt3)}
+.score-status{font-size:14px;font-weight:700;color:var(--green);margin-bottom:24px}
+.score-components{display:flex;flex-direction:column;gap:10px}
+.sc-item{background:var(--card2);border-radius:10px;padding:12px 14px}
+.sc-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.sc-name{font-size:12.5px;font-weight:700}
+.sc-val{font-family:'DM Mono',monospace;font-size:13px;color:var(--gold)}
+.sc-bar{height:5px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden}
+.sc-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--gold),var(--gold-l))}
+.sc-tip{font-size:11px;color:var(--txt3);margin-top:5px}
+.score-cta{margin-top:20px;text-align:center}
+.score-cta p{font-size:13px;color:var(--txt2);margin-bottom:12px}
+
+/* ═══ SCREEN 4 — BANK READY ═══ */
+.bank-header{background:linear-gradient(135deg,var(--card2),var(--card));border-radius:14px;padding:20px;margin-bottom:16px;text-align:center;position:relative;overflow:hidden}
+.bank-header::before{content:'';position:absolute;top:-30px;right:-30px;width:120px;height:120px;background:radial-gradient(circle,rgba(245,166,35,.1),transparent);border-radius:50%}
+.bank-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--txt3);margin-bottom:8px}
+.bank-score-display{font-family:'DM Mono',monospace;font-size:48px;font-weight:500;color:var(--gold);line-height:1;margin-bottom:4px}
+.bank-score-label{font-size:13px;color:var(--green);font-weight:700}
+.bank-eligibility{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.elig-item{background:var(--card2);border-radius:10px;padding:12px;text-align:center}
+.elig-icon{font-size:20px;margin-bottom:6px}
+.elig-name{font-size:11px;color:var(--txt2);margin-bottom:4px}
+.elig-status{font-size:12px;font-weight:700}
+.elig-status.ok{color:var(--green)}
+.elig-status.warn{color:var(--gold)}
+.doc-list{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.doc-item{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--card2);border-radius:8px}
+.doc-icon{font-size:16px;flex-shrink:0}
+.doc-name{font-size:13px;font-weight:600;flex:1}
+.doc-cert{font-size:10px;font-weight:700;color:var(--green);background:rgba(34,197,94,.1);padding:2px 8px;border-radius:4px}
+.export-btn{width:100%;padding:14px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#0B1623;font-size:14px;font-weight:800;border-radius:10px;border:none;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .2s}
+.export-btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(245,166,35,.3)}
+
+/* CTA SECTION */
+.demo-cta{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:48px 32px;text-align:center;max-width:960px;margin:0 auto 60px;position:relative;overflow:hidden}
+.demo-cta::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.demo-cta h2{font-size:clamp(24px,3vw,36px);font-weight:900;letter-spacing:-.04em;margin-bottom:12px}
+.demo-cta p{font-size:15px;color:var(--txt2);margin-bottom:28px}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#0B1623;font-size:14px;font-weight:800;padding:13px 28px;border-radius:10px;border:none;cursor:pointer;font-family:inherit;transition:all .2s}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(245,166,35,.3)}
+.btn-outline{background:transparent;color:var(--txt1);font-size:14px;font-weight:600;padding:13px 24px;border-radius:10px;border:1px solid var(--border);cursor:pointer;font-family:inherit;transition:all .2s}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+
+/* MODAL */
+#modal{display:none;position:fixed;inset:0;z-index:200;align-items:center;justify-content:center;padding:24px;background:rgba(0,0,0,.7);backdrop-filter:blur(8px)}
+#modal.open{display:flex}
+.modal-box{background:#fff;border-radius:20px;padding:36px;max-width:440px;width:100%;box-shadow:0 32px 80px rgba(0,0,0,.3);position:relative}
+.modal-close{position:absolute;top:14px;right:14px;background:none;border:none;font-size:18px;cursor:pointer;color:#999;width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:8px}
+.modal-close:hover{background:#f5f5f5}
+.modal-title{font-size:20px;font-weight:900;color:#111;margin-bottom:6px;letter-spacing:-.03em}
+.modal-sub{font-size:13px;color:#999;margin-bottom:24px}
+.modal-form{display:flex;flex-direction:column;gap:12px}
+.modal-input{padding:11px 14px;border:1.5px solid #E5E7EB;border-radius:9px;font-size:14px;font-family:inherit;color:#111;outline:none;transition:border-color .2s}
+.modal-input:focus{border-color:#F4500C}
+.modal-select{padding:11px 14px;border:1.5px solid #E5E7EB;border-radius:9px;font-size:14px;font-family:inherit;color:#111;background:#fff;cursor:pointer;outline:none}
+.modal-submit{background:#111;color:#fff;padding:13px;border-radius:9px;font-size:14px;font-weight:800;cursor:pointer;border:none;font-family:inherit}
+.modal-trial{font-size:11.5px;color:#999;text-align:center;margin-top:8px}
+.modal-success{display:none;text-align:center;padding:16px 0}
+.modal-success-icon{font-size:40px;margin-bottom:10px}
+
+@media(max-width:600px){
+  .kpi-grid{grid-template-columns:1fr}
+  .invoice-parties{grid-template-columns:1fr}
+  .invoice-line-header,.invoice-line{grid-template-columns:1fr 70px 80px}
+  .invoice-line-header span:nth-child(3),.invoice-line span:nth-child(3){display:none}
+  .bank-eligibility{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">AX<span>I</span>NA</div>
+  <a href="index.html" class="nav-back">← Retour au site</a>
+  <button class="nav-cta" onclick="openModal()">Créer mon compte</button>
+</nav>
+
+<div class="demo-hero">
+  <div class="demo-badge">🎯 Démo interactive · Données simulées</div>
+  <h1>Voyez AXINA <span>en action.</span></h1>
+  <p>Explorez les 4 modules clés. Toutes les données sont simulées — votre vraie expérience sera encore meilleure.</p>
+  <p style="font-size:13px;color:var(--txt3);margin-top:-20px">Commencez par le Cockpit DG → puis suivez le parcours jusqu'au dossier bancaire.</p>
+  <p style="font-size:14px;color:var(--gold);font-weight:700;margin-top:8px">Votre entreprise a déjà un score. AXINA va juste le révéler.</p>
+</div>
+
+<div class="demo-tabs">
+  <button class="tab active" onclick="showScreen('cockpit',this)">🎯 Cockpit DG</button>
+  <button class="tab" onclick="showScreen('facture',this)">🧾 Facture certifiée</button>
+  <button class="tab" onclick="showScreen('score',this)">⭐ Score AXINA</button>
+  <button class="tab" onclick="showScreen('bank',this)">🏦 Bank Ready</button>
+</div>
+
+<div class="demo-frame">
+
+  <!-- SCREEN 1 : COCKPIT -->
+  <div class="screen active" id="screen-cockpit">
+    <div class="phone">
+      <div class="phone-bar">
+        <span class="phone-title">Cockpit DG — Diallo & Frères SARL</span>
+        <span class="phone-status"><span class="pulse-dot"></span>Live</span>
+      </div>
+      <div class="phone-body">
+        <div class="kpi-grid">
+          <div class="kpi">
+            <div class="kpi-label">Trésorerie</div>
+            <div class="kpi-val up" id="kpi-tresor">4 820 000</div>
+            <div class="kpi-sub">FCFA · Stable ↑</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">CA ce mois</div>
+            <div class="kpi-val white">12 400 000</div>
+            <div class="kpi-sub">FCFA · +18% vs mois dernier</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Créances clients</div>
+            <div class="kpi-val warn">3 200 000</div>
+            <div class="kpi-sub">FCFA · 2 factures impayées</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Score AXINA</div>
+            <div class="kpi-val up">80 / 100</div>
+            <div class="kpi-sub">Finançable ✓</div>
+          </div>
+        </div>
+        <div class="score-bar-wrap">
+          <div class="score-row">
+            <div>
+              <div class="kpi-label">Niveau Bank Ready</div>
+              <div class="kpi-val up" style="font-size:18px">Éligible financement</div>
+            </div>
+            <div class="score-num">80</div>
+          </div>
+          <div class="score-bar-track"><div class="score-bar-fill" style="width:80%"></div></div>
+        </div>
+        <div class="section-title">Alertes AXINA</div>
+        <div class="alert-item warning">
+          <span class="alert-icon">⚠️</span>
+          <div>
+            <div class="alert-title">TVA dans 6 jours</div>
+            <div class="alert-desc">Montant estimé : 340 000 FCFA. Anticipez.</div>
+            <div class="alert-action">Voir le détail →</div>
+          </div>
+        </div>
+        <div class="alert-item critical">
+          <span class="alert-icon">🔴</span>
+          <div>
+            <div class="alert-title">Facture impayée — 45 jours</div>
+            <div class="alert-desc">Client : Sogephar CI · 1 250 000 FCFA</div>
+            <div class="alert-action">Lancer la relance →</div>
+          </div>
+        </div>
+        <div class="alert-item ok">
+          <span class="alert-icon">✅</span>
+          <div>
+            <div class="alert-title">Ledger certifié DIP</div>
+            <div class="alert-desc">Toutes les écritures sont vérifiées et non falsifiables.</div>
+          </div>
+        </div>
+      <div style="margin-top:16px;display:flex;gap:8px">
+        <button class="btn-gold" style="flex:1;padding:11px;font-size:13px" onclick="showScreen('score', document.querySelectorAll('.tab')[2])">Comprendre mon score →</button>
+        <button style="flex:1;padding:11px;font-size:13px;background:transparent;border:1px solid var(--border);border-radius:10px;color:var(--txt2);cursor:pointer;font-family:inherit" onclick="showScreen('facture', document.querySelectorAll('.tab')[1])">Voir une facture</button>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 2 : FACTURE -->
+  <div class="screen" id="screen-facture">
+    <div class="phone">
+      <div class="phone-bar">
+        <span class="phone-title">Facture · Certification DIP</span>
+        <span class="phone-status"><span class="pulse-dot"></span>Certifiée</span>
+      </div>
+      <div class="phone-body">
+        <div class="invoice-card">
+          <div class="invoice-header">
+            <div>
+              <div class="invoice-logo">AX<span>I</span>NA</div>
+              <div style="font-size:10px;color:#999;margin-top:2px">Infrastructure financière</div>
+            </div>
+            <div class="invoice-number">
+              FACTURE
+              <strong>FAC-2026-0847</strong>
+              <div style="font-size:10px;color:#999;margin-top:2px">27 mars 2026</div>
+            </div>
+          </div>
+          <div class="invoice-parties">
+            <div>
+              <div class="party-label">Émetteur</div>
+              <div class="party-name">Diallo & Frères SARL</div>
+              <div class="party-info">RC SN-DKR-2021-B-1847<br>Dakar, Sénégal<br>TVA : SN823456789</div>
+            </div>
+            <div>
+              <div class="party-label">Client</div>
+              <div class="party-name">Sogephar CI</div>
+              <div class="party-info">Abidjan, Côte d'Ivoire<br>contact@sogephar.ci</div>
+            </div>
+          </div>
+          <div class="invoice-lines">
+            <div class="invoice-line-header">
+              <span>Désignation</span><span style="text-align:right">Qté</span><span style="text-align:right">P.U</span><span style="text-align:right">Total HT</span>
+            </div>
+            <div class="invoice-line">
+              <span>Fournitures pharmaceutiques</span><span style="text-align:right">50</span><span style="text-align:right">18 000</span><span style="text-align:right;font-weight:700">900 000</span>
+            </div>
+            <div class="invoice-line">
+              <span>Transport & livraison</span><span style="text-align:right">1</span><span style="text-align:right">50 000</span><span style="text-align:right;font-weight:700">50 000</span>
+            </div>
+          </div>
+          <div class="invoice-totals">
+            <div class="total-row"><span>Sous-total HT</span><span>950 000 FCFA</span></div>
+            <div class="total-row"><span>TVA 18%</span><span>171 000 FCFA</span></div>
+            <div class="total-row main"><span>TOTAL TTC</span><span>1 121 000 FCFA</span></div>
+          </div>
+          <div class="dip-zone">
+            <div class="qr-mock">QR<br>AXINA<br>DIP</div>
+            <div class="qr-mock">QR<br>DGI<br>FNE</div>
+            <div class="dip-info">
+              <div class="dip-title">✓ Certifié — Accepté par toutes les banques OHADA</div>
+              <div class="dip-hash">sha256:a8f3c2d9e4b1...7f2a</div>
+              <div class="dip-badge">✓ Non falsifiable</div>
+            </div>
+          </div>
+        </div>
+        <button class="sim-btn" onclick="simulateCert()">⚡ Simuler la certification DGI FNE</button>
+        <div id="cert-result" style="display:none;margin-top:12px;padding:12px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);border-radius:10px;font-size:12.5px;color:var(--green);text-align:center">
+          ✅ Certifiée par la DGI · Numéro fiscal : FNE-CI-2026-847-X · Délai : 2.4 secondes
+        </div>
+      <div style="margin-top:14px">
+        <button class="btn-gold" style="width:100%;padding:11px;font-size:13px" onclick="showScreen('bank', document.querySelectorAll('.tab')[3])">Voir mon dossier Bank Ready →</button>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 3 : SCORE -->
+  <div class="screen" id="screen-score">
+    <div class="phone">
+      <div class="phone-bar">
+        <span class="phone-title">Score AXINA — Analyse complète</span>
+        <span class="phone-status"><span class="pulse-dot"></span>Live</span>
+      </div>
+      <div class="phone-body">
+        <div class="score-circle-wrap">
+          <div class="score-circle">
+            <svg width="160" height="160" viewBox="0 0 160 160">
+              <circle cx="80" cy="80" r="68" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="10"/>
+              <circle cx="80" cy="80" r="68" fill="none" stroke="url(#scoreGrad)" stroke-width="10" stroke-linecap="round"
+                stroke-dasharray="427" stroke-dashoffset="86" id="score-arc"/>
+              <defs>
+                <linearGradient id="scoreGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" style="stop-color:#F5A623"/>
+                  <stop offset="100%" style="stop-color:#FFB84D"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <div class="score-circle-text">
+              <div class="score-big" id="score-anim">0</div>
+              <div class="score-max">/100</div>
+            </div>
+          </div>
+          <div class="score-status">✓ Votre entreprise peut obtenir un financement bancaire</div>
+        </div>
+        <div class="score-components">
+          <div class="sc-item">
+            <div class="sc-header"><span class="sc-name">📊 Santé financière</span><span class="sc-val">85/100</span></div>
+            <div class="sc-bar"><div class="sc-fill" style="width:85%"></div></div>
+            <div class="sc-tip">Bilan équilibré · Marge brute 34%</div>
+          </div>
+          <div class="sc-item">
+            <div class="sc-header"><span class="sc-name">💰 Trésorerie</span><span class="sc-val">78/100</span></div>
+            <div class="sc-bar"><div class="sc-fill" style="width:78%"></div></div>
+            <div class="sc-tip">Runway 4.2 mois · Pas de découvert</div>
+          </div>
+          <div class="sc-item">
+            <div class="sc-header"><span class="sc-name">🔒 Intégrité DIP</span><span class="sc-val">100/100</span></div>
+            <div class="sc-bar"><div class="sc-fill" style="width:100%"></div></div>
+            <div class="sc-tip">Ledger certifié · Zéro anomalie</div>
+          </div>
+          <div class="sc-item">
+            <div class="sc-header"><span class="sc-name">📋 Conformité OHADA</span><span class="sc-val">72/100</span></div>
+            <div class="sc-bar"><div class="sc-fill" style="width:72%"></div></div>
+            <div class="sc-tip">États financiers à jour · TVA régulière</div>
+          </div>
+          <div class="sc-item">
+            <div class="sc-header"><span class="sc-name">⚡ Comportement paiement</span><span class="sc-val">68/100</span></div>
+            <div class="sc-bar"><div class="sc-fill" style="width:68%"></div></div>
+            <div class="sc-tip">2 impayés en cours · À régulariser</div>
+          </div>
+        </div>
+        <div class="score-cta">
+          <p>Votre score réel sera calculé sur vos vraies données.</p>
+          <button class="btn-gold" onclick="openModal()">Calculer mon score →</button>
+        </div>
+      </div>
+      <div style="margin-top:14px">
+        <button class="btn-gold" style="width:100%;padding:11px;font-size:13px" onclick="showScreen('bank', document.querySelectorAll('.tab')[3])">Générer mon dossier Bank Ready →</button>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 4 : BANK READY -->
+  <div class="screen" id="screen-bank">
+    <div class="phone">
+      <div class="phone-bar">
+        <span class="phone-title">Bank Ready — Dossier certifié</span>
+        <span class="phone-status"><span class="pulse-dot"></span>Prêt à envoyer</span>
+      </div>
+      <div class="phone-body">
+        <div class="bank-header">
+          <div class="bank-title">Score de financement AXINA</div>
+          <div class="bank-score-display">80</div>
+          <div class="bank-score-label">✓ Éligible au financement bancaire</div>
+        </div>
+        <div class="bank-eligibility">
+          <div class="elig-item">
+            <div class="elig-icon">🏦</div>
+            <div class="elig-name">Crédit exploitation</div>
+            <div class="elig-status ok">Éligible</div>
+          </div>
+          <div class="elig-item">
+            <div class="elig-icon">📈</div>
+            <div class="elig-name">Crédit investissement</div>
+            <div class="elig-status ok">Éligible</div>
+          </div>
+          <div class="elig-item">
+            <div class="elig-icon">💳</div>
+            <div class="elig-name">Ligne de crédit</div>
+            <div class="elig-status warn">Sous conditions</div>
+          </div>
+          <div class="elig-item">
+            <div class="elig-icon">🌍</div>
+            <div class="elig-name">Financement export</div>
+            <div class="elig-status ok">Éligible</div>
+          </div>
+        </div>
+        <div class="section-title">Documents certifiés inclus</div>
+        <div class="doc-list">
+          <div class="doc-item">
+            <span class="doc-icon">📊</span>
+            <span class="doc-name">Bilan comptable 2025</span>
+            <span class="doc-cert">DIP ✓</span>
+          </div>
+          <div class="doc-item">
+            <span class="doc-icon">📈</span>
+            <span class="doc-name">Compte de résultat 2025</span>
+            <span class="doc-cert">DIP ✓</span>
+          </div>
+          <div class="doc-item">
+            <span class="doc-icon">💰</span>
+            <span class="doc-name">Flux de trésorerie 12 mois</span>
+            <span class="doc-cert">DIP ✓</span>
+          </div>
+          <div class="doc-item">
+            <span class="doc-icon">🧾</span>
+            <span class="doc-name">Grand livre certifié</span>
+            <span class="doc-cert">DIP ✓</span>
+          </div>
+          <div class="doc-item">
+            <span class="doc-icon">📋</span>
+            <span class="doc-name">Déclarations TVA 2025</span>
+            <span class="doc-cert">DIP ✓</span>
+          </div>
+        </div>
+        <button class="export-btn" onclick="simulateExport()">
+          📥 Générer mon dossier PDF certifié
+        </button>
+        <div id="export-result" style="display:none;margin-top:12px;padding:12px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);border-radius:10px;font-size:12.5px;color:var(--green);text-align:center">
+          ✅ Dossier généré · SHA-256 certifié · Prêt à envoyer à votre banque
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- CTA FINAL -->
+<div class="demo-frame">
+  <div class="demo-cta">
+    <p style="color:var(--red);font-weight:700;font-size:14px;margin-bottom:4px">🔴 Chaque refus bancaire vous coûte du cash.</p>
+    <p style="color:var(--gold);font-weight:700;font-size:13px;margin-bottom:16px">Sans dossier certifié, vous êtes invisible aux yeux des banques.</p>
+    <div style="background:var(--card2);border-left:3px solid var(--gold);border-radius:0 12px 12px 0;padding:16px 20px;margin-bottom:24px;text-align:left">
+    <p style="font-size:14px;color:var(--txt1);font-style:italic;line-height:1.65;margin-bottom:8px">"AXINA nous a permis d'obtenir 25M FCFA en 3 semaines. Notre dossier était prêt en 1 clic."</p>
+    <p style="font-size:12px;color:var(--gold);font-weight:700">— DG PME, Abidjan · Côte d'Ivoire</p>
+  </div>
+  <h2>Prêt à voir vos vrais chiffres ?</h2>
+    <p>Créez votre compte. 15 jours Premium offerts. </p>
+    <div class="cta-btns">
+      <button class="btn-gold" onclick="openModal()">Créer mon compte gratuitement →</button>
+      <a href="index.html"><button class="btn-outline">Retour au site</button></a>
+    </div>
+    <p style="font-size:12px;color:var(--txt3);margin-top:16px">🎁 15 jours Premium offerts · Abonnement requis pour continuer · Zone OHADA · 17 pays</p>
+    <p style="font-size:13px;color:var(--txt2);margin-top:12px">Un expert AXINA vous accompagne en 24h. <a href="https://wa.me/240222619606" target="_blank" style="color:var(--gold);font-weight:700">💬 WhatsApp →</a></p>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="modal-content">
+      <div class="modal-title">Demander l'accès à AXINA</div>
+      <div class="modal-sub">Remplissez le formulaire — réponse sous 24h.</div>
+      <form class="modal-form" onsubmit="handleSubmit(event)">
+        <input class="modal-input" type="text" name="nom" placeholder="Nom complet *" required>
+        <input class="modal-input" type="email" name="email" placeholder="Email professionnel *" required>
+        <input class="modal-input" type="tel" name="telephone" placeholder="WhatsApp / Téléphone *" required>
+        <select class="modal-select" name="pays" required>
+          <option value="" disabled selected>🌍 Pays de résidence *</option>
+          <optgroup label="Zone OHADA — Afrique de l'Ouest">
+            <option>🇸🇳 Sénégal</option><option>🇨🇮 Côte d'Ivoire</option>
+            <option>🇲🇱 Mali</option><option>🇧🇫 Burkina Faso</option>
+            <option>🇹🇬 Togo</option><option>🇧🇯 Bénin</option>
+            <option>🇳🇪 Niger</option><option>🇬🇼 Guinée-Bissau</option>
+          </optgroup>
+          <optgroup label="Zone OHADA — Afrique Centrale">
+            <option>🇨🇲 Cameroun</option><option>🇬🇦 Gabon</option>
+            <option>🇨🇬 Congo</option><option>🇨🇩 RD Congo</option>
+            <option>🇹🇩 Tchad</option><option>🇬🇶 Guinée Équatoriale</option>
+          </optgroup>
+          <optgroup label="Autres"><option>🇫🇷 France</option><option>Autre pays</option></optgroup>
+        </select>
+        <select class="modal-select" name="type_entreprise" required>
+          <option value="" disabled selected>🏢 Type d'entreprise *</option>
+          <option>Micro-entreprise (0–5 employés)</option>
+          <option>Petite entreprise (6–20 employés)</option>
+          <option>Moyenne entreprise (21–100 employés)</option>
+          <option>Cabinet comptable / audit</option>
+          <option>Banque / Microfinance</option>
+          <option>ONG / Association</option>
+          <option>Autre</option>
+        </select>
+        <select class="modal-select" name="objet" required>
+          <option value="" disabled selected>📋 Objet de votre demande *</option>
+          <option>Créer mon compte AXINA</option>
+          <option>Obtenir un dossier Bank Ready</option>
+          <option>Tester AXINA Cabinet</option>
+          <option>Demander un accès API</option>
+          <option>Partenariat commercial</option>
+          <option>Information générale</option>
+        </select>
+        <input type="hidden" name="source" value="DEMO_PAGE">
+        <button class="modal-submit" type="submit">Envoyer ma demande →</button>
+        <div class="modal-trial">Notre équipe vous répond dans les 24h · Données confidentielles</div>
+      </form>
+    </div>
+    <div class="modal-success" id="modal-success">
+      <div class="modal-success-icon">✅</div>
+      <div style="font-size:16px;font-weight:700;color:#111">Message envoyé !</div>
+      <div style="font-size:13px;color:#999;margin-top:6px">Nous vous répondons dans les 24h.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Tabs
+function showScreen(id, btn) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('screen-' + id).classList.add('active');
+  btn.classList.add('active');
+  if(id === 'score') animateScore();
+  if(id === 'cockpit') animateTresor();
+}
+
+// Score animation
+function animateScore() {
+  let val = 0;
+  const el = document.getElementById('score-anim');
+  const arc = document.getElementById('score-arc');
+  const interval = setInterval(() => {
+    val += 2;
+    if(val >= 80) { val = 80; clearInterval(interval); }
+    el.textContent = val;
+    const offset = 427 - (427 * val / 100);
+    arc.style.strokeDashoffset = offset;
+  }, 20);
+}
+
+// Tresorerie animation
+function animateTresor() {
+  const el = document.getElementById('kpi-tresor');
+  const vals = ['4 820 000', '4 820 000', '4 830 000', '4 820 000', '4 825 000'];
+  let i = 0;
+  setInterval(() => {
+    i = (i + 1) % vals.length;
+    el.textContent = vals[i];
+  }, 3000);
+}
+
+// Simulate FNE certification
+function simulateCert() {
+  const btn = document.querySelector('.sim-btn');
+  btn.textContent = '⏳ Envoi à la DGI FNE...';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = '✅ Certification reçue !';
+    document.getElementById('cert-result').style.display = 'block';
+  }, 2400);
+}
+
+// Simulate export
+function simulateExport() {
+  const btn = document.querySelector('.export-btn');
+  btn.textContent = '⏳ Génération en cours...';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = '✅ Dossier généré !';
+    document.getElementById('export-result').style.display = 'block';
+  }, 1800);
+}
+
+// Modal
+function openModal() {
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal(); });
+
+async function handleSubmit(e) {
+  e.preventDefault();
+  const fd = new FormData(e.target);
+  try {
+    await fetch('https://formspree.io/f/mnjgbwea', { method:'POST', body:fd, headers:{Accept:'application/json'} });
+  } catch(err) {}
+  document.getElementById('modal-content').style.display = 'none';
+  document.getElementById('modal-success').style.display = 'block';
+  setTimeout(closeModal, 3000);
+}
+
+// Init
+animateTresor();
+</script>
+<div style="text-align:center;padding:24px;border-top:1px solid var(--border);font-size:12px;color:var(--txt3)">
+  AXINA — Infrastructure financière intelligente pour PME africaines · Zone OHADA · 17 pays
+</div>
+<!-- WHATSAPP FLOTTANT -->
+<a href="https://wa.me/240222619606?text=Bonjour%20AXINA" target="_blank" title="Nous écrire sur WhatsApp" style="position:fixed;bottom:20px;right:20px;z-index:990;width:48px;height:48px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 3px 16px rgba(37,211,102,.4)">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+</body>
+</html>

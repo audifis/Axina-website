@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AXINA Bank Ready — Dossier bancaire certifié en 1 clic</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,700;0,9..40,900&family=DM+Mono:wght@400;500&display=swap');
+:root{
+  --bg:#0B1623;--card:#111F2E;--card2:#162338;
+  --gold:#F5A623;--gold2:#E8943A;--gold-l:#FFB84D;
+  --green:#22C55E;--red:#EF4444;--blue:#3B82F6;
+  --txt1:#EDF2F7;--txt2:#7A93AC;--txt3:#4A6480;
+  --border:rgba(255,255,255,.07);--accent:#F4500C;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans','Century Gothic','DM Sans','Century Gothic',CenturyGothic,AppleGothic,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif,AppleGothic,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--txt1);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--gold)}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;height:64px;z-index:100;background:rgba(11,22,35,.95);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 32px}
+.nav-logo{font-size:20px;font-weight:900;letter-spacing:-.04em}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-size:13.5px;color:var(--txt2);transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--gold)}
+.nav-cta{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#0B1623;font-size:13px;font-weight:800;padding:9px 20px;border-radius:9px;border:none;cursor:pointer;font-family:inherit}
+@media(max-width:768px){.nav-links{display:none}}
+
+/* HERO */
+.hero{padding:130px 24px 80px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(245,166,35,.06) 0%,transparent 70%);pointer-events:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.2);border-radius:100px;padding:6px 16px;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:.06em;margin-bottom:24px}
+.hero h1{font-size:clamp(32px,5vw,58px);font-weight:900;letter-spacing:-.04em;line-height:1.08;margin-bottom:20px}
+.hero h1 em{color:var(--gold);font-style:normal}
+.hero-sub{font-size:17px;color:var(--txt2);max-width:560px;margin:0 auto 36px;line-height:1.65}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#0B1623;font-size:14px;font-weight:800;padding:14px 30px;border-radius:11px;border:none;cursor:pointer;font-family:inherit;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(245,166,35,.3)}
+.btn-ghost{background:transparent;color:var(--txt1);font-size:14px;font-weight:600;padding:14px 24px;border-radius:11px;border:1.5px solid var(--border);cursor:pointer;font-family:inherit;transition:all .2s}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+
+/* SCORE PREVIEW */
+.score-preview{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
+.score-chip{display:flex;align-items:center;gap:6px;padding:6px 14px;background:var(--card);border:1px solid var(--border);border-radius:100px;font-size:12px;color:var(--txt2)}
+.score-chip .dot{width:6px;height:6px;border-radius:50%;background:var(--green)}
+
+/* PROBLEM */
+.sec{padding:80px 0}
+.sec-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);margin-bottom:12px}
+.sec-h2{font-size:clamp(26px,3.5vw,40px);font-weight:900;letter-spacing:-.04em;line-height:1.1;margin-bottom:16px}
+.sec-sub{font-size:16px;color:var(--txt2);line-height:1.65;max-width:580px}
+
+.problem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:40px}
+.problem-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;position:relative;overflow:hidden;transition:border-color .3s}
+.problem-card:hover{border-color:rgba(245,166,35,.2)}
+.problem-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red),transparent)}
+.problem-icon{font-size:28px;margin-bottom:14px}
+.problem-title{font-size:15px;font-weight:800;margin-bottom:8px}
+.problem-desc{font-size:13.5px;color:var(--txt2);line-height:1.6}
+
+/* SOLUTION */
+.solution-row{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-top:0}
+@media(max-width:768px){.solution-row{grid-template-columns:1fr}}
+.solution-steps{display:flex;flex-direction:column;gap:20px}
+.step{display:flex;gap:16px;align-items:flex-start}
+.step-num{width:36px;height:36px;border-radius:10px;background:rgba(245,166,35,.1);border:1.5px solid rgba(245,166,35,.3);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:var(--gold);flex-shrink:0}
+.step-title{font-size:15px;font-weight:700;margin-bottom:4px}
+.step-desc{font-size:13.5px;color:var(--txt2);line-height:1.6}
+
+/* DOSSIER PREVIEW */
+.dossier-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:28px;position:relative;overflow:hidden}
+.dossier-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.dossier-header{margin-bottom:20px}
+.dossier-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--txt3);margin-bottom:4px}
+.dossier-score{font-family:'DM Mono',monospace;font-size:48px;color:var(--gold);line-height:1}
+.dossier-status{font-size:13px;font-weight:700;color:var(--green);margin-top:4px}
+.doc-list{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.doc-row{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--card2);border-radius:9px}
+.doc-icon{font-size:15px;flex-shrink:0}
+.doc-name{font-size:13px;font-weight:600;flex:1}
+.doc-badge{font-size:10px;font-weight:700;color:var(--green);background:rgba(34,197,94,.1);padding:2px 8px;border-radius:4px}
+.elig-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px}
+.elig-chip{padding:10px;background:var(--card2);border-radius:9px;text-align:center}
+.elig-chip-icon{font-size:18px;margin-bottom:4px}
+.elig-chip-name{font-size:11px;color:var(--txt2);margin-bottom:3px}
+.elig-chip-status{font-size:11.5px;font-weight:700;color:var(--green)}
+.elig-chip-status.warn{color:var(--gold)}
+.export-btn-full{width:100%;padding:14px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#0B1623;font-size:14px;font-weight:800;border-radius:10px;border:none;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .2s}
+.export-btn-full:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(245,166,35,.3)}
+
+/* CHIFFRES */
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--border);border-radius:18px;overflow:hidden;margin-top:48px}
+.stat{background:var(--card);padding:28px 20px;text-align:center}
+.stat-num{font-family:'DM Mono',monospace;font-size:36px;color:var(--gold);display:block;margin-bottom:6px;line-height:1}
+.stat-label{font-size:12.5px;color:var(--txt2);line-height:1.4}
+
+/* DIP */
+.dip-section{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:40px;margin-top:48px;position:relative;overflow:hidden}
+.dip-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top right,rgba(245,166,35,.04),transparent 60%);pointer-events:none}
+.dip-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}
+@media(max-width:680px){.dip-grid{grid-template-columns:1fr}}
+.dip-features{display:flex;flex-direction:column;gap:14px;margin-top:24px}
+.dip-feat{display:flex;align-items:flex-start;gap:12px}
+.dip-feat-icon{width:32px;height:32px;background:rgba(245,166,35,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.dip-feat-title{font-size:14px;font-weight:700;margin-bottom:2px}
+.dip-feat-desc{font-size:12.5px;color:var(--txt2);line-height:1.5}
+.dip-visual{background:var(--card2);border-radius:14px;padding:20px;font-family:'DM Mono',monospace;font-size:11px;color:var(--txt3);line-height:1.8}
+.dip-visual .key{color:var(--gold)}
+.dip-visual .val{color:var(--txt2)}
+.dip-visual .ok{color:var(--green)}
+
+/* BANQUES */
+.banks-section{text-align:center;padding:80px 0}
+.banks-logos{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:32px}
+.bank-chip{display:flex;align-items:center;gap:8px;padding:10px 18px;background:var(--card);border:1px solid var(--border);border-radius:100px;font-size:13px;font-weight:600;color:var(--txt2);transition:all .2s}
+.bank-chip:hover{border-color:rgba(245,166,35,.3);color:var(--txt1)}
+.bank-chip span{font-size:16px}
+
+/* CTA FINAL */
+.cta-final{background:linear-gradient(135deg,var(--card),var(--card2));border:1px solid var(--border);border-radius:24px;padding:56px 40px;text-align:center;position:relative;overflow:hidden;margin:0 0 80px}
+.cta-final::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.cta-final h2{font-size:clamp(26px,4vw,42px);font-weight:900;letter-spacing:-.04em;margin-bottom:14px}
+.cta-final p{font-size:16px;color:var(--txt2);margin-bottom:32px;max-width:480px;margin-left:auto;margin-right:auto}
+.cta-note{font-size:12px;color:var(--txt3);margin-top:16px}
+
+/* MODAL */
+#modal{display:none;position:fixed;inset:0;z-index:200;align-items:center;justify-content:center;padding:24px;background:rgba(0,0,0,.75);backdrop-filter:blur(10px)}
+#modal.open{display:flex}
+.modal-box{background:#fff;border-radius:20px;padding:36px;max-width:440px;width:100%;position:relative}
+.modal-close{position:absolute;top:14px;right:14px;background:none;border:none;font-size:18px;cursor:pointer;color:#999;width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:8px}
+.modal-close:hover{background:#f5f5f5}
+.modal-title{font-size:20px;font-weight:900;color:#111;margin-bottom:6px;letter-spacing:-.03em;font-family:inherit}
+.modal-sub{font-size:13px;color:#999;margin-bottom:24px;font-family:inherit}
+.modal-form{display:flex;flex-direction:column;gap:12px}
+.modal-input,.modal-select{padding:11px 14px;border:1.5px solid #E5E7EB;border-radius:9px;font-size:14px;font-family:inherit;color:#111;outline:none;transition:border-color .2s;background:#fff}
+.modal-input:focus{border-color:#F4500C}
+.modal-submit{background:#111;color:#fff;padding:13px;border-radius:9px;font-size:14px;font-weight:800;cursor:pointer;border:none;font-family:inherit}
+.modal-trial{font-size:11.5px;color:#999;text-align:center;margin-top:8px}
+.modal-success{display:none;text-align:center;padding:16px 0}
+
+.axina-assistant{padding:48px 24px;display:flex;justify-content:center}
+.assistant-box{background:#111F2E;border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:28px;max-width:520px;width:100%;text-align:center}
+.assistant-box h3{font-size:19px;font-weight:800;color:#EDF2F7;margin-bottom:8px}
+.assistant-box .assistant-sub{color:#7A93AC;font-size:13.5px;margin-bottom:20px}
+.assistant-options{display:flex;flex-direction:column;gap:9px}
+.assistant-options button{padding:12px 16px;border-radius:10px;border:1px solid rgba(255,255,255,.08);background:#162338;color:#EDF2F7;cursor:pointer;font-weight:600;font-size:13.5px;font-family:inherit;transition:all .2s;text-align:left;display:flex;align-items:center;gap:10px}
+.assistant-options button:hover,.assistant-options button.active{border-color:#F5A623;color:#F5A623;background:rgba(245,166,35,.06)}
+.assistant-response{margin-top:18px;text-align:left;animation:fadeInUp .3s ease}
+.assistant-response .resp-msg{font-size:13px;color:#EDF2F7;line-height:1.7;margin-bottom:12px;padding:13px 15px;background:rgba(255,255,255,.04);border-radius:10px;border-left:3px solid #F5A623}
+.assistant-response .wa-cta{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#25D366,#1da851);color:#fff;padding:11px 20px;border-radius:100px;font-weight:700;font-size:13.5px;text-decoration:none;transition:all .2s}
+.assistant-response .wa-cta:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,211,102,.35)}
+.assistant-reset{margin-top:12px;display:none;background:none;border:none;color:#4A6480;font-size:12px;cursor:pointer;font-family:inherit;text-decoration:underline}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">AX<span>I</span>NA</div>
+  <div class="nav-links">
+    <a href="index.html">Accueil</a>
+    <a href="demo.html">Démo</a>
+    <a href="bank-ready.html" class="active">Bank Ready</a>
+    <a href="api.html">API</a>
+  </div>
+  <button class="nav-cta" onclick="openModal()">Créer mon compte</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="badge">🏦 Bank Ready · Dossier certifié en 1 clic</div>
+    <h1>Structurez. Certifiez. Pilotez.<br><em>AXINA vous rend crédible, vérifiable — et finançable.</em></h1>
+    <p class="hero-sub">AXINA transforme vos données financières en système structuré, certifié et exploitable — conforme OHADA.</p>
+    <p style="font-size:13px;color:var(--txt3);margin-top:-20px;margin-bottom:12px">Utilisé par des entreprises dans 17 pays OHADA.</p>
+    <p style="font-size:13px;color:var(--green);font-weight:700;margin-bottom:36px">✓ +100 dossiers générés en bêta · Taux d'approbation bancaire : 78%</p>
+    <div class="hero-btns">
+      <button class="btn-gold" onclick="openModal()">Générer mon dossier →</button>
+      <a href="demo.html"><button class="btn-ghost">Voir la démo live</button></a>
+    </div>
+    <div class="score-preview">
+      <div class="score-chip"><span class="dot"></span> Score 80/100 — Finançable</div>
+      <div class="score-chip"><span class="dot"></span> DIP certifié OHADA</div>
+      <div class="score-chip"><span class="dot"></span> 17 pays zone OHADA</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLÈME -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-label">Le problème</div>
+    <h2 class="sec-h2">Les PME africaines<br>n'obtiennent pas de financement.</h2>
+    <p class="sec-sub">Pas parce qu'elles ne sont pas viables. Parce que leur dossier n'est pas bankable.</p>
+    <p style="color:var(--gold);font-weight:700;font-size:15px;margin-top:16px">Le problème n'est pas votre business. C'est votre dossier.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-icon">📁</div>
+        <div class="problem-title">Dossier introuvable</div>
+        <div class="problem-desc">Bilans éparpillés, états financiers non à jour, données non certifiées. Le banquier rejette sans même lire.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">🔍</div>
+        <div class="problem-title">Chiffres invérifiables</div>
+        <div class="problem-desc">Sans certification indépendante, le banquier ne peut pas faire confiance aux données présentées.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">⏳</div>
+        <div class="problem-title">Processus trop long</div>
+        <div class="problem-desc">Plusieurs semaines pour rassembler les documents. L'opportunité est souvent passée.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AXINA ASSISTANT -->
+<section class="axina-assistant">
+  <div class="assistant-box">
+    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.2);border-radius:100px;padding:5px 12px;font-size:11px;font-weight:700;color:#F5A623;letter-spacing:.06em;margin-bottom:12px">
+      <span style="width:6px;height:6px;background:#F5A623;border-radius:50%"></span>
+      AXINA GUIDE
+    </div>
+    <h3>Parlez-nous de votre situation</h3>
+    <p class="assistant-sub">AXINA vous guide en 30 secondes.</p>
+    <div class="assistant-options">
+      <button onclick="axinaChoice('finance', this)">💰 Je veux un financement bancaire</button>
+      <button onclick="axinaChoice('score', this)">⭐ Je veux comprendre mon score</button>
+      <button onclick="axinaChoice('cabinet', this)">📊 Je suis un cabinet comptable</button>
+      <button onclick="axinaChoice('gov', this)">🌍 ONG / Administration</button>
+      <button onclick="axinaChoice('business', this)">🏢 Je veux gérer mon entreprise</button>
+    </div>
+    <div id="assistant-response" class="assistant-response" style="display:none"></div>
+    <button class="assistant-reset" id="assistant-reset" onclick="axinaReset()">← Choisir autre chose</button>
+  </div>
+</section>
+
+<!-- POURQUOI LA BANQUE REFUSE -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div style="max-width:680px;margin:0 auto">
+      <div class="sec-label">La vraie raison</div>
+      <h2 class="sec-h2">Pourquoi votre banque<br>refuse aujourd'hui.</h2>
+      <p class="sec-sub">Pas parce que votre entreprise est mauvaise. Parce que votre dossier ne parle pas le langage des banques.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:32px">
+        <div style="padding:18px;background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.15);border-radius:12px">
+          <div style="font-size:18px;margin-bottom:8px">❌</div>
+          <div style="font-size:14px;font-weight:700;margin-bottom:4px">Données non certifiées</div>
+          <div style="font-size:12.5px;color:var(--txt2);line-height:1.5">Le banquier ne peut pas vérifier si vos chiffres sont vrais.</div>
+        </div>
+        <div style="padding:18px;background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.15);border-radius:12px">
+          <div style="font-size:18px;margin-bottom:8px">❌</div>
+          <div style="font-size:14px;font-weight:700;margin-bottom:4px">États financiers incohérents</div>
+          <div style="font-size:12.5px;color:var(--txt2);line-height:1.5">Bilan qui ne correspond pas aux mouvements bancaires.</div>
+        </div>
+        <div style="padding:18px;background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.15);border-radius:12px">
+          <div style="font-size:18px;margin-bottom:8px">❌</div>
+          <div style="font-size:14px;font-weight:700;margin-bottom:4px">Aucune preuve d'intégrité</div>
+          <div style="font-size:12.5px;color:var(--txt2);line-height:1.5">Sans signature cryptographique, tout chiffre est suspect.</div>
+        </div>
+        <div style="padding:18px;background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.15);border-radius:12px">
+          <div style="font-size:18px;margin-bottom:8px">❌</div>
+          <div style="font-size:14px;font-weight:700;margin-bottom:4px">Dossier incomplet</div>
+          <div style="font-size:12.5px;color:var(--txt2);line-height:1.5">Il manque toujours un document. Le banquier abandonne.</div>
+        </div>
+      </div>
+      <div style="margin-top:24px;padding:20px 24px;background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.2);border-radius:12px;text-align:center">
+        <div style="font-size:15px;font-weight:800;color:var(--gold);margin-bottom:4px">AXINA résout les 4 problèmes. En 1 clic.</div>
+        <div style="font-size:13px;color:var(--txt2)">Dossier complet · Certifié DIP · Vérifiable par QR code</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AXINA CORE — Infrastructure -->
+<section class="sec" style="background:#0B1623;padding:72px 0;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:40px">
+      <div class="sec-label" style="color:var(--gold)">Ce qu'est vraiment AXINA</div>
+      <h2 class="sec-h2" style="color:#EDF2F7;font-size:clamp(24px,3.5vw,38px)">AXINA est votre infrastructure financière</h2>
+      <p style="font-size:15px;color:var(--txt2);max-width:520px;margin:0 auto">Pas un outil de financement. Une infrastructure complète pour structurer, certifier et piloter votre entreprise.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;max-width:860px;margin:0 auto">
+
+      <div style="background:#111F2E;border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:24px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),transparent)"></div>
+        <div style="font-size:28px;margin-bottom:14px">🏗️</div>
+        <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-bottom:8px">01 · Structuration</div>
+        <div style="font-size:15px;font-weight:800;color:#EDF2F7;margin-bottom:8px">Votre gestion, automatisée</div>
+        <div style="font-size:13px;color:var(--txt2);line-height:1.65">Factures, trésorerie, comptabilité OHADA. Tout s'enregistre automatiquement, en temps réel.</div>
+      </div>
+
+      <div style="background:#111F2E;border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:24px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),transparent)"></div>
+        <div style="font-size:28px;margin-bottom:14px">🔒</div>
+        <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-bottom:8px">02 · Certification</div>
+        <div style="font-size:15px;font-weight:800;color:#EDF2F7;margin-bottom:8px">DIP Protocol — non falsifiable</div>
+        <div style="font-size:13px;color:var(--txt2);line-height:1.65">Chaque donnée est signée cryptographiquement. Vérifiable par QR code. Acceptée par les banques OHADA.</div>
+      </div>
+
+      <div style="background:#111F2E;border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:24px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),transparent)"></div>
+        <div style="font-size:28px;margin-bottom:14px">🎯</div>
+        <div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);margin-bottom:8px">03 · Pilotage</div>
+        <div style="font-size:15px;font-weight:800;color:#EDF2F7;margin-bottom:8px">Score AXINA & alertes</div>
+        <div style="font-size:13px;color:var(--txt2);line-height:1.65">Score de financement en temps réel. Radar d'alertes. Cockpit DG pour piloter à la vue, pas à l'aveugle.</div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:32px">
+      <p style="font-size:13px;color:var(--txt3)">Le financement est la conséquence. L'infrastructure est la cause.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- SOLUTION -->
+<section class="sec" style="background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:56px">
+      <div class="sec-label">La solution AXINA</div>
+      <h2 class="sec-h2">Un dossier certifié.<br>En 1 clic.</h2>
+    </div>
+    <div class="solution-row">
+      <div class="solution-steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div>
+            <div class="step-title">Vos données s'enregistrent automatiquement</div>
+            <div class="step-desc">Chaque facture, chaque dépense, chaque mouvement est inscrit dans le ledger OHADA en temps réel. Vous ne préparez rien.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div>
+            <div class="step-title">AXINA calcule votre Score</div>
+            <div class="step-desc">5 composantes analysées : santé financière, trésorerie, intégrité DIP, conformité OHADA, comportement paiement.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div>
+            <div class="step-title">Le dossier se génère en 1 clic</div>
+            <div class="step-desc">PDF certifié avec bilan, compte de résultat, flux de trésorerie, grand livre — tous signés DIP Protocol v1.0.2.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <div>
+            <div class="step-title">Vous envoyez à votre banque</div>
+            <div class="step-desc">Le banquier reçoit un dossier vérifié, non falsifiable, avec un QR code de validation. Il peut répondre en 48h.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dossier-card">
+        <div class="dossier-header">
+          <div class="dossier-title">Score de financement AXINA</div>
+          <div class="dossier-score">80</div>
+          <div class="dossier-status">✓ Éligible au financement bancaire</div>
+        </div>
+        <div style="background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.2);border-radius:10px;padding:14px 16px;margin-bottom:16px;text-align:center">
+          <div style="font-size:12px;color:var(--txt2);margin-bottom:4px">Montant estimé de financement possible</div>
+          <div style="font-family:'DM Mono',monospace;font-size:24px;color:var(--gold);font-weight:500">10M – 50M FCFA</div>
+        </div>
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--txt3);margin-bottom:10px">Éligibilité</div>
+        <div class="elig-grid">
+          <div class="elig-chip"><div class="elig-chip-icon">🏦</div><div class="elig-chip-name">Crédit exploitation</div><div class="elig-chip-status">Éligible</div></div>
+          <div class="elig-chip"><div class="elig-chip-icon">📈</div><div class="elig-chip-name">Crédit investissement</div><div class="elig-chip-status">Éligible</div></div>
+          <div class="elig-chip"><div class="elig-chip-icon">💳</div><div class="elig-chip-name">Ligne de crédit</div><div class="elig-chip-status warn">Sous conditions</div></div>
+          <div class="elig-chip"><div class="elig-chip-icon">🌍</div><div class="elig-chip-name">Export</div><div class="elig-chip-status">Éligible</div></div>
+        </div>
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--txt3);margin-bottom:10px">Documents certifiés</div>
+        <div class="doc-list">
+          <div class="doc-row"><span class="doc-icon">📊</span><span class="doc-name">Bilan comptable</span><span class="doc-badge">DIP ✓</span></div>
+          <div class="doc-row"><span class="doc-icon">📈</span><span class="doc-name">Compte de résultat</span><span class="doc-badge">DIP ✓</span></div>
+          <div class="doc-row"><span class="doc-icon">💰</span><span class="doc-name">Flux de trésorerie</span><span class="doc-badge">DIP ✓</span></div>
+          <div class="doc-row"><span class="doc-icon">🧾</span><span class="doc-name">Grand livre</span><span class="doc-badge">DIP ✓</span></div>
+          <div class="doc-row"><span class="doc-icon">📋</span><span class="doc-name">Déclarations TVA</span><span class="doc-badge">DIP ✓</span></div>
+        </div>
+        <button class="export-btn-full" onclick="openModal()">📥 Générer mon dossier →</button>
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat"><span class="stat-num">&lt;2s</span><div class="stat-label">Génération du dossier complet</div></div>
+      <div class="stat"><span class="stat-num">100%</span><div class="stat-label">Documents certifiés DIP</div></div>
+      <div class="stat"><span class="stat-num">17</span><div class="stat-label">Pays OHADA couverts</div></div>
+      <div class="stat"><span class="stat-num">OHADA</span><div class="stat-label">Norme comptable respectée</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DIP PROTOCOL -->
+<section class="sec">
+  <div class="wrap">
+    <div class="dip-section">
+      <div class="dip-grid">
+        <div>
+          <div class="sec-label">DIP Protocol v1.0.2</div>
+          <h2 class="sec-h2" style="font-size:clamp(22px,3vw,34px)">Non falsifiable.<br>Vérifiable par QR.</h2>
+          <p style="font-size:14px;color:var(--txt2);margin:14px 0 24px;line-height:1.65">Chaque document AXINA est signé cryptographiquement. Le banquier scanne le QR code et voit instantanément si les données ont été modifiées.</p>
+          <div class="dip-features">
+            <div class="dip-feat">
+              <div class="dip-feat-icon">🔒</div>
+              <div>
+                <div class="dip-feat-title">Signature SHA-256</div>
+                <div class="dip-feat-desc">Chaque document est hashé. Toute modification, même d'un chiffre, invalide la signature.</div>
+              </div>
+            </div>
+            <div class="dip-feat">
+              <div class="dip-feat-icon">📱</div>
+              <div>
+                <div class="dip-feat-title">Vérification par QR code</div>
+                <div class="dip-feat-desc">Le banquier scanne le QR et voit vert (valide) ou rouge (modifié). En 3 secondes.</div>
+              </div>
+            </div>
+            <div class="dip-feat">
+              <div class="dip-feat-icon">⛓️</div>
+              <div>
+                <div class="dip-feat-title">Ledger immuable</div>
+                <div class="dip-feat-desc">Zéro UPDATE, zéro DELETE. Les écritures sont permanentes et horodatées.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dip-visual">
+{<br>
+&nbsp;&nbsp;<span class="key">"protocol"</span>: <span class="val">"DIP_CHAIN_SIGN_v1"</span>,<br>
+&nbsp;&nbsp;<span class="key">"version"</span>: <span class="val">"1.0.2"</span>,<br>
+&nbsp;&nbsp;<span class="key">"company"</span>: <span class="val">"Diallo & Frères SARL"</span>,<br>
+&nbsp;&nbsp;<span class="key">"score"</span>: <span class="val">80</span>,<br>
+&nbsp;&nbsp;<span class="key">"signedAt"</span>: <span class="val">"2026-03-27T08:14:32Z"</span>,<br>
+&nbsp;&nbsp;<span class="key">"hash"</span>: <span class="val">"sha256:a8f3c2d9..."</span>,<br>
+&nbsp;&nbsp;<span class="key">"integrity"</span>: <span class="ok">✓ VALID</span>,<br>
+&nbsp;&nbsp;<span class="key">"documents"</span>: [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="val">"bilan_2025"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="val">"resultat_2025"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="val">"tresorerie_12m"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="val">"grand_livre"</span><br>
+&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;<span class="key">"eligible"</span>: <span class="ok">true</span><br>
+}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- GOVWATCH -->
+<section class="sec" style="padding:72px 0;background:linear-gradient(160deg,#0B1623,#0d1f30)">
+  <div class="wrap">
+    <div style="max-width:760px;margin:0 auto">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;flex-wrap:wrap">
+        <div class="sec-label" style="margin-bottom:0">Nouveau</div>
+        <div style="background:#0D9488;color:#fff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:100px;letter-spacing:.06em">AXINA GOVWATCH</div>
+      </div>
+      <h2 class="sec-h2" style="color:#EDF2F7;font-size:clamp(22px,3vw,36px);margin-bottom:16px">Transparence financière pour ONG<br>et administrations.</h2>
+      <p style="font-size:15px;color:var(--txt2);line-height:1.7;margin-bottom:32px">AXINA GovWatch permet aux ONG et administrations de suivre les fonds en temps réel, garantir la transparence et certifier les données financières de chaque projet.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:32px">
+        <div style="display:flex;gap:12px;align-items:flex-start;padding:16px;background:rgba(255,255,255,.04);border-radius:12px;border:1px solid rgba(255,255,255,.06)">
+          <div style="width:32px;height:32px;background:rgba(13,148,136,.15);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0">🔍</div>
+          <div>
+            <div style="font-size:13.5px;font-weight:700;color:#EDF2F7;margin-bottom:3px">Traçabilité complète</div>
+            <div style="font-size:12px;color:var(--txt2);line-height:1.5">Chaque franc dépensé est prouvable et auditable.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start;padding:16px;background:rgba(255,255,255,.04);border-radius:12px;border:1px solid rgba(255,255,255,.06)">
+          <div style="width:32px;height:32px;background:rgba(13,148,136,.15);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0">🔒</div>
+          <div>
+            <div style="font-size:13.5px;font-weight:700;color:#EDF2F7;margin-bottom:3px">Certification DIP</div>
+            <div style="font-size:12px;color:var(--txt2);line-height:1.5">Données non falsifiables, signées DIP Protocol.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start;padding:16px;background:rgba(255,255,255,.04);border-radius:12px;border:1px solid rgba(255,255,255,.06)">
+          <div style="width:32px;height:32px;background:rgba(13,148,136,.15);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0">📊</div>
+          <div>
+            <div style="font-size:13.5px;font-weight:700;color:#EDF2F7;margin-bottom:3px">Reporting sécurisé</div>
+            <div style="font-size:12px;color:var(--txt2);line-height:1.5">Rapports automatiques pour bailleurs et autorités.</div>
+          </div>
+        </div>
+      </div>
+
+      <a href="https://wa.me/240222619606?text=Bonjour%2C%20je%20veux%20en%20savoir%20plus%20sur%20AXINA%20GovWatch" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#0D9488,#0F766E);color:#fff;padding:13px 26px;border-radius:100px;font-size:14px;font-weight:700;text-decoration:none;transition:all .2s">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Parler à un expert GovWatch →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- BANQUES COMPATIBLES -->
+<section class="banks-section">
+  <div class="wrap">
+    <div class="sec-label" style="text-align:center">Compatibilité</div>
+    <h2 class="sec-h2" style="text-align:center;font-size:clamp(22px,3vw,34px)">Accepté par les grandes banques<br>de la zone OHADA</h2>
+    <div class="banks-logos">
+      <div class="bank-chip"><span>🇸🇳</span> Ecobank Sénégal</div>
+      <div class="bank-chip"><span>🇨🇮</span> SGBCI Côte d'Ivoire</div>
+      <div class="bank-chip"><span>🇨🇲</span> Afriland First Bank</div>
+      <div class="bank-chip"><span>🌍</span> UBA Africa</div>
+      <div class="bank-chip"><span>🌍</span> Orabank</div>
+      <div class="bank-chip"><span>🇸🇳</span> CBAO Sénégal</div>
+      <div class="bank-chip"><span>🇨🇮</span> BNI Côte d'Ivoire</div>
+      <div class="bank-chip"><span>+</span> Et toutes les banques OHADA</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<div class="wrap">
+  <div class="cta-final">
+    <h2>Votre dossier bancaire,<br>prêt ce soir.</h2>
+    <p>Créez votre compte AXINA. Vos premières données s'enregistrent automatiquement. Le dossier se génère en 1 clic.</p>
+    <div class="hero-btns">
+      <button class="btn-gold" onclick="openModal()">Créer mon compte →</button>
+      <a href="demo.html"><button class="btn-ghost">Voir la démo</button></a>
+    </div>
+    <p style="color:var(--red);font-weight:700;font-size:14px;margin-bottom:4px">🔴 Chaque jour sans dossier certifié = opportunités perdues.</p>
+    <p style="color:var(--gold);font-weight:700;font-size:13px;margin-bottom:12px">Chaque refus bancaire vous coûte du cash. AXINA change ça.</p>
+    <p class="cta-note">🎁 15 jours Premium offerts · Sans engagement · </p>
+    <p style="font-size:13px;color:var(--txt2);margin-top:12px">Un expert AXINA vous accompagne en 24h. <a href="https://wa.me/240222619606" target="_blank" style="color:var(--gold);font-weight:700">💬 WhatsApp →</a></p>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="modal-content">
+      <div class="modal-title">Demander l'accès à AXINA</div>
+      <div class="modal-sub">Remplissez le formulaire — réponse sous 24h.</div>
+      <form class="modal-form" onsubmit="handleSubmit(event)">
+        <input class="modal-input" type="text" name="nom" placeholder="Nom complet *" required>
+        <input class="modal-input" type="email" name="email" placeholder="Email professionnel *" required>
+        <input class="modal-input" type="tel" name="telephone" placeholder="WhatsApp / Téléphone *" required>
+        <select class="modal-select" name="pays" required>
+          <option value="" disabled selected>🌍 Pays de résidence *</option>
+          <optgroup label="Zone OHADA — Afrique de l'Ouest">
+            <option>🇸🇳 Sénégal</option><option>🇨🇮 Côte d'Ivoire</option>
+            <option>🇲🇱 Mali</option><option>🇧🇫 Burkina Faso</option>
+            <option>🇹🇬 Togo</option><option>🇧🇯 Bénin</option>
+            <option>🇳🇪 Niger</option><option>🇬🇼 Guinée-Bissau</option>
+          </optgroup>
+          <optgroup label="Zone OHADA — Afrique Centrale">
+            <option>🇨🇲 Cameroun</option><option>🇬🇦 Gabon</option>
+            <option>🇨🇬 Congo</option><option>🇨🇩 RD Congo</option>
+            <option>🇹🇩 Tchad</option><option>🇬🇶 Guinée Équatoriale</option>
+          </optgroup>
+          <optgroup label="Autres"><option>🇫🇷 France</option><option>Autre pays</option></optgroup>
+        </select>
+        <select class="modal-select" name="type_entreprise" required>
+          <option value="" disabled selected>🏢 Type d'entreprise *</option>
+          <option>Micro-entreprise (0–5 employés)</option>
+          <option>Petite entreprise (6–20 employés)</option>
+          <option>Moyenne entreprise (21–100 employés)</option>
+          <option>Cabinet comptable / audit</option>
+          <option>Banque / Microfinance</option>
+          <option>ONG / Association</option>
+          <option>Autre</option>
+        </select>
+        <select class="modal-select" name="objet" required>
+          <option value="" disabled selected>📋 Objet de votre demande *</option>
+          <option>Créer mon compte AXINA</option>
+          <option>Obtenir un dossier Bank Ready</option>
+          <option>Tester AXINA Cabinet</option>
+          <option>Demander un accès API</option>
+          <option>Partenariat commercial</option>
+          <option>Information générale</option>
+        </select>
+        <input type="hidden" name="source" value="BANK-READY_PAGE">
+        <button class="modal-submit" type="submit">Envoyer ma demande →</button>
+        <div class="modal-trial">Notre équipe vous répond dans les 24h · Données confidentielles</div>
+      </form>
+    </div>
+    <div class="modal-success" id="modal-success">
+      <div style="font-size:40px;margin-bottom:10px">✅</div>
+      <div style="font-size:16px;font-weight:800;color:#111;font-family:inherit">Parfait !</div>
+      <div style="font-size:13px;color:#999;margin-top:8px;font-family:inherit">Nous vous contactons dans les 24h pour configurer votre compte.</div>
+    </div>
+  </div>
+</div>
+
+<div style="text-align:center;padding:24px;border-top:1px solid var(--border);font-size:12px;color:var(--txt3)">
+  AXINA — Infrastructure financière intelligente pour PME africaines · Zone OHADA · 17 pays
+</div>
+
+<a href="https://wa.me/240222619606?text=Bonjour%20AXINA" target="_blank" title="Nous écrire sur WhatsApp" style="position:fixed;bottom:20px;right:20px;z-index:990;width:48px;height:48px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 3px 16px rgba(37,211,102,.4)">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+function openModal(){document.getElementById('modal').classList.add('open');document.body.style.overflow='hidden'}
+function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow=''}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+async function handleSubmit(e){
+  e.preventDefault();
+  const fd=new FormData(e.target);
+  try{await fetch('https://formspree.io/f/mnjgbwea',{method:'POST',body:fd,headers:{Accept:'application/json'}})}catch(err){}
+  document.getElementById('modal-content').style.display='none';
+  document.getElementById('modal-success').style.display='block';
+  setTimeout(closeModal,3000);
+}
+
+var axinaMessages = {
+  finance: {
+    msg: "AXINA analyse vos données et génère un dossier certifié accepté par les banques OHADA. Prêt en moins de 2 minutes.",
+    cta: "Lancer mon analyse →",
+    wa: "https://wa.me/240222619606?text=Bonjour%2C%20je%20veux%20obtenir%20un%20financement%20avec%20AXINA"
+  },
+  score: {
+    msg: "Votre score AXINA est calculé à partir de votre trésorerie, conformité OHADA et intégrité DIP. Analyse rapide disponible.",
+    cta: "Analyser mon score →",
+    wa: "https://wa.me/240222619606?text=Bonjour%2C%20je%20veux%20comprendre%20mon%20score%20AXINA"
+  },
+  cabinet: {
+    msg: "AXINA Cabinet permet de gérer plusieurs entreprises depuis un cockpit unique. Commission 25–30% récurrente sur chaque client.",
+    cta: "Discuter avec notre équipe →",
+    wa: "https://wa.me/240222619606?text=Bonjour%2C%20je%20suis%20un%20cabinet%20et%20je%20veux%20utiliser%20AXINA"
+  },
+  gov: {
+    msg: "AXINA GovWatch : traçabilité, transparence et pilotage financier pour ONG et administrations. Certification DIP Protocol incluse.",
+    cta: "Parler à un expert →",
+    wa: "https://wa.me/240222619606?text=Bonjour%2C%20je%20veux%20en%20savoir%20plus%20sur%20AXINA%20GovWatch"
+  },
+  business: {
+    msg: "AXINA structure toute votre gestion : facturation, trésorerie, comptabilité OHADA et pilotage en temps réel. Une infrastructure complète pour PME africaines.",
+    cta: "Structurer mon entreprise →",
+    wa: "https://wa.me/240222619606?text=Bonjour%2C%20je%20veux%20structurer%20mon%20entreprise%20avec%20AXINA"
+  }
+};
+
+function axinaChoice(type, btn) {
+  var data = axinaMessages[type];
+  if (!data) return;
+  document.querySelectorAll('.assistant-options button').forEach(function(b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+  var resp = document.getElementById('assistant-response');
+  resp.style.display = 'block';
+  resp.innerHTML = '<div class="resp-msg">' + data.msg + '</div>' +
+    '<a href="' + data.wa + '" target="_blank" class="wa-cta">' +
+    '<svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>' +
+    data.cta + '</a>';
+  document.getElementById('assistant-reset').style.display = 'inline-block';
+  setTimeout(function() { resp.scrollIntoView({behavior:'smooth', block:'nearest'}); }, 100);
+}
+
+function axinaReset() {
+  document.querySelectorAll('.assistant-options button').forEach(function(b) { b.classList.remove('active'); });
+  var resp = document.getElementById('assistant-response');
+  resp.style.display = 'none';
+  resp.innerHTML = '';
+  document.getElementById('assistant-reset').style.display = 'none';
+}
+
+</script>
+</body>
+</html>
