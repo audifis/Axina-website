@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AXINA API — Données financières certifiées</title>
+  <meta name="description" content="API AXINA pour connecter banques et partenaires aux données financières certifiées DIP.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="shell nav-inner">
+      <a class="brand" href="index.html"><span class="brand-mark">A</span><span>AXINA</span></a>
+      <div class="links"><a href="index.html#produit">Produit</a><a href="bank-ready.html">Bank Ready</a><a href="demo.html">Démo</a><a href="index.html#tarifs">Tarifs</a></div>
+      <div class="nav-actions"><a class="btn btn-soft" href="https://www.verify.axina.online">Vérifier</a><a class="btn btn-primary" href="index.html#contact">Demander l'accès</a></div>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <div class="shell">
+      <div class="eyebrow"><span class="dot"></span>AXINA Banking API</div>
+      <h1>L'infrastructure de données financières certifiées pour les banques OHADA.</h1>
+      <p>Une API qui connecte directement les établissements bancaires aux données financières certifiées d'une entreprise. Score AXINA. Projection d'absorption. Risque. En un appel.</p>
+      <div class="hero-actions"><a class="btn btn-primary" href="index.html#contact">Demander l'accès API</a><a class="btn btn-outline" href="#endpoints">Voir les endpoints</a></div>
+    </div>
+  </header>
+
+  <section>
+    <div class="shell">
+      <div class="section-head">
+        <div><div class="section-kicker">API Reference</div><h2>5 endpoints. Tout ce dont une banque a besoin.</h2></div>
+        <p>Chaque endpoint est sécurisé par consentement. Chaque donnée retournée est traçable depuis le ledger certifié DIP.</p>
+      </div>
+      <div class="grid-3" id="endpoints">
+        <article class="card dark"><div class="endpoint"><span class="method">POST</span> /consent/share</div><h3 style="margin-top:18px">Créer un token temporaire</h3><p>Autorise la banque à consulter un dossier client selon un périmètre défini.</p></article>
+        <article class="card dark"><div class="endpoint"><span class="method">GET</span> /bank-ready/company_id</div><h3 style="margin-top:18px">Récupérer le dossier</h3><p>Retourne score, ratios, états, cashflow et résumé bancaire.</p></article>
+        <article class="card dark"><div class="endpoint"><span class="method">GET</span> /score/company_id</div><h3 style="margin-top:18px">Score financier</h3><p>Score calculé à partir des données comptables et fiscales disponibles.</p></article>
+        <article class="card"><div class="endpoint" style="color:#0a2540"><span class="method">GET</span> /cash/projection/90days</div><h3 style="margin-top:18px">Projection cash</h3><p>Anticipe les tensions de trésorerie et la capacité d'absorption.</p></article>
+        <article class="card"><div class="endpoint" style="color:#0a2540"><span class="method">GET</span> /risk/company_id</div><h3 style="margin-top:18px">Analyse risque</h3><p>Identifie anomalies, signaux faibles et zones de vigilance.</p></article>
+        <article class="card"><div class="icon"><svg viewBox="0 0 24 24"><path d="M4 12h16M12 4v16"/></svg></div><h3>Webhooks</h3><p>Recevez les mises à jour d'un dossier dès qu'un événement financier certifié apparaît.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing">
+    <div class="shell split">
+      <div><div class="section-kicker">Sécurité & consentement</div><h2>Zéro donnée sans consentement actif.</h2><p style="margin-top:24px">L'entreprise débloque l'accès. Chaque accès à bancaire est enregistré dans un audit log immuable. AXINA ne transforme pas la donnée financière en boîte noire : elle la rend exploitable et vérifiable.</p></div>
+      <div class="ledger">
+        <div class="ledger-top"><span class="chip"></span><span class="chip"></span><span class="chip"></span></div>
+        <div class="ledger-body">
+          <span class="code-key">POST</span> https://api.axina.pro/v1/consent/share<br>
+          {<br>
+          &nbsp;&nbsp;<span class="code-blue">"company_id"</span>: <span class="code-ok">"AX-2048"</span>,<br>
+          &nbsp;&nbsp;<span class="code-blue">"scope"</span>: [<span class="code-ok">"score"</span>, <span class="code-ok">"cashflow"</span>],<br>
+          &nbsp;&nbsp;<span class="code-blue">"ttl"</span>: <span class="code-ok">"72h"</span><br>
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer"><div class="shell footer-grid"><div class="brand"><span class="brand-mark">A</span><span>AXINA</span></div><p>AXINA Banking API — données certifiées, consentement actif.</p></div></footer>
+</body>
+</html>
