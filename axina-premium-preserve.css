@@ -773,3 +773,34 @@ section:has(.dip-2col) [style*="background:rgba(244,80,12,.08)"] {
   background: rgba(217, 120, 50, .10) !important;
   border-color: rgba(217, 120, 50, .24) !important;
 }
+
+/* Hero value cards: remove orange boxes, keep premium floating text */
+.hero [style*="background:#111F2E"][style*="border-top:3px solid var(--gold)"] {
+  background: transparent !important;
+  border: 0 !important;
+  border-top: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 8px 18px 8px 0 !important;
+}
+
+.hero [style*="background:#111F2E"][style*="border-top:3px solid var(--gold)"] > div:first-child {
+  color: rgba(255, 248, 236, .78) !important;
+  filter: grayscale(1) saturate(0) !important;
+  opacity: .82 !important;
+}
+
+.hero [style*="background:#111F2E"][style*="border-top:3px solid var(--gold)"] [style*="text-transform:uppercase"] {
+  color: rgba(255, 248, 236, .46) !important;
+  letter-spacing: .14em !important;
+}
+
+.hero [style*="background:#111F2E"][style*="border-top:3px solid var(--gold)"] [style*="font-weight:800"] {
+  color: #fff8ec !important;
+  font-size: 15.5px !important;
+}
+
+.hero [style*="background:#111F2E"][style*="border-top:3px solid var(--gold)"] [style*="line-height:1.6"] {
+  color: rgba(255, 248, 236, .66) !important;
+  max-width: 30ch !important;
+}
