@@ -724,3 +724,52 @@ a[class*="btn"] {
     border-radius: 24px !important;
   }
 }
+
+/* DIP light-section contrast fix */
+section:has(.dip-2col) {
+  background:
+    radial-gradient(circle at 82% 24%, rgba(217, 120, 50, .12), transparent 18rem),
+    linear-gradient(180deg, #fffaf1, #fff6e8) !important;
+  color: var(--axina-ink) !important;
+}
+
+section:has(.dip-2col) h2,
+section:has(.dip-2col) h3,
+section:has(.dip-2col) p,
+section:has(.dip-2col) div,
+section:has(.dip-2col) span {
+  color: var(--axina-ink) !important;
+}
+
+section:has(.dip-2col) p,
+section:has(.dip-2col) [style*="rgba(255,255,255,.38)"],
+section:has(.dip-2col) [style*="rgba(255,255,255,.42)"],
+section:has(.dip-2col) [style*="rgba(255,255,255,.36)"],
+section:has(.dip-2col) [style*="rgba(255,255,255,.2)"],
+section:has(.dip-2col) [style*="rgba(255,255,255,.18)"],
+section:has(.dip-2col) [style*="rgba(255,255,255,.22)"] {
+  color: var(--axina-muted) !important;
+}
+
+section:has(.dip-2col) [style*="var(--accent-l)"],
+section:has(.dip-2col) [style*="rgba(244,80,12"] {
+  color: var(--axina-orange) !important;
+}
+
+section:has(.dip-2col) .dip-2col > div:last-child,
+section:has(.dip-2col) .reveal:last-child > div,
+section:has(.dip-2col) [style*="background:rgba(255,255,255,.03)"] {
+  background: rgba(255, 253, 248, .78) !important;
+  border-color: rgba(7, 19, 36, .12) !important;
+  box-shadow: 0 22px 70px rgba(7, 19, 36, .08) !important;
+}
+
+section:has(.dip-2col) [style*="border-bottom:1px solid rgba(255,255,255,.07)"],
+section:has(.dip-2col) [style*="border-top:1px solid rgba(255,255,255,.07)"] {
+  border-color: rgba(7, 19, 36, .10) !important;
+}
+
+section:has(.dip-2col) [style*="background:rgba(244,80,12,.08)"] {
+  background: rgba(217, 120, 50, .10) !important;
+  border-color: rgba(217, 120, 50, .24) !important;
+}
