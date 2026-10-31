@@ -77,56 +77,36 @@
 <main id="main">
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" style="background: linear-gradient(160deg, #0b1e3a 0%, #122a4a 50%, #0a1628 100%);">
   <div class="hero-glow"></div>
-  <div class="hero-grid-bg"></div>
   <div class="wrap">
-    <div class="hero-inner">
-      <div class="hero-anim">
-        <div class="hero-badge"><b>Nouveau</b>AXINA Cabinet relie le cabinet à ses clients, en temps réel</div>
-        <h1 class="h-hero">Structurez.<br>Scellez.<br>Pilotez.</h1>
-        <p class="lead">AXINA tient votre comptabilité SYSCOHADA au fil de l'eau, scelle chaque écriture dans un grand livre chaîné et vous donne les chiffres pour décider. Le financement devient la suite logique.</p>
-        <div class="hero-ctas">
+    <div class="hero-inner" style="display:grid; grid-template-columns: 1fr 1.15fr; gap: 40px; align-items: center; padding: 80px 0 60px;">
+      <div>
+        <div class="hero-badge"><b>Nouveau</b> AXINA Cabinet · production en temps réel</div>
+        <h1 class="h-hero" style="font-size: clamp(48px, 6vw, 72px); line-height: .95; margin: 16px 0 20px;">
+          Structurez.<br>Scellez.<br>Pilotez.
+        </h1>
+        <p class="lead" style="font-size: 18px; max-width: 420px; color: rgba(255,255,255,.85);">
+          Votre comptabilité SYSCOHADA en temps réel, scellée et prête pour le financement. Pour les PME et les cabinets de la zone OHADA.
+        </p>
+        <div class="hero-ctas" style="margin-top: 28px;">
           <button class="btn btn-seal" type="button" data-open="m-contact" data-preset="Créer mon compte AXINA">Créer mon compte gratuit</button>
           <a class="btn btn-ghost" href="/demo">Voir la démo</a>
         </div>
-        <div class="hero-proof">
-          <div><strong>17 pays</strong>de l'espace OHADA</div>
-          <div><strong>SHA-256</strong>empreinte chaînée par écriture</div>
-          <div><strong>0 FCFA</strong>pour démarrer avec Essentiel</div>
+        <div class="hero-proof" style="margin-top: 32px; gap: 24px;">
+          <div><strong>17 pays</strong> OHADA</div>
+          <div><strong>DIP</strong> SHA-256 chaîné</div>
+          <div><strong>0 FCFA</strong> pour démarrer</div>
         </div>
       </div>
 
-      <div class="hero-anim">
-        <div class="ledger" aria-label="Démonstration : grand livre scellé en direct">
-          <div class="ledger-top">
-            <span class="t"><i class="live-dot" aria-hidden="true"></i>Grand livre</span>
-            <span class="co">Sahel Négoce SARL · exemple</span>
-          </div>
-          <div class="ledger-list" id="ledger-list" aria-live="off"></div>
-          <div class="ledger-foot">
-            <span class="ok"><svg width="14" height="14" aria-hidden="true"><use href="#i-check"/></svg>Chaîne intacte jusqu'à l'écriture n° <span id="ledger-count">1185</span></span>
-            <span>DIP v1.0.2</span>
-          </div>
-          <svg class="stamp" id="stamp" viewBox="0 0 120 120" aria-hidden="true">
-            <circle cx="60" cy="60" r="52" fill="none" stroke="#f5a524" stroke-width="3"/>
-            <circle cx="60" cy="60" r="44" fill="none" stroke="#f5a524" stroke-width="1.2" stroke-dasharray="3 4"/>
-            <path id="arc" d="M60 60m-36 0a36 36 0 1 1 72 0a36 36 0 1 1-72 0" fill="none"/>
-            <text font-family="Geist, sans-serif" font-size="10.5" font-weight="700" fill="#f5a524" letter-spacing="2.4"><textPath href="#arc">SCELLÉ DIP · CHAÎNÉ · HORODATÉ ·</textPath></text>
-            <path d="m46 61 9 9 19-20" fill="none" stroke="#f5a524" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+      <div style="position: relative;">
+        <div style="position: relative; max-width: 620px; margin-left: auto;">
+          <img src="/assets/screenshots/cockpit.png" alt="Cockpit AXINA" style="width: 100%; border-radius: 16px; box-shadow: 0 30px 80px -20px rgba(0,0,0,.7); border: 1px solid rgba(255,255,255,.08);">
+          <img src="/assets/screenshots/journaux.png" alt="Journaux DIP" style="position: absolute; right: -40px; bottom: -40px; width: 48%; border-radius: 12px; box-shadow: 0 20px 50px -15px rgba(0,0,0,.8); border: 1px solid rgba(255,255,255,.1);">
         </div>
-        <p class="ledger-note">Données d'exemple. L'empreinte de chaque écriture est calculée en direct dans votre navigateur, à partir de l'écriture précédente.</p>
       </div>
     </div>
-  </div>
-  <div class="countries">
-    <div class="wrap"><div class="countries-label">Conçu pour le SYSCOHADA révisé, dans les 17 pays de l'espace OHADA</div></div>
-    <div class="marquee" aria-hidden="true">
-      <span>Bénin</span><span>Burkina Faso</span><span>Cameroun</span><span>Centrafrique</span><span>Comores</span><span>Congo</span><span>Côte d'Ivoire</span><span>Gabon</span><span>Guinée</span><span>Guinée-Bissau</span><span>Guinée équatoriale</span><span>Mali</span><span>Niger</span><span>RD Congo</span><span>Sénégal</span><span>Tchad</span><span>Togo</span>
-      <span>Bénin</span><span>Burkina Faso</span><span>Cameroun</span><span>Centrafrique</span><span>Comores</span><span>Congo</span><span>Côte d'Ivoire</span><span>Gabon</span><span>Guinée</span><span>Guinée-Bissau</span><span>Guinée équatoriale</span><span>Mali</span><span>Niger</span><span>RD Congo</span><span>Sénégal</span><span>Tchad</span><span>Togo</span>
-    </div>
-    <p class="sr-only">Bénin, Burkina Faso, Cameroun, Centrafrique, Comores, Congo, Côte d'Ivoire, Gabon, Guinée, Guinée-Bissau, Guinée équatoriale, Mali, Niger, RD Congo, Sénégal, Tchad, Togo.</p>
   </div>
 </section>
 
@@ -251,6 +231,21 @@
     </div>
 
     <!-- Entreprises -->
+    
+          <div class="ss-grid" style="margin-top:28px">
+            <figure class="ss-card">
+              <img src="/assets/screenshots/journaux.png" alt="Journaux scellés DIP" loading="lazy">
+              <figcaption>Journaux · 100 % scellés DIP</figcaption>
+            </figure>
+            <figure class="ss-card">
+              <img src="/assets/screenshots/tresorerie.png" alt="Trésorerie en temps réel" loading="lazy">
+              <figcaption>Trésorerie consolidée · flux 12 mois</figcaption>
+            </figure>
+            <figure class="ss-card">
+              <img src="/assets/screenshots/bilan.png" alt="Bilan SYSCOHADA" loading="lazy">
+              <figcaption>Bilan · ratios et verdict</figcaption>
+            </figure>
+          </div>
     <div class="panel" role="tabpanel" id="p-ent" aria-labelledby="u-ent">
       <div>
         <h3>Pilotez votre activité. Préparez votre financement.</h3>
@@ -452,6 +447,16 @@
     <div class="sec-head">
       <div class="kicker">AXINA Cabinet</div>
       <h2 class="h-sec">L'atelier de production du cabinet.</h2>
+      <div class="ss-grid">
+        <figure class="ss-card">
+          <img src="/assets/screenshots/cabinet-portefeuille.png" alt="Portefeuille clients AXINA Cabinet" loading="lazy">
+          <figcaption>Portefeuille multi-clients · scores · pipeline Prépa → Scellé</figcaption>
+        </figure>
+        <figure class="ss-card">
+          <img src="/assets/screenshots/cabinet-bannette.png" alt="Bannette de production cabinet" loading="lazy">
+          <figcaption>Bannette · tickets · cycle et couverture DIP 100 %</figcaption>
+        </figure>
+      </div>
       <p class="lead">Chaque dossier client avance dans une bannette, du premier rapprochement au scellement. Qui a fait quoi, quand et à quel titre : tout est tracé.</p>
     </div>
     <div class="pipeline">
