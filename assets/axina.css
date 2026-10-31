@@ -610,3 +610,25 @@ details.more[open] summary svg { transform: rotate(180deg); }
   .tabs::-webkit-scrollbar { display: none; }
   .tab { white-space: nowrap; flex: none; }
 }
+
+/* ---------- Fondamentaux ---------- */
+.fund-top { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(28px, 5vw, 80px); align-items: start; }
+.fund-head { position: sticky; top: 100px; }
+.fund-text p { font-size: clamp(17px, 1.35vw, 19px); line-height: 1.7; color: var(--ink-2); max-width: 66ch; }
+.fund-text p:first-child::first-line { color: var(--ink); font-weight: 600; }
+.fund-grid { display: grid; grid-template-columns: repeat(3, 1fr); margin: clamp(48px, 6vw, 72px) 0 0; border-top: 1px solid var(--line); }
+.fund-grid div { padding: 22px 24px 24px 0; border-bottom: 1px solid var(--line); }
+.fund-grid div:not(:nth-child(3n+1)) { padding-left: 24px; border-left: 1px solid var(--line); }
+.fund-grid dt { font-weight: 600; font-size: 17px; margin-bottom: 6px; letter-spacing: -.01em; }
+.fund-grid dd { margin: 0; color: var(--ink-2); font-size: 15.5px; line-height: 1.55; }
+@media (max-width: 900px) {
+  .fund-top { grid-template-columns: 1fr; }
+  .fund-head { position: static; }
+  .fund-grid { grid-template-columns: 1fr 1fr; }
+  .fund-grid div, .fund-grid div:not(:nth-child(3n+1)) { padding: 20px 18px 20px 0; border-left: 0; }
+  .fund-grid div:nth-child(2n) { padding-left: 18px; border-left: 1px solid var(--line); }
+}
+@media (max-width: 620px) {
+  .fund-grid { grid-template-columns: 1fr; }
+  .fund-grid div:nth-child(2n) { padding-left: 0; border-left: 0; }
+}
