@@ -147,7 +147,7 @@ section { position: relative; }
 .white { background: var(--white); }
 
 /* ---------- Hero ---------- */
-.hero { background: var(--night); color: var(--white); padding: 140px 0 0; overflow: hidden; isolation: isolate; }
+.hero { background: #12315f; color: var(--white); padding: 140px 0 0; overflow: hidden; isolation: isolate; }
 .hero-glow { position: absolute; inset: -20% -10% auto -10%; height: 900px; z-index: -1; pointer-events: none;
   background:
     radial-gradient(40% 50% at 78% 30%, rgba(245, 165, 36, .20), transparent 70%),
