@@ -1,0 +1,14 @@
+{
+  "name": "AXINA",
+  "short_name": "AXINA",
+  "description": "Comptabilité SYSCOHADA scellée, pilotage et financement.",
+  "lang": "fr",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#060d1a",
+  "theme_color": "#060d1a",
+  "icons": [
+    { "src": "/assets/img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/assets/img/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
