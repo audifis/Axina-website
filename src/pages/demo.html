@@ -1,0 +1,138 @@
+---
+title: Démo AXINA — Du cockpit au dossier bancaire
+description: Parcourez AXINA en quatre écrans : cockpit du dirigeant, facture scellée avec QR code, grand livre chaîné et assemblage du dossier bancaire. Données d'exemple.
+canonical: demo.html
+---
+<main id="main">
+<section class="page-hero" style="padding-bottom:64px">
+  <div class="hero-glow"></div>
+  <div class="wrap">
+    <div class="crumbs"><a href="/">AXINA</a> / Démo</div>
+    <h1 class="h-hero" style="font-size:clamp(40px,5.6vw,72px);max-width:16ch">Du cockpit au dossier bancaire.</h1>
+    <p class="lead" style="margin-top:22px">Quatre écrans, dans l'ordre où une entreprise les vit. Commencez par le cockpit, terminez par le dossier.</p>
+  </div>
+</section>
+
+<section class="sec-tight">
+  <div class="wrap">
+    <div class="demo-flag">Démonstration avec des données d'exemple : Diallo &amp; Frères SARL n'est pas un client réel.</div>
+    <div class="tabs demo-tabs" role="tablist" data-tabs aria-label="Écrans de la démo">
+      <button class="tab" role="tab" id="d-1" aria-controls="dp-1" aria-selected="true">1. Cockpit</button>
+      <button class="tab" role="tab" id="d-2" aria-controls="dp-2" aria-selected="false" tabindex="-1">2. Facture scellée</button>
+      <button class="tab" role="tab" id="d-3" aria-controls="dp-3" aria-selected="false" tabindex="-1">3. Grand livre</button>
+      <button class="tab" role="tab" id="d-4" aria-controls="dp-4" aria-selected="false" tabindex="-1">4. Dossier bancaire</button>
+    </div>
+    <div class="demo-stage">
+      <div class="demo-bar"><i></i><i></i><i></i><span>AXINA · Diallo &amp; Frères SARL</span></div>
+      <div class="demo-body">
+
+        <div class="demo-panel" role="tabpanel" id="dp-1" aria-labelledby="d-1">
+          <div class="demo-grid">
+            <div>
+              <div class="kpis">
+                <div class="kpi"><span>Chiffre d'affaires du mois</span><strong>8,4 M</strong><em>+18 % sur un mois</em></div>
+                <div class="kpi"><span>Créances clients</span><strong>2,1 M</strong><em class="down">dont 1,25 M échus</em></div>
+                <div class="kpi"><span>Trésorerie</span><strong>4,8 M</strong><em>stable</em></div>
+              </div>
+              <svg class="spark" style="height:150px" viewBox="0 0 400 150" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="dg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3e7bfa" stop-opacity=".22"/><stop offset="1" stop-color="#3e7bfa" stop-opacity="0"/></linearGradient></defs><path d="M0 120 L40 110 L80 114 L120 92 L160 98 L200 72 L240 80 L280 56 L320 62 L360 38 L400 42 L400 150 L0 150Z" fill="url(#dg)"/><path d="M0 120 L40 110 L80 114 L120 92 L160 98 L200 72 L240 80 L280 56 L320 62 L360 38 L400 42" fill="none" stroke="#3e7bfa" stroke-width="2.4"/></svg>
+              <p class="tiny muted">Chiffre d'affaires mensuel sur 11 mois. Montants en FCFA.</p>
+            </div>
+            <div class="radar" style="box-shadow:none">
+              <div class="ui-head"><b>Alertes du jour</b><span class="ui-tag amber">3</span></div>
+              <div class="alert"><i class="sev" style="background:#d64545"></i><div><b>Deux factures échues depuis plus de 60 jours</b><p>Ndiaye SARL : 1 250 000 FCFA.</p></div></div>
+              <div class="alert"><i class="sev" style="background:#f5a524"></i><div><b>Marge brute en baisse</b><p>34 % contre 37 % le mois dernier.</p></div></div>
+              <div class="alert"><i class="sev" style="background:#3e7bfa"></i><div><b>TVA à déclarer dans 6 jours</b><p>Montant indicatif : 340 000 FCFA.</p></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-panel" role="tabpanel" id="dp-2" aria-labelledby="d-2" hidden>
+          <div class="demo-grid">
+            <div class="invoice">
+              <div class="ui-head"><b>Facture FV-2026-0418</b><span class="ui-tag">Scellée DIP</span></div>
+              <p class="small muted" style="margin:0">Diallo &amp; Frères SARL → Ndiaye Distribution · 31/10/2026</p>
+              <table>
+                <thead><tr><th>Désignation</th><th class="r">Qté</th><th class="r">Montant HT</th></tr></thead>
+                <tbody>
+                  <tr><td>Riz parfumé, sac de 50 kg</td><td class="r">40</td><td class="r">1 200 000</td></tr>
+                  <tr><td>Huile végétale, carton de 12 L</td><td class="r">25</td><td class="r">800 000</td></tr>
+                  <tr><td>TVA 18 %</td><td class="r"></td><td class="r">360 000</td></tr>
+                  <tr><td><b>Total TTC</b></td><td class="r"></td><td class="r"><b>2 360 000</b></td></tr>
+                </tbody>
+              </table>
+              <p class="tiny muted" style="margin:0">Taux de TVA d'exemple. Le taux applicable dépend du pays et du produit.</p>
+            </div>
+            <div class="card" style="text-align:center">
+              <svg class="qr" style="margin:0 auto 14px" viewBox="0 0 21 21" shape-rendering="crispEdges" aria-label="QR code d'exemple"><rect width="21" height="21" fill="#fff"/><path fill="#0d1729" d="M0 0h7v7H0zM14 0h7v7h-7zM0 14h7v7H0z"/><path fill="#fff" d="M1 1h5v5H1zM15 1h5v5h-5zM1 15h5v5H1z"/><path fill="#0d1729" d="M2 2h3v3H2zM16 2h3v3h-3zM2 16h3v3H2zM9 1h1v2H9zM11 2h2v1h-2zM8 4h2v2H8zM12 5h1v3h-1zM9 8h3v1H9zM14 9h2v2h-2zM17 8h3v1h-3zM8 10h1v3H8zM10 11h3v1h-3zM18 10h2v3h-2zM15 12h2v2h-2zM9 14h2v2H9zM12 14h1v4h-1zM14 15h3v1h-3zM18 15h2v2h-2zM9 17h2v3H9zM14 17h1v3h-1zM16 18h4v2h-4zM1 8h2v1H1zM4 9h2v2H4zM1 11h1v2H1z"/></svg>
+              <h4>Vérifiable par tous</h4>
+              <p>Le client, sa banque ou un contrôleur scanne le QR code et retrouve l'émetteur, le montant et l'empreinte du registre.</p>
+              <p class="mono tiny muted" style="margin-top:12px">empreinte 4b1e7c2a90d3…</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-panel" role="tabpanel" id="dp-3" aria-labelledby="d-3" hidden>
+          <div style="overflow-x:auto">
+            <table class="gl-table">
+              <thead><tr><th>N°</th><th>Date</th><th>Libellé</th><th>Comptes</th><th class="r" style="text-align:right">Montant</th><th>Empreinte</th></tr></thead>
+              <tbody>
+                <tr><td>1183</td><td>30/10</td><td>Facture FV-0417 · Kaba Services</td><td>411 / 701</td><td class="r">590 000</td><td class="h">9c4d8f3a7b…</td></tr>
+                <tr><td>1184</td><td>31/10</td><td>Encaissement virement</td><td>521 / 411</td><td class="r">1 180 000</td><td class="h">2e8b1d5c4f…</td></tr>
+                <tr><td>1185</td><td>31/10</td><td>Achat marchandises</td><td>601 / 401</td><td class="r">845 000</td><td class="h">7f3a9e12d6…</td></tr>
+                <tr><td>1186</td><td>31/10</td><td>Extourne de n° 1185 (compte erroné)</td><td>401 / 601</td><td class="r">-845 000</td><td class="h">b850b74906…</td></tr>
+                <tr><td>1187</td><td>31/10</td><td>Achat marchandises, corrigé</td><td>6021 / 401</td><td class="r">845 000</td><td class="h">53053072b1…</td></tr>
+                <tr><td>1188</td><td>31/10</td><td>Facture FV-0418 · Ndiaye Distribution</td><td>411 / 701</td><td class="r">2 360 000</td><td class="h">4b1e7c2a90…</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="small muted" style="margin:16px 0 0">L'écriture n° 1185 n'a pas été effacée. Elle est annulée par une écriture inverse (n° 1186), puis réécrite (n° 1187). Chaque empreinte dépend de la précédente : la chaîne reste lisible de bout en bout.</p>
+        </div>
+
+        <div class="demo-panel" role="tabpanel" id="dp-4" aria-labelledby="d-4" hidden>
+          <div class="demo-grid">
+            <div>
+              <h3 class="h-card">Assembler le dossier de financement</h3>
+              <ul class="gen-steps" id="gen-steps">
+                <li><i></i>Bilan et compte de résultat, 3 exercices</li>
+                <li><i></i>Tableau des flux de trésorerie</li>
+                <li><i></i>Ratios de liquidité, solvabilité, endettement</li>
+                <li><i></i>Grand livre et balance, avec leurs empreintes</li>
+                <li><i></i>Visa du cabinet, s'il a été donné</li>
+                <li><i></i>QR code de vérification</li>
+              </ul>
+              <button class="btn btn-ink" type="button" id="gen-btn">Assembler le dossier</button>
+              <div id="gen-out" class="note-box" style="margin-top:18px" hidden><b>Dossier prêt (démonstration).</b> Dans AXINA Premium, vous le téléchargez en PDF et l'envoyez à votre banque. La décision de financement reste la sienne.</div>
+            </div>
+            <div class="card">
+              <h4>Ce que voit la banque</h4>
+              <ul class="doc-list" style="margin-top:12px">
+                <li><span>Liquidité générale</span><span>1,62</span></li>
+                <li><span>Autonomie financière</span><span>41 %</span></li>
+                <li><span>Marge brute</span><span>34 %</span></li>
+                <li><span>Bilan équilibré</span><span>Oui</span></li>
+              </ul>
+              <p class="tiny muted" style="margin-top:12px">Valeurs d'exemple.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark on-dark final">
+  <div class="wrap">
+    <div class="final-inner">
+      <h2>Le même parcours, avec vos chiffres.</h2>
+      <div class="final-side">
+        <p>Démarrez gratuitement avec Essentiel, puis passez à Premium pour assembler vos dossiers bancaires.</p>
+        <div class="hero-ctas">
+          <button class="btn btn-seal" type="button" data-open="m-contact" data-preset="Créer mon compte AXINA">Créer mon compte gratuit</button>
+          <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://wa.me/240222619606?text=Bonjour%20AXINA">Écrire sur WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>

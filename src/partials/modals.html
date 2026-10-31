@@ -1,0 +1,58 @@
+<div class="modal" id="m-contact" role="dialog" aria-modal="true" aria-labelledby="m-contact-t">
+  <div class="modal-bg"></div>
+  <div class="modal-card">
+    <button class="modal-close" type="button" aria-label="Fermer"><svg aria-hidden="true"><use href="#i-x"/></svg></button>
+    <h3 id="m-contact-t">Demander l'accès à AXINA</h3>
+    <p class="muted small" style="margin:0">Dites-nous qui vous êtes. Un membre de l'équipe vous répond, par e-mail ou WhatsApp.</p>
+    <form class="form" id="contact-form" action="https://formspree.io/f/mnjgbwea" method="POST">
+      <div class="two">
+        <label>Nom complet<input name="nom" required autocomplete="name"></label>
+        <label>E-mail<input name="email" type="email" required autocomplete="email"></label>
+      </div>
+      <div class="two">
+        <label>Téléphone ou WhatsApp<input name="telephone" type="tel" autocomplete="tel"></label>
+        <label>Pays
+          <select name="pays" required>
+            <option value="">Choisir</option>
+            <option>Sénégal</option><option>Côte d'Ivoire</option><option>Mali</option><option>Burkina Faso</option><option>Togo</option><option>Bénin</option><option>Niger</option><option>Guinée-Bissau</option><option>Guinée</option><option>Cameroun</option><option>Gabon</option><option>Congo</option><option>RD Congo</option><option>Tchad</option><option>Centrafrique</option><option>Guinée équatoriale</option><option>Comores</option><option>São Tomé-et-Príncipe</option><option>Maroc</option><option>Algérie</option><option>Tunisie</option><option>France</option><option>Autre pays</option>
+          </select>
+        </label>
+      </div>
+      <div class="two">
+        <label>Vous êtes
+          <select name="type_entreprise" required>
+            <option value="">Choisir</option>
+            <option>Micro-entreprise (0–5 employés)</option><option>Petite entreprise (6–20 employés)</option><option>Moyenne entreprise (21–100 employés)</option><option>Grande entreprise (100+ employés)</option><option>Cabinet comptable</option><option>Cabinet d'audit</option><option>Banque / Microfinance</option><option>Assurance</option><option>ONG / Association</option><option>Administration publique</option><option>Investisseur / Fonds</option><option>Autre</option>
+          </select>
+        </label>
+        <label>Votre demande
+          <select name="objet" id="f-objet" required>
+            <option value="">Choisir</option>
+            <option>Créer mon compte AXINA</option><option>Obtenir un dossier Bank Ready</option><option>Tester AXINA Cabinet (comptable)</option><option>Demander un accès API (banque)</option><option>Partenariat commercial</option><option>Demande d'information générale</option><option>Support technique</option><option>Autre</option>
+          </select>
+        </label>
+      </div>
+      <label>Message (facultatif)<textarea name="message"></textarea></label>
+      <input type="hidden" name="_replyto" value="">
+      <input type="hidden" name="_subject" value="Nouvelle demande AXINA (axina.pro)">
+      <button class="btn btn-ink" type="submit">Envoyer ma demande</button>
+      <div class="status" role="status" aria-live="polite"></div>
+      <p class="form-foot">Vos informations servent uniquement à vous répondre.</p>
+    </form>
+  </div>
+</div>
+
+<div class="modal" id="m-verify" role="dialog" aria-modal="true" aria-labelledby="m-verify-t">
+  <div class="modal-bg"></div>
+  <div class="modal-card">
+    <button class="modal-close" type="button" aria-label="Fermer"><svg aria-hidden="true"><use href="#i-x"/></svg></button>
+    <h3 id="m-verify-t">Vérifier un document AXINA</h3>
+    <p class="muted small" style="margin:0">Scannez le QR code du document avec votre téléphone, ou collez ici le lien du QR code ou le code de vérification. Aucun compte n'est nécessaire.</p>
+    <form class="form" id="verify-form" novalidate>
+      <label>Lien ou code de vérification<input id="verify-input" placeholder="https://…/?token=… ou 8f2c…-…" autocomplete="off" spellcheck="false"></label>
+      <button class="btn btn-ink" type="submit">Vérifier dans le registre</button>
+      <div class="status" id="verify-status" role="status" aria-live="polite"></div>
+      <p class="form-foot">La vérification compare le document au registre scellé d'AXINA : émetteur, numéro, montant, date et empreinte.</p>
+    </form>
+  </div>
+</div>

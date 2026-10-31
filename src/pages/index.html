@@ -1,0 +1,721 @@
+---
+title: AXINA — Comptabilité OHADA scellée, pilotage et financement
+description: AXINA tient la comptabilité SYSCOHADA des entreprises en temps réel, scelle chaque écriture dans un grand livre chaîné et relie l'entreprise à son cabinet. 17 pays de l'espace OHADA.
+canonical:
+---
+<main id="main">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-grid-bg"></div>
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="hero-anim">
+        <div class="hero-badge"><b>Nouveau</b>AXINA Cabinet relie le cabinet à ses clients, en temps réel</div>
+        <h1 class="h-hero">Structurez.<br>Scellez.<br>Pilotez.</h1>
+        <p class="lead">AXINA tient votre comptabilité SYSCOHADA au fil de l'eau, scelle chaque écriture dans un grand livre chaîné et vous donne les chiffres pour décider. Le financement devient la suite logique.</p>
+        <div class="hero-ctas">
+          <button class="btn btn-seal" type="button" data-open="m-contact" data-preset="Créer mon compte AXINA">Créer mon compte gratuit</button>
+          <a class="btn btn-ghost" href="/demo.html">Voir la démo</a>
+        </div>
+        <div class="hero-proof">
+          <div><strong>17 pays</strong>de l'espace OHADA</div>
+          <div><strong>SHA-256</strong>empreinte chaînée par écriture</div>
+          <div><strong>0 FCFA</strong>pour démarrer avec Essentiel</div>
+        </div>
+      </div>
+
+      <div class="hero-anim">
+        <div class="ledger" aria-label="Démonstration : grand livre scellé en direct">
+          <div class="ledger-top">
+            <span class="t"><i class="live-dot" aria-hidden="true"></i>Grand livre</span>
+            <span class="co">Sahel Négoce SARL · exemple</span>
+          </div>
+          <div class="ledger-list" id="ledger-list" aria-live="off"></div>
+          <div class="ledger-foot">
+            <span class="ok"><svg width="14" height="14" aria-hidden="true"><use href="#i-check"/></svg>Chaîne intacte jusqu'à l'écriture n° <span id="ledger-count">1185</span></span>
+            <span>DIP v1.0.2</span>
+          </div>
+          <svg class="stamp" id="stamp" viewBox="0 0 120 120" aria-hidden="true">
+            <circle cx="60" cy="60" r="52" fill="none" stroke="#f5a524" stroke-width="3"/>
+            <circle cx="60" cy="60" r="44" fill="none" stroke="#f5a524" stroke-width="1.2" stroke-dasharray="3 4"/>
+            <path id="arc" d="M60 60m-36 0a36 36 0 1 1 72 0a36 36 0 1 1-72 0" fill="none"/>
+            <text font-family="Geist, sans-serif" font-size="10.5" font-weight="700" fill="#f5a524" letter-spacing="2.4"><textPath href="#arc">SCELLÉ DIP · CHAÎNÉ · HORODATÉ ·</textPath></text>
+            <path d="m46 61 9 9 19-20" fill="none" stroke="#f5a524" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <p class="ledger-note">Données d'exemple. L'empreinte de chaque écriture est calculée en direct dans votre navigateur, à partir de l'écriture précédente.</p>
+      </div>
+    </div>
+  </div>
+  <div class="countries">
+    <div class="wrap"><div class="countries-label">Conçu pour le SYSCOHADA révisé, dans les 17 pays de l'espace OHADA</div></div>
+    <div class="marquee" aria-hidden="true">
+      <span>Bénin</span><span>Burkina Faso</span><span>Cameroun</span><span>Centrafrique</span><span>Comores</span><span>Congo</span><span>Côte d'Ivoire</span><span>Gabon</span><span>Guinée</span><span>Guinée-Bissau</span><span>Guinée équatoriale</span><span>Mali</span><span>Niger</span><span>RD Congo</span><span>Sénégal</span><span>Tchad</span><span>Togo</span>
+      <span>Bénin</span><span>Burkina Faso</span><span>Cameroun</span><span>Centrafrique</span><span>Comores</span><span>Congo</span><span>Côte d'Ivoire</span><span>Gabon</span><span>Guinée</span><span>Guinée-Bissau</span><span>Guinée équatoriale</span><span>Mali</span><span>Niger</span><span>RD Congo</span><span>Sénégal</span><span>Tchad</span><span>Togo</span>
+    </div>
+    <p class="sr-only">Bénin, Burkina Faso, Cameroun, Centrafrique, Comores, Congo, Côte d'Ivoire, Gabon, Guinée, Guinée-Bissau, Guinée équatoriale, Mali, Niger, RD Congo, Sénégal, Tchad, Togo.</p>
+  </div>
+</section>
+
+<!-- GUIDE -->
+<section class="sec" id="guide">
+  <div class="wrap guide">
+    <div>
+      <h2 class="h-sec">Parlez-nous de votre situation.</h2>
+      <p class="lead" style="margin:18px 0 30px">Choisissez ce qui vous ressemble. AXINA vous montre le bon chemin.</p>
+      <div class="guide-opts">
+        <button class="guide-opt" type="button" data-k="finance" aria-pressed="true">Je veux un financement bancaire<svg aria-hidden="true"><use href="#i-right"/></svg></button>
+        <button class="guide-opt" type="button" data-k="score" aria-pressed="false">Je veux comprendre mes chiffres<svg aria-hidden="true"><use href="#i-right"/></svg></button>
+        <button class="guide-opt" type="button" data-k="cabinet" aria-pressed="false">Je suis un cabinet comptable<svg aria-hidden="true"><use href="#i-right"/></svg></button>
+        <button class="guide-opt" type="button" data-k="gov" aria-pressed="false">Je représente une ONG ou une administration<svg aria-hidden="true"><use href="#i-right"/></svg></button>
+        <button class="guide-opt" type="button" data-k="business" aria-pressed="false">Je veux gérer mon entreprise<svg aria-hidden="true"><use href="#i-right"/></svg></button>
+      </div>
+    </div>
+    <div class="guide-answer" id="guide-answer" aria-live="polite">
+      <div>
+        <h3>Préparer un dossier de financement solide.</h3>
+        <p>AXINA tient votre comptabilité OHADA au fil de l'eau et assemble un dossier bancaire à partir de chiffres scellés et vérifiables. La décision reste à la banque, mais elle lit un dossier propre.</p>
+        <ul><li>États financiers SYSCOHADA à jour</li><li>Ratios et indicateurs déjà calculés</li><li>Dossiers bancaires illimités avec l'offre Premium</li></ul>
+      </div>
+      <div class="guide-actions">
+        <a class="btn btn-seal" href="/bank-ready.html">Voir le dossier Bank Ready</a>
+        <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://wa.me/240222619606?text=Bonjour%2C%20je%20veux%20pr%C3%A9parer%20un%20dossier%20de%20financement%20avec%20AXINA">Écrire sur WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLATEFORME -->
+<section class="sec white" id="plateforme">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h-sec">Une infrastructure financière, pas un simple outil de financement.</h2>
+      <p class="lead">Trois gestes, dans cet ordre. Chacun s'appuie sur le précédent.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="verb">Structurer</div>
+        <p>Factures, trésorerie et comptabilité OHADA dans un même système. Chaque opération est enregistrée une fois et alimente vos journaux, votre balance et vos états.</p>
+        <div class="viz"><div class="mini">
+          <div class="mini-row"><span>Journal des ventes</span><span>142 écritures</span></div>
+          <div class="mini-row"><span>Balance générale</span><span>équilibrée</span></div>
+          <div class="mini-row"><span>Bilan et compte de résultat</span><span>à jour</span></div>
+        </div></div>
+      </div>
+      <div class="pillar">
+        <div class="verb">Sceller</div>
+        <p>Chaque écriture reçoit une empreinte SHA-256 chaînée à la précédente. Toute facture porte un QR code que n'importe qui peut vérifier, sans compte AXINA.</p>
+        <div class="viz"><div class="mini">
+          <div class="hashline">n° 1183 <b>9c4d8f3a7b</b></div>
+          <div class="hashline">n° 1184 <b>2e8b1d5c4f</b></div>
+          <div class="hashline">n° 1185 <b>7f3a9e12d6</b></div>
+        </div></div>
+      </div>
+      <div class="pillar">
+        <div class="verb">Piloter</div>
+        <p>Score AXINA, radar d'alertes, cockpit du dirigeant. Vous voyez la trésorerie, les marges et les échéances avant qu'elles ne deviennent un problème.</p>
+        <div class="viz"><div class="mini">
+          <div class="mini-row"><span>Trésorerie disponible</span><span>4,8 M</span></div>
+          <div style="margin:8px 0 4px" class="bar"><i style="width:72%"></i></div>
+          <div class="mini-row"><span>Créances à relancer</span><span>3</span></div>
+        </div></div>
+      </div>
+    </div>
+    <p class="closing-line">Le financement est la conséquence. <span>L'infrastructure est la cause.</span></p>
+  </div>
+</section>
+
+<!-- PROBLÈME -->
+<section class="sec dark on-dark">
+  <div class="wrap problem">
+    <div>
+      <h2 class="h-sec">Vous pilotez votre entreprise à l'aveugle ?</h2>
+      <p class="lead" style="margin-top:18px">Comptabilité en retard, chiffres illisibles, banque qui demande des pièces que personne n'a. AXINA traite la cause, pas le symptôme.</p>
+    </div>
+    <div class="problem-list">
+      <div class="problem-item"><span class="before">Comptabilité tenue en fin d'année</span><span class="after">Comptabilité automatique<small>États financiers OHADA produits au fil des opérations.</small></span></div>
+      <div class="problem-item"><span class="before">Chiffres que personne ne lit</span><span class="after">Score de l'entreprise<small>Votre situation financière résumée, mise à jour en continu.</small></span></div>
+      <div class="problem-item"><span class="before">Dossier bancaire monté à la main</span><span class="after">Dossier bancaire assemblé<small>Tiré du grand livre scellé, vérifiable par QR code.</small></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTIONS -->
+<section class="sec" id="solutions">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h-sec">Conçu pour les acteurs de l'économie africaine.</h2>
+      <p class="lead">Entreprises, cabinets, banques, ONG, entreprises publiques, administrations. Chacun a ses outils, tous partagent le même grand livre scellé.</p>
+    </div>
+    <div class="tabs" role="tablist" data-tabs aria-label="Profils">
+      <button class="tab" role="tab" id="u-ent" aria-controls="p-ent" aria-selected="true">Entreprises</button>
+      <button class="tab" role="tab" id="u-cab" aria-controls="p-cab" aria-selected="false" tabindex="-1">Cabinets</button>
+      <button class="tab" role="tab" id="u-ong" aria-controls="p-ong" aria-selected="false" tabindex="-1">ONG</button>
+      <button class="tab" role="tab" id="u-bank" aria-controls="p-bank" aria-selected="false" tabindex="-1">Banques</button>
+      <button class="tab" role="tab" id="u-pub" aria-controls="p-pub" aria-selected="false" tabindex="-1">Entreprises publiques</button>
+      <button class="tab" role="tab" id="u-adm" aria-controls="p-adm" aria-selected="false" tabindex="-1">Administrations</button>
+    </div>
+
+    <!-- Entreprises -->
+    <div class="panel" role="tabpanel" id="p-ent" aria-labelledby="u-ent">
+      <div>
+        <h3>Pilotez votre activité. Préparez votre financement.</h3>
+        <p class="lead">Vos chiffres en temps réel, votre comptabilité OHADA tenue au fil de l'eau, votre dossier bancaire prêt à partir.</p>
+        <ul class="checks">
+          <li><svg><use href="#i-check"/></svg><span><b>Comptabilité OHADA complète.</b> Journaux, grand livre, balance, bilan, compte de résultat.</span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>Cockpit du dirigeant.</b> Trésorerie, dettes, marges et alertes, en temps réel.</span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>Factures scannées, écritures proposées.</b> L'OCR lit la pièce, vous validez l'écriture.</span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>Dossier bancaire assemblé.</b> Avec l'offre Premium, autant de dossiers que nécessaire.</span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>Votre cabinet connecté.</b> Il voit ce que vous l'autorisez à voir, au moment où vous le saisissez.</span></li>
+        </ul>
+        <details class="more"><summary>Toutes les fonctionnalités<svg aria-hidden="true"><use href="#i-chev"/></svg></summary>
+          <ul class="feat-grid"><li>Plan comptable OHADA intégré</li><li>Balance auxiliaire</li><li>TVA multi-pays</li><li>Charges sociales et paie</li><li>Clôture d'exercice</li><li>Historique comptable complet</li><li>Factures récurrentes et avoirs</li><li>Conversion devis en facture</li><li>Suivi des paiements clients</li><li>Rapprochement bancaire</li><li>Suivi des dettes fournisseurs</li><li>Prévision de trésorerie</li><li>Archivage des justificatifs</li><li>Circuit d'approbation</li><li>Score d'intégrité DIP</li><li>Collaboration cabinet en temps réel</li></ul>
+        </details>
+        <div class="outcomes"><span>Vous comprenez vos chiffres</span><span>Vous gagnez en crédibilité</span><span>Vous préparez le financement</span></div>
+      </div>
+      <div class="shot">
+        <div class="shot-photo"><img src="/assets/img/dirigeante.webp" width="732" height="383" loading="lazy" decoding="async" alt="Une dirigeante consulte ses chiffres sur une tablette"></div>
+        <div class="shot-ui">
+          <div class="ui-head"><b>Cockpit du dirigeant</b><span class="ui-tag">En direct</span></div>
+          <div class="kpis">
+            <div class="kpi"><span>Trésorerie</span><strong>4,8 M</strong><em>+6 % sur 30 j</em></div>
+            <div class="kpi"><span>Impayés</span><strong>1,25 M</strong><em class="down">3 clients</em></div>
+            <div class="kpi"><span>Score AXINA</span><strong>94</strong><em>sur 100</em></div>
+          </div>
+          <svg class="spark" viewBox="0 0 300 70" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="g1" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3e7bfa" stop-opacity=".25"/><stop offset="1" stop-color="#3e7bfa" stop-opacity="0"/></linearGradient></defs><path d="M0 52 L30 48 L60 50 L90 40 L120 42 L150 30 L180 34 L210 22 L240 26 L270 14 L300 16 L300 70 L0 70Z" fill="url(#g1)"/><path d="M0 52 L30 48 L60 50 L90 40 L120 42 L150 30 L180 34 L210 22 L240 26 L270 14 L300 16" fill="none" stroke="#3e7bfa" stroke-width="2.2"/></svg>
+          <div class="ui-caption">Montants en FCFA. Données d'exemple.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cabinets -->
+    <div class="panel" role="tabpanel" id="p-cab" aria-labelledby="u-cab" hidden>
+      <div>
+        <h3>Gérez plusieurs clients, avec des données propres.</h3>
+        <p class="lead">Vos clients saisissent, vous voyez. Vous préparez, révisez, visez. AXINA produit des états traçables et vous laisse le temps du conseil.</p>
+        <ul class="checks">
+          <li><svg><use href="#i-check"/></svg><span><b>Votre client saisit, vous voyez.</b> En temps réel, dans le périmètre de votre mandat.</span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>Un portefeuille, un seul écran.</b> Toutes vos entreprises connectées, leurs échéances, leurs anomalies.</span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>Production des journaux, balances et états OHADA.</b></span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>Révision assistée.</b> Les anomalies remontent d'elles-mêmes, vous décidez.</span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>Le cabinet reste le garant</b> de la validation comptable et fiscale. Le visa est le vôtre, nominatif.</span></li>
+        </ul>
+        <div class="note-box"><b>AXINA travaille avec les comptables, pas à leur place.</b> Moins de saisie, plus de conseil, et un portefeuille qui grandit sans grossir l'équipe au même rythme.</div>
+        <a class="btn btn-ink" href="#cabinets">Voir l'atelier de production</a>
+      </div>
+      <div class="shot">
+        <div class="shot-photo"><img src="/assets/img/equipe.webp" width="766" height="414" loading="lazy" decoding="async" alt="Une équipe de cabinet comptable échange autour d'un dossier"></div>
+        <div class="shot-ui dark-ui">
+          <div class="ui-head"><b>Bannette du cabinet</b><span class="ui-tag">Synchronisé</span></div>
+          <div class="ui-rows">
+            <div class="ui-row"><span class="l"><i class="dot" style="background:#3e7bfa"></i><span>Paie d'octobre · Ndiaye Distribution</span></span><span>Préparation</span></div>
+            <div class="ui-row"><span class="l"><i class="dot" style="background:#ffc35c"></i><span>TVA d'octobre · Kaba Services</span></span><span>Révision</span></div>
+            <div class="ui-row"><span class="l"><i class="dot" style="background:#6fdcaa"></i><span>Clôture 2025 · Sahel Négoce</span></span><span>Visa</span></div>
+            <div class="ui-row"><span class="l"><i class="dot" style="background:#f5a524"></i><span>TVA de septembre · Kaba Services</span></span><span>Scellé</span></div>
+          </div>
+          <div class="ui-caption">Données d'exemple.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ONG -->
+    <div class="panel" role="tabpanel" id="p-ong" aria-labelledby="u-ong" hidden>
+      <div>
+        <h3>Chaque franc doit être traçable.</h3>
+        <p class="lead">Les bailleurs demandent une transparence totale. AXINA rattache chaque dépense à son budget, à sa pièce et à son écriture, du budget initial au rapport final.</p>
+        <ul class="checks">
+          <li><svg><use href="#i-check"/></svg><span><b>Traçabilité des fonds.</b> Chaque projet et chaque bailleur a son espace : budget, dépenses, justificatifs.</span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>Accès bailleurs en temps réel.</b> Vos bailleurs suivent dépenses et avancement, en lecture seule.</span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>QR code sur chaque rapport.</b> Le bailleur vérifie lui-même que les chiffres n'ont pas bougé.</span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>Rapports produits automatiquement.</b> Rapports financiers, états par projet, dossiers d'audit.</span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>Alertes.</b> Dépassements budgétaires, pièces manquantes, paiements inhabituels.</span></li>
+        </ul>
+        <details class="more"><summary>Toutes les fonctionnalités<svg aria-hidden="true"><use href="#i-chev"/></svg></summary>
+          <ul class="feat-grid"><li>Budgets par projet et bailleur</li><li>Suivi des fonds reçus et décaissés</li><li>Allocation des fonds par projet</li><li>Alertes sur écarts budgétaires</li><li>Justificatifs obligatoires</li><li>Validation des dépenses à plusieurs niveaux</li><li>Rapports bailleurs automatiques</li><li>États financiers par projet</li><li>Dépenses scellées DIP</li><li>Détection d'anomalies</li><li>Dossier d'audit permanent</li><li>Historique financier par projet</li><li>Archivage numérique des justificatifs</li><li>Cockpit multi-bailleurs</li></ul>
+        </details>
+        <div class="outcomes"><span>Transparence</span><span>Confiance des bailleurs</span><span>Prêt pour l'audit</span></div>
+      </div>
+      <div class="shot">
+        <div class="shot-photo"><img src="/assets/img/ong-livraison.webp" width="766" height="414" loading="lazy" decoding="async" alt="Distribution de matériel dans une communauté"></div>
+        <div class="shot-ui">
+          <div class="ui-head"><b>Projets financés</b><span class="ui-tag amber">4 projets</span></div>
+          <div class="ui-rows">
+            <div class="ui-row"><span class="l"><i class="dot" style="background:#17a865"></i><span>Accès à l'eau · région nord</span></span><span>72 % engagé</span></div>
+            <div class="ui-row"><span class="l"><i class="dot" style="background:#17a865"></i><span>Kits solaires · 12 villages</span></span><span>58 % engagé</span></div>
+            <div class="ui-row"><span class="l"><i class="dot" style="background:#d64545"></i><span>Formation agricole</span></span><span>Dépassement 4 %</span></div>
+          </div>
+          <div class="ui-caption">Données d'exemple.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Banques -->
+    <div class="panel" role="tabpanel" id="p-bank" aria-labelledby="u-bank" hidden>
+      <div>
+        <h3>Des données fiables, vérifiables, exploitables.</h3>
+        <p class="lead">Les dossiers AXINA sont standardisés et tirés d'un grand livre scellé. La banque reçoit ce qu'il faut pour instruire vite. La décision lui appartient.</p>
+        <ul class="checks">
+          <li><svg><use href="#i-check"/></svg><span><b>Dossiers de crédit standardisés.</b> Même structure d'une entreprise à l'autre.</span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>États financiers au format banque,</b> produits depuis la comptabilité de l'entreprise.</span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>Ratios déjà calculés.</b> Liquidité, solvabilité, endettement.</span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>QR code de vérification.</b> Le chargé d'affaires confirme l'origine des chiffres en quelques secondes.</span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>Suivi dans le temps</b> des entreprises financées, avec leur accord.</span></li>
+        </ul>
+        <details class="more"><summary>Toutes les fonctionnalités<svg aria-hidden="true"><use href="#i-chev"/></svg></summary>
+          <ul class="feat-grid"><li>Réception de dossiers scellés DIP</li><li>États financiers standardisés</li><li>Ratios financiers automatiques</li><li>Analyse de solvabilité structurée</li><li>Vérification d'authenticité par QR</li><li>Traçabilité des justificatifs</li><li>Indicateurs de risque calculés</li><li>Historique financier structuré</li><li>Alertes de dégradation</li><li>Passeport DIP historique</li><li>Accès API sur demande</li></ul>
+        </details>
+        <div class="outcomes"><span>Analyse plus rapide</span><span>Meilleur portefeuille</span><span>Décisions éclairées</span></div>
+      </div>
+      <div class="shot">
+        <div class="shot-ui" style="margin:0;width:100%">
+          <div class="ui-head"><b>Dossier de crédit · Sahel Négoce SARL</b><span class="ui-tag">QR vérifié</span></div>
+          <div class="kpis">
+            <div class="kpi"><span>Liquidité générale</span><strong>1,62</strong></div>
+            <div class="kpi"><span>Autonomie financière</span><strong>41 %</strong></div>
+            <div class="kpi"><span>Capacité de remboursement</span><strong>3,1 ans</strong></div>
+          </div>
+          <div class="ui-rows">
+            <div class="ui-row"><span class="l"><i class="dot" style="background:#17a865"></i><span>Bilan, compte de résultat, flux</span></span><span>3 exercices</span></div>
+            <div class="ui-row"><span class="l"><i class="dot" style="background:#17a865"></i><span>Grand livre et balance</span></span><span>Scellés DIP</span></div>
+            <div class="ui-row"><span class="l"><i class="dot" style="background:#ffc35c"></i><span>Visa du cabinet</span></span><span>Nommé, daté</span></div>
+          </div>
+          <div class="ui-caption">Données d'exemple.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Entreprises publiques -->
+    <div class="panel" role="tabpanel" id="p-pub" aria-labelledby="u-pub" hidden>
+      <div>
+        <h3>Piloter l'entreprise d'État. Décider à temps.</h3>
+        <p class="lead">AXINA donne au dirigeant d'une entreprise publique les outils de pilotage d'un groupe privé, et à la tutelle une vue consolidée pour ajuster avant la crise.</p>
+        <div class="note-box"><b>Un exemple.</b> Les marges d'un secteur se tendent parce qu'un intrant renchérit. AXINA le voit dans les comptes, la tutelle est informée, une décision est prise avant que la situation ne se dégrade. C'est ça, piloter en temps réel.</div>
+        <ul class="checks">
+          <li><svg><use href="#i-check"/></svg><span><b>Cockpit du dirigeant.</b> Trésorerie, marges, dettes, investissements, performance.</span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>Radar décisionnel.</b> Les tensions financières remontent avant la dégradation.</span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>Vue de la tutelle.</b> Toutes les entités d'un ministère, consolidées.</span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>Vue du Trésor.</b> Flux, dettes, subventions et transferts publics.</span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>Accès en lecture seule pour les organes de contrôle.</b> L'audit annuel devient un contrôle continu.</span></li>
+        </ul>
+        <details class="more"><summary>Toutes les fonctionnalités<svg aria-hidden="true"><use href="#i-chev"/></svg></summary>
+          <ul class="feat-grid"><li>Comptabilité scellée DIP en temps réel</li><li>Indicateurs de pilotage du dirigeant</li><li>Alertes de tension précoces</li><li>Vue consolidée multi-entités</li><li>Suivi des subventions et transferts</li><li>Vue des organes de contrôle</li><li>Alertes dépenses hors budget</li><li>Alertes paiements et factures suspects</li><li>Écritures horodatées</li><li>Rapports institutionnels automatiques</li></ul>
+        </details>
+      </div>
+      <div class="shot">
+        <div class="shot-ui dark-ui" style="margin:0;width:100%">
+          <div class="ui-head"><b>Société nationale d'énergie · exemple</b><span class="ui-tag">En direct</span></div>
+          <div class="kpis">
+            <div class="kpi"><span>Trésorerie</span><strong>48,7 Md</strong><em>stable</em></div>
+            <div class="kpi"><span>Marge opérationnelle</span><strong>-2,1 %</strong><em class="down">action requise</em></div>
+            <div class="kpi"><span>Dettes fournisseurs</span><strong>12,4 Md</strong><em class="down">+8 % ce mois</em></div>
+          </div>
+          <div class="ui-rows">
+            <div class="ui-row"><span class="l"><i class="dot" style="background:#d64545"></i><span>Marge en baisse : coût de l'énergie +18 % en 60 jours</span></span><span>Voir</span></div>
+            <div class="ui-row"><span class="l"><i class="dot" style="background:#ffc35c"></i><span>Tutelle informée : ajustement de subvention à l'étude</span></span><span>Suivi</span></div>
+            <div class="ui-row"><span class="l"><i class="dot" style="background:#6fdcaa"></i><span>Rapport trimestriel scellé, transmis au contrôle</span></span><span>Fait</span></div>
+          </div>
+          <div class="ui-caption">Montants en FCFA. Entité et données fictives.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Administrations -->
+    <div class="panel" role="tabpanel" id="p-adm" aria-labelledby="u-adm" hidden>
+      <div>
+        <h3>Pilotez les budgets publics avec précision.</h3>
+        <p class="lead">Ministères, collectivités, agences et projets publics : une visibilité complète sur l'exécution budgétaire, pour décider sur des données réelles.</p>
+        <ul class="checks">
+          <li><svg><use href="#i-check"/></svg><span><b>Gestion budgétaire complète.</b> Budget, exécution, dépenses par ministère, programme et projet.</span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>Vue consolidée des Finances.</b> Toutes les administrations, avec leurs indicateurs.</span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>Chaque paiement justifié,</b> scellé et vérifiable.</span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>Anomalies détectées.</b> Dépassements, irrégularités, incohérences.</span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>Tableau public, en option.</b> L'usage des fonds publics, visible par les citoyens.</span></li>
+        </ul>
+        <details class="more"><summary>Toutes les fonctionnalités<svg aria-hidden="true"><use href="#i-chev"/></svg></summary>
+          <ul class="feat-grid"><li>Budgets par ministère</li><li>Budgets par programme</li><li>Budgets par projet</li><li>Suivi de l'exécution en direct</li><li>Dépenses scellées DIP</li><li>Validation à plusieurs niveaux</li><li>Tableau de bord consolidé</li><li>Indicateurs par ministère</li><li>Détection de dépenses anormales</li><li>Alertes de dépassement</li><li>Rapports budgétaires consolidés</li><li>Statistiques mensuelles</li><li>Tableau public (optionnel)</li><li>Consolidation multi-administrations</li></ul>
+        </details>
+      </div>
+      <div class="shot">
+        <div class="shot-photo"><img src="/assets/img/ong-terrain.webp" width="766" height="744" loading="lazy" decoding="async" alt="Agents publics et habitants lors d'une distribution" style="aspect-ratio:16/11;object-fit:cover"></div>
+        <div class="shot-ui">
+          <div class="ui-head"><b>Exécution budgétaire</b><span class="ui-tag blue">Exemple</span></div>
+          <div class="ui-rows">
+            <div class="ui-row"><span class="l"><i class="dot" style="background:#3e7bfa"></i><span>Éducation</span></span><span>91 % exécuté</span></div>
+            <div class="ui-row"><span class="l"><i class="dot" style="background:#3e7bfa"></i><span>Énergie</span></span><span>83 % exécuté</span></div>
+            <div class="ui-row"><span class="l"><i class="dot" style="background:#3e7bfa"></i><span>Finances</span></span><span>78 % exécuté</span></div>
+            <div class="ui-row"><span class="l"><i class="dot" style="background:#ffc35c"></i><span>Santé</span></span><span>65 % exécuté</span></div>
+          </div>
+          <div class="ui-caption">Données d'exemple.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CABINETS -->
+<section class="sec dark on-dark" id="cabinets">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">AXINA Cabinet</div>
+      <h2 class="h-sec">L'atelier de production du cabinet.</h2>
+      <p class="lead">Chaque dossier client avance dans une bannette, du premier rapprochement au scellement. Qui a fait quoi, quand et à quel titre : tout est tracé.</p>
+    </div>
+    <div class="pipeline">
+      <div class="stage"><span class="n">Étape 1</span><h4>Préparation</h4><p>Le collaborateur rassemble les pièces, lie les écritures, demande ce qui manque au client.</p><div class="who">Collaborateur</div></div>
+      <div class="stage"><span class="n">Étape 2</span><h4>Révision</h4><p>Le réviseur contrôle. Une écriture fausse s'extourne et se réécrit, jamais ne s'efface.</p><div class="who">Réviseur, senior</div></div>
+      <div class="stage"><span class="n">Étape 3</span><h4>Visa</h4><p>Un signataire du cabinet vise le dossier, à son nom. Le visa engage le professionnel, pas le logiciel.</p><div class="who">Associé signataire</div></div>
+      <div class="stage"><span class="n">Étape 4</span><h4>Scellé</h4><p>Le dossier est figé. Pour corriger, on ouvre un ticket de correction : l'original reste intact.</p><div class="who">Automatique après visa</div></div>
+    </div>
+    <div class="cabinet-cols">
+      <div>
+        <p class="quote-line">Un bon cabinet avec AXINA fait le travail de plusieurs cabinets sans AXINA.</p>
+        <p>Données propres, traçables, scellées. Et plus de temps pour le conseil, qui est là où le cabinet crée de la valeur.</p>
+        <div class="hero-ctas" style="margin-top:26px">
+          <button class="btn btn-seal" type="button" data-open="m-contact" data-preset="Tester AXINA Cabinet (comptable)">Tester AXINA Cabinet</button>
+          <a class="btn btn-ghost" href="#tarifs" data-goto="pt-cab">Voir les formules Cabinet</a>
+        </div>
+      </div>
+      <div>
+        <ul class="checks">
+          <li><svg><use href="#i-check"/></svg><span><b>Portefeuille multi-entreprises</b>, avec accès par collaborateur et par rôle.</span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>Accès sous mandat.</b> Le client autorise, définit le périmètre, peut révoquer.</span></li>
+          <li><svg><use href="#i-check"/></svg><span><b>Échéances fiscales suivies</b> et demandes de pièces au client depuis le dossier.</span></li>
+        </ul>
+        <details class="more"><summary>Toutes les fonctionnalités<svg aria-hidden="true"><use href="#i-chev"/></svg></summary>
+          <ul class="feat-grid"><li>Portefeuille clients</li><li>Accès par collaborateur</li><li>Gestion des dossiers clients</li><li>OCR des factures clients</li><li>Automatisation des écritures</li><li>Contrôle des anomalies</li><li>Rapprochement automatique</li><li>Validation des comptes</li><li>Liasses fiscales</li><li>TVA multi-pays</li><li>Préparation du dossier fiscal</li><li>Échanges de documents avec le client</li><li>Répartition des dossiers</li><li>Visa nominatif du cabinet</li><li>Dossiers scellés DIP</li></ul>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIP -->
+<section class="sec white" id="dip">
+  <div class="wrap">
+    <div class="dip-wrap">
+      <div>
+        <div class="kicker">Data Integrity Protocol</div>
+        <h2 class="h-sec">DIP, le protocole de confiance.</h2>
+        <p class="lead" style="margin:18px 0 30px">Le protocole d'intégrité qui rend vos données financières vérifiables par n'importe quelle institution, sans lui demander de vous croire sur parole.</p>
+        <ol class="steps">
+          <li><div><h4>Chaque écriture est horodatée et scellée.</h4><p>Au moment de l'enregistrement, AXINA calcule une empreinte SHA-256 de l'écriture et de ses lignes.</p></div></li>
+          <li><div><h4>Chaque empreinte est chaînée à la précédente.</h4><p>Le grand livre forme une chaîne : modifier une écriture passée casserait tous les maillons suivants. Les corrections passent par une écriture inverse, visible.</p></div></li>
+          <li><div><h4>Chaque document devient vérifiable.</h4><p>Factures et dossiers portent un QR code. Une banque, un bailleur ou un partenaire vérifie en quelques secondes, sans compte AXINA.</p></div></li>
+        </ol>
+      </div>
+      <div>
+        <div class="chain-card">
+          <div class="block"><div class="hd"><span>Écriture n° 1184 · Encaissement</span><span style="color:#6fdcaa">Scellée</span></div>
+            <div class="row"><span>précédente</span><span>9c4d8f3a7b1e…</span></div>
+            <div class="row"><span>empreinte</span><b>2e8b1d5c4f7a…</b></div>
+            <div class="row"><span>horodatage</span><span>31/10/2026 11:32:07</span></div></div>
+          <div class="block"><div class="hd"><span>Écriture n° 1185 · Achat</span><span style="color:#6fdcaa">Scellée</span></div>
+            <div class="row"><span>précédente</span><span>2e8b1d5c4f7a…</span></div>
+            <div class="row"><span>empreinte</span><b>7f3a9e12d6c8…</b></div>
+            <div class="row"><span>horodatage</span><span>31/10/2026 14:05:51</span></div></div>
+          <div class="block"><div class="hd"><span>Écriture n° 1186 · Extourne de n° 1185</span><span style="color:#ffc35c">Scellée</span></div>
+            <div class="row"><span>précédente</span><span>7f3a9e12d6c8…</span></div>
+            <div class="row"><span>empreinte</span><b>b850b74906fa…</b></div>
+            <div class="row"><span>motif</span><span>compte de charge erroné</span></div></div>
+          <p class="tiny" style="color:var(--mist-2);margin:16px 0 0">Exemple. Une erreur ne s'efface pas : elle s'annule par une écriture inverse, elle-même scellée.</p>
+        </div>
+        <div class="verify-box">
+          <button class="btn btn-ink" type="button" data-open="m-verify"><svg aria-hidden="true"><use href="#i-search"/></svg>Vérifier un document</button>
+        </div>
+      </div>
+    </div>
+    <div class="outputs">
+      <div class="output"><svg aria-hidden="true"><use href="#i-doc"/></svg><h4>Factures scellées</h4><p>Chaque facture porte un QR code, vérifiable publiquement en quelques secondes.</p></div>
+      <div class="output"><svg aria-hidden="true"><use href="#i-gauge"/></svg><h4>Score d'intégrité</h4><p>Régularité, conformité fiscale, discipline financière, mesurées en continu.</p></div>
+      <div class="output"><svg aria-hidden="true"><use href="#i-bank"/></svg><h4>Dossiers bancaires</h4><p>États financiers, ratios calculés, dossier prêt à analyser.</p></div>
+      <div class="output"><svg aria-hidden="true"><use href="#i-pass"/></svg><h4>Passeport DIP</h4><p>L'historique financier scellé de l'entreprise, exercice après exercice.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- INTELLIGENCE -->
+<section class="sec" id="radar">
+  <div class="wrap intel">
+    <div>
+      <div class="kicker">Radar financier</div>
+      <h2 class="h-sec">AXINA surveille. Vous agissez.</h2>
+      <p class="lead" style="margin-top:18px">Le radar applique des règles métier OHADA à votre grand livre. Chaque alerte vient de vos écritures, pas d'une estimation. Vous demandez une explication quand vous en avez besoin.</p>
+      <div class="ai-modes">
+        <div class="ai-mode"><b>Désactivée par défaut</b><p>Une entreprise démarre sans IA. Le dirigeant l'active, et peut la couper.</p></div>
+        <div class="ai-mode"><b>Locale d'abord</b><p>Un modèle sur votre poste : vos données ne quittent pas la machine. Selon votre matériel.</p></div>
+        <div class="ai-mode"><b>Jamais dans la compta</b><p>L'IA commente des chiffres déjà calculés. Elle n'écrit aucune écriture, ne propose aucun montant.</p></div>
+      </div>
+      <div class="voice">
+        <div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        <p><b>À la voix aussi.</b> « Quel est l'état de ma trésorerie ce mois ? » Saisie et questions vocales, selon les modules disponibles.</p>
+      </div>
+    </div>
+    <div class="radar">
+      <div class="ui-head"><b>Bonjour Amadou. 3 points demandent votre attention.</b><span class="ui-tag amber">Exemple</span></div>
+      <div class="alert"><i class="sev" style="background:#d64545"></i><div><b>Trésorerie en tension</b><p>Baisse depuis 3 semaines. Impayés : 1 250 000 FCFA.</p><button type="button" aria-expanded="false">Pourquoi cette alerte ?</button><div class="why">Le solde des comptes 52 baisse trois semaines de suite pendant que les créances clients échues (411) augmentent. Deux factures de plus de 60 jours expliquent l'essentiel de l'écart.</div></div></div>
+      <div class="alert"><i class="sev" style="background:#f5a524"></i><div><b>Délai client élevé : 52 jours</b><p>Au-delà de votre objectif de 45 jours. Relancer Ndiaye SARL.</p><button type="button" aria-expanded="false">Pourquoi cette alerte ?</button><div class="why">Le délai moyen de paiement de vos clients se calcule depuis vos factures et leurs encaissements. Ndiaye SARL concentre 40 % des montants en retard.</div></div></div>
+      <div class="alert"><i class="sev" style="background:#3e7bfa"></i><div><b>Déclaration de TVA dans 6 jours</b><p>Montant estimé : 340 000 FCFA. À anticiper.</p><button type="button" aria-expanded="false">Pourquoi cette alerte ?</button><div class="why">TVA collectée (4431) moins TVA déductible (445) sur la période. Montant indicatif, à confirmer par votre cabinet avant dépôt.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PASSEPORT -->
+<section class="sec white" id="passeport">
+  <div class="wrap passport">
+    <div class="pass-card">
+      <div class="top">
+        <div><div class="co">SeneFood SARL</div><div class="id">NINEA fictif 0000000 2G3</div></div>
+        <span class="example-flag">Exemple</span>
+      </div>
+      <div class="years">
+        <div class="year"><span>Exercice 2023</span><strong>88</strong><em>scellé</em></div>
+        <div class="year"><span>Exercice 2024</span><strong>91</strong><em>scellé</em></div>
+        <div class="year"><span>Exercice 2025</span><strong>94</strong><em>scellé</em></div>
+      </div>
+      <div class="pass-foot"><span>Score d'intégrité par exercice</span><span>3 exercices · visa du cabinet nommé</span></div>
+    </div>
+    <div>
+      <div class="kicker">Passeport DIP</div>
+      <h2 class="h-sec">Une réputation qui se construit, exercice après exercice.</h2>
+      <p class="lead" style="margin-top:18px">Chaque année scellée s'ajoute à la précédente. L'historique financier de l'entreprise devient un argument qu'elle peut présenter, et que d'autres peuvent vérifier.</p>
+      <div class="audiences">
+        <div><b>Banques</b><p>Un historique présenté d'emblée, vérifiable.</p></div>
+        <div><b>Investisseurs</b><p>Une due diligence plus simple.</p></div>
+        <div><b>Marchés publics</b><p>Un dossier financier prêt pour les appels d'offres.</p></div>
+        <div><b>Partenaires</b><p>Une crédibilité établie avant le premier rendez-vous.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TARIFS -->
+<section class="sec" id="tarifs">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h-sec">Un prix d'entrée accessible. Une progression liée à la valeur.</h2>
+      <p class="lead">Prix mensuels en FCFA. L'entreprise paie son abonnement, le cabinet paie le sien : jamais deux fois la même fonctionnalité.</p>
+    </div>
+    <div class="price-switch" role="tablist" data-tabs aria-label="Type de client">
+      <button role="tab" id="pt-ent" aria-controls="pp-ent" aria-selected="true">Entreprises</button>
+      <button role="tab" id="pt-cab" aria-controls="pp-cab" aria-selected="false" tabindex="-1">Cabinets</button>
+      <button role="tab" id="pt-inst" aria-controls="pp-inst" aria-selected="false" tabindex="-1">Institutions</button>
+    </div>
+
+    <div role="tabpanel" id="pp-ent" aria-labelledby="pt-ent">
+      <div class="included"><b>Dans toutes les offres</b><span>Plan comptable OHADA</span><span>Journaux et grand livre</span><span>Balance</span><span>États financiers de base</span><span>Facturation</span><span>Tableau de bord</span></div>
+      <div class="plans">
+        <div class="plan">
+          <h3>Essentiel</h3><p class="for">Pour découvrir AXINA, sans engagement.</p>
+          <div class="price">0<small>FCFA / mois</small></div>
+          <div class="meta">1 entreprise · 1 utilisateur · 2 Go</div>
+          <ul>
+            <li><svg><use href="#i-check"/></svg>Comptabilité OHADA de base et saisie</li>
+            <li><svg><use href="#i-check"/></svg>Journaux, grand livre, balance</li>
+            <li><svg><use href="#i-check"/></svg>États financiers de base</li>
+            <li><svg><use href="#i-check"/></svg>Facturation simple</li>
+            <li><svg><use href="#i-check"/></svg>Archivage documentaire limité</li>
+            <li class="no"><svg><use href="#i-minus"/></svg>Pas de connexion cabinet</li>
+            <li class="no"><svg><use href="#i-minus"/></svg>Pas de dossier bancaire</li>
+          </ul>
+          <button class="btn btn-line" type="button" data-open="m-contact" data-preset="Créer mon compte AXINA">Commencer gratuitement</button>
+        </div>
+        <div class="plan">
+          <h3>Business</h3><p class="for">La gestion financière et comptable complète de la PME.</p>
+          <div class="price">5 000<small>FCFA / mois</small></div>
+          <div class="meta">par entreprise · 20 Go</div>
+          <ul>
+            <li><svg><use href="#i-check"/></svg>Comptabilité OHADA et états disponibles</li>
+            <li><svg><use href="#i-check"/></svg>Factures clients et suivi des règlements</li>
+            <li><svg><use href="#i-check"/></svg>Trésorerie et suivi des comptes</li>
+            <li><svg><use href="#i-check"/></svg>GED et archivage</li>
+            <li><svg><use href="#i-check"/></svg>Scellement DIP et traçabilité</li>
+            <li><svg><use href="#i-check"/></svg>Connexion à votre cabinet en temps réel</li>
+            <li><svg><use href="#i-check"/></svg>Messagerie et partage de documents</li>
+            <li><svg><use href="#i-check"/></svg>Mode local, selon les modules</li>
+            <li class="no"><svg><use href="#i-minus"/></svg>Sans dossier de crédit</li>
+          </ul>
+          <button class="btn btn-ink" type="button" data-open="m-contact" data-preset="Créer mon compte AXINA">Choisir Business</button>
+        </div>
+        <div class="plan featured">
+          <span class="flag">Pour se financer</span>
+          <h3>Premium</h3><p class="for">Piloter l'activité et préparer le financement.</p>
+          <div class="price">20 000<small>FCFA / mois</small></div>
+          <div class="meta">par entreprise · 50 Go</div>
+          <ul>
+            <li><svg><use href="#i-check"/></svg>Tout Business, plus :</li>
+            <li><svg><use href="#i-check"/></svg>Cockpit du dirigeant et pilotage avancé</li>
+            <li><svg><use href="#i-check"/></svg>Analyses financières approfondies</li>
+            <li><svg><use href="#i-check"/></svg>Score et indicateurs DIP</li>
+            <li><svg><use href="#i-check"/></svg>Dossier fiscal avancé</li>
+            <li><svg><use href="#i-check"/></svg>Dossiers bancaires illimités*</li>
+            <li><svg><use href="#i-check"/></svg>Automatisations et OCR, selon quota</li>
+            <li><svg><use href="#i-check"/></svg>Contrôles et suivi avancés</li>
+          </ul>
+          <button class="btn btn-seal" type="button" data-open="m-contact" data-preset="Obtenir un dossier Bank Ready">Choisir Premium</button>
+        </div>
+        <div class="plan">
+          <h3>Enterprise</h3><p class="for">Groupes et organisations multi-entités.</p>
+          <div class="price quote">Sur devis</div>
+          <div class="meta">configuration dédiée</div>
+          <ul>
+            <li><svg><use href="#i-check"/></svg>Multi-entités et consolidation</li>
+            <li><svg><use href="#i-check"/></svg>Reporting groupe</li>
+            <li><svg><use href="#i-check"/></svg>Gouvernance des accès</li>
+            <li><svg><use href="#i-check"/></svg>API et intégrations</li>
+            <li><svg><use href="#i-check"/></svg>Déploiement local, hybride ou dédié</li>
+            <li><svg><use href="#i-check"/></svg>Paramétrage multi-pays</li>
+            <li><svg><use href="#i-check"/></svg>Formation et support contractuel</li>
+          </ul>
+          <button class="btn btn-line" type="button" data-open="m-contact" data-preset="Partenariat commercial">Parler à l'équipe</button>
+        </div>
+      </div>
+      <div class="fine">
+        <div><b>*Dossiers bancaires illimités</b>L'illimité porte sur le nombre de dossiers constitués, dans le cadre d'un usage normal. Il ne garantit ni l'acceptation d'un crédit ni l'octroi d'un financement.</div>
+        <div><b>Utilisateurs et quotas</b>Le nombre d'utilisateurs, les quotas OCR et les limites de collaboration sont précisés au contrat.</div>
+        <div><b>Stockage</b>Alertes à 80 % et 95 %. Extensions par paliers. Aucun document n'est supprimé en cas de dépassement.</div>
+      </div>
+    </div>
+
+    <div role="tabpanel" id="pp-cab" aria-labelledby="pt-cab" hidden>
+      <div class="calc">
+        <div>
+          <label for="cab-range">Combien d'entreprises clientes suivez-vous ? <span id="cab-n" class="mono">12</span></label>
+          <input type="range" id="cab-range" min="1" max="61" value="12">
+        </div>
+        <div class="res"><span>Formule adaptée</span><strong id="cab-plan">Cabinet Business</strong><span id="cab-price">30 000 FCFA / mois</span></div>
+      </div>
+      <div class="plans five">
+        <div class="plan" id="cp-start"><h3>Start</h3><div class="price">15 000<small>FCFA / mois</small></div>
+          <div class="cap"><div><strong>5</strong><span>entreprises</span></div><div><strong>1</strong><span>utilisateur</span></div></div>
+          <ul><li><svg><use href="#i-check"/></svg>Vue portefeuille et synchronisation en temps réel</li><li><svg><use href="#i-check"/></svg>Production et révision élémentaire</li><li><svg><use href="#i-check"/></svg>Messagerie et documents selon mandat</li><li><svg><use href="#i-check"/></svg>20 Go</li></ul>
+          <button class="btn btn-line" type="button" data-open="m-contact" data-preset="Tester AXINA Cabinet (comptable)">Choisir Start</button></div>
+        <div class="plan featured" id="cp-business"><span class="flag">Recommandé</span><h3>Business</h3><div class="price">30 000<small>FCFA / mois</small></div>
+          <div class="cap"><div><strong>15</strong><span>entreprises</span></div><div><strong>3</strong><span>utilisateurs</span></div></div>
+          <ul><li><svg><use href="#i-check"/></svg>Tout Start, plus :</li><li><svg><use href="#i-check"/></svg>Collaborateurs et répartition des dossiers</li><li><svg><use href="#i-check"/></svg>Échéances et supervision</li><li><svg><use href="#i-check"/></svg>Complétude et demandes de pièces</li><li><svg><use href="#i-check"/></svg>Tableau de bord de production</li><li><svg><use href="#i-check"/></svg>50 Go</li></ul>
+          <button class="btn btn-seal" type="button" data-open="m-contact" data-preset="Tester AXINA Cabinet (comptable)">Choisir Business</button></div>
+        <div class="plan" id="cp-pro"><h3>Pro</h3><div class="price">50 000<small>FCFA / mois</small></div>
+          <div class="cap"><div><strong>30</strong><span>entreprises</span></div><div><strong>5</strong><span>utilisateurs</span></div></div>
+          <ul><li><svg><use href="#i-check"/></svg>Tout Business, plus :</li><li><svg><use href="#i-check"/></svg>Supervision avancée du portefeuille</li><li><svg><use href="#i-check"/></svg>Missions et responsabilités</li><li><svg><use href="#i-check"/></svg>Contrôle des travaux et anomalies</li><li><svg><use href="#i-check"/></svg>Exports et reporting avancés</li><li><svg><use href="#i-check"/></svg>100 Go</li></ul>
+          <button class="btn btn-line" type="button" data-open="m-contact" data-preset="Tester AXINA Cabinet (comptable)">Choisir Pro</button></div>
+        <div class="plan" id="cp-premium"><h3>Premium</h3><div class="price">90 000<small>FCFA / mois</small></div>
+          <div class="cap"><div><strong>60</strong><span>entreprises</span></div><div><strong>10</strong><span>utilisateurs</span></div></div>
+          <ul><li><svg><use href="#i-check"/></svg>Tout Pro, plus :</li><li><svg><use href="#i-check"/></svg>Supervision globale et équipes</li><li><svg><use href="#i-check"/></svg>Reporting consolidé</li><li><svg><use href="#i-check"/></svg>Contrôles renforcés</li><li><svg><use href="#i-check"/></svg>Support prioritaire selon contrat</li><li><svg><use href="#i-check"/></svg>250 Go</li></ul>
+          <button class="btn btn-line" type="button" data-open="m-contact" data-preset="Tester AXINA Cabinet (comptable)">Choisir Premium</button></div>
+        <div class="plan" id="cp-ent"><h3>Enterprise</h3><div class="price quote">Sur devis</div>
+          <div class="cap"><div style="grid-column:span 2"><strong>Sur mesure</strong><span>entreprises et utilisateurs</span></div></div>
+          <ul><li><svg><use href="#i-check"/></svg>Multi-agences</li><li><svg><use href="#i-check"/></svg>Gouvernance avancée</li><li><svg><use href="#i-check"/></svg>Intégrations spécifiques</li><li><svg><use href="#i-check"/></svg>SLA et accompagnement au contrat</li></ul>
+          <button class="btn btn-line" type="button" data-open="m-contact" data-preset="Partenariat commercial">Parler à l'équipe</button></div>
+      </div>
+      <div class="rules">
+        <div class="rule-card">
+          <h4>Comment se connectent cabinet et entreprise</h4>
+          <table class="rule-table">
+            <tr><td>Entreprise Essentiel</td><td>Non éligible à la connexion cabinet</td></tr>
+            <tr><td>Entreprise Business ou Premium</td><td>Connexion au cabinet en temps réel incluse</td></tr>
+            <tr><td>Abonnement du cabinet</td><td>Facturé séparément, il ne remplace jamais celui de l'entreprise</td></tr>
+            <tr><td>Accès aux données</td><td>Mandat valide et permissions explicites, contrôlés côté serveur</td></tr>
+            <tr><td>Fin de mandat</td><td>Les accès sont retirés, la traçabilité est conservée, aucune écriture n'est détruite</td></tr>
+          </table>
+        </div>
+        <div class="rule-card">
+          <h4>Programme Cabinets partenaires</h4>
+          <p class="muted" style="font-size:15.5px">Un cabinet actif accompagne plusieurs entreprises. Nous l'accompagnons en retour.</p>
+          <ul class="checks" style="margin:0 0 20px">
+            <li><svg><use href="#i-check"/></svg><span>Formation initiale et environnement de démonstration</span></li>
+            <li><svg><use href="#i-check"/></svg><span>Assistance au démarrage, support selon le niveau</span></li>
+            <li><svg><use href="#i-check"/></svg><span>Avantages liés à l'usage réel, à la qualité des dossiers et à la fidélité des clients</span></li>
+          </ul>
+          <button class="btn btn-ink" type="button" data-open="m-contact" data-preset="Partenariat commercial">Devenir partenaire</button>
+        </div>
+      </div>
+      <p class="tiny muted" style="margin-top:18px">Les plafonds désignent des entreprises connectées et actives dans le portefeuille. Ce ne sont pas des licences revendues aux entreprises.</p>
+    </div>
+
+    <div role="tabpanel" id="pp-inst" aria-labelledby="pt-inst" hidden>
+      <div class="inst-grid">
+        <div class="inst"><h3>ONG</h3><p>Les ONG ont des structures très différentes selon les pays, les bailleurs et les programmes. Nous configurons AXINA pour la vôtre.</p>
+          <ul><li>Gestion par projet et par bailleur</li><li>Accès bailleurs en temps réel</li><li>QR code sur chaque rapport</li><li>Rapports bailleurs automatiques</li><li>Validation des dépenses à plusieurs niveaux</li><li>Dossier d'audit permanent</li></ul>
+          <button class="btn btn-ink" type="button" data-open="m-contact" data-preset="Demande d'information générale">Demander une démonstration</button></div>
+        <div class="inst"><h3>Entreprises publiques</h3><p>Sociétés nationales, établissements publics et entités parapubliques : les outils de pilotage du dirigeant, et la visibilité de la tutelle.</p>
+          <ul><li>Cockpit et radar du dirigeant</li><li>Vue consolidée de la tutelle</li><li>Vue du Trésor : flux, dettes, subventions</li><li>Lecture seule pour les organes de contrôle</li><li>Alertes dépenses et paiements suspects</li><li>Rapports institutionnels</li></ul>
+          <button class="btn btn-ink" type="button" data-open="m-contact" data-preset="Demande d'information générale">Demander une démonstration</button></div>
+        <div class="inst"><h3>Administrations</h3><p>Ministères, collectivités, agences, projets publics. AXINA s'adapte à vos règles budgétaires et à vos obligations de reporting.</p>
+          <ul><li>Budgets par ministère, programme, projet</li><li>Suivi de l'exécution en direct</li><li>Tableau de bord consolidé des Finances</li><li>Dépenses scellées et vérifiables</li><li>Détection des anomalies</li><li>Tableau public, en option</li></ul>
+          <button class="btn btn-ink" type="button" data-open="m-contact" data-preset="Demande d'information générale">Demander une démonstration</button></div>
+      </div>
+      <p class="tiny muted" style="margin-top:18px">Tarification sur devis, selon le périmètre, le nombre d'entités et le mode de déploiement.</p>
+    </div>
+
+    <div class="fine" style="border-top:1px solid var(--line);padding-top:22px;margin-top:34px">
+      <div><b>IA</b>Locale d'abord, avec votre propre clé API en option. Les traitements cloud coûteux sont soumis à des quotas annoncés.</div>
+      <div><b>Services</b>Installation, formation, migration de données, matériel local et développements spécifiques sont facturés à part.</div>
+      <div><b>Taxes</b>Prix mensuels en FCFA. Taxes applicables selon le pays. Conditions détaillées au contrat.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SÉCURITÉ -->
+<section class="sec dark on-dark" id="securite">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h-sec">Vos données restent les vôtres.</h2>
+      <p class="lead">La sécurité et la conformité OHADA ne se négocient pas. Voici ce que cela veut dire, concrètement.</p>
+    </div>
+    <div class="trust">
+      <div><b>Aucun accès automatique</b><p>Un cabinet ne voit rien tant que l'entreprise ne l'a pas autorisé, et seulement dans le périmètre choisi.</p></div>
+      <div><b>Permissions côté serveur</b><p>Les rôles et les droits sont vérifiés par la base, pas seulement par l'écran.</p></div>
+      <div><b>Révocable à tout moment</b><p>Révoquer un mandat retire les accès. L'historique de ce qui a été fait reste consultable.</p></div>
+      <div><b>Rien ne s'efface</b><p>Une écriture validée ne se modifie pas : elle s'annule par une écriture inverse. Une fin d'abonnement ne détruit aucune pièce.</p></div>
+      <div><b>L'IA ne touche pas la compta</b><p>Désactivée par défaut. Quand elle est active, elle commente des chiffres calculés, sans jamais écrire dans le grand livre.</p></div>
+      <div><b>Journaux sans contenu</b><p>Les journaux techniques contiennent des identifiants et des codes, jamais le contenu de vos messages ou de vos pièces.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec white" id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h-sec">Ce qu'il faut savoir avant de commencer.</h2>
+    </div>
+    <div class="faq">
+      <details><summary>Qu'est-ce que le Data Integrity Protocol (DIP) ?<span class="pm" aria-hidden="true"></span></summary><p>Le DIP est la couche d'intégrité d'AXINA. Il horodate chaque écriture, en calcule une empreinte SHA-256 et la chaîne à la précédente. Factures et dossiers portent un QR code qui permet de vérifier, en quelques secondes, qu'ils correspondent au registre. Le DIP établit que les chiffres n'ont pas bougé. Il ne remplace pas le visa d'un professionnel du chiffre.</p></details>
+      <details><summary>AXINA remplace-t-il le comptable ou le cabinet ?<span class="pm" aria-hidden="true"></span></summary><p>Non. AXINA est conçu pour travailler avec les professionnels du chiffre. Le cabinet reste le garant de la validation comptable et fiscale, et son visa est nominatif. AXINA automatise les tâches répétitives pour que le comptable se concentre sur le conseil.</p></details>
+      <details><summary>AXINA respecte-t-il le SYSCOHADA ?<span class="pm" aria-hidden="true"></span></summary><p>AXINA est conçu pour l'espace OHADA. Le plan comptable, les journaux et les états financiers suivent le SYSCOHADA révisé, dans les 17 pays membres. Les spécificités fiscales nationales sont paramétrées par pays.</p></details>
+      <details><summary>Les banques acceptent-elles les dossiers AXINA ?<span class="pm" aria-hidden="true"></span></summary><p>La décision appartient toujours à la banque. Les dossiers AXINA suivent les formats et indicateurs financiers qu'elle utilise, et le QR code lui permet de vérifier l'origine des chiffres. Un dossier propre facilite l'instruction ; il ne garantit pas l'accord.</p></details>
+      <details><summary>Qui peut vérifier un document scellé DIP ?<span class="pm" aria-hidden="true"></span></summary><p>N'importe qui. En scannant le QR code, une banque, un investisseur, un partenaire ou une administration consulte la fiche de vérification du document, sans compte AXINA.</p></details>
+      <details><summary>Mon cabinet peut-il travailler sur mon dossier ?<span class="pm" aria-hidden="true"></span></summary><p>Oui, à partir de l'offre Business. Vous autorisez votre cabinet, vous définissez le périmètre de son mandat, et vous pouvez le révoquer. Le cabinet paie son propre abonnement AXINA Cabinet ; il ne remplace pas le vôtre.</p></details>
+      <details><summary>Comment fonctionne l'IA ?<span class="pm" aria-hidden="true"></span></summary><p>Elle est désactivée par défaut. Vous pouvez utiliser un modèle local sur votre poste, ou votre propre clé API. Un service IA dans le cloud n'est possible qu'avec le consentement du dirigeant, daté et révocable. Dans tous les cas, l'IA commente des chiffres déjà calculés et n'écrit jamais dans votre comptabilité.</p></details>
+      <details><summary>Mes données sont-elles sécurisées ?<span class="pm" aria-hidden="true"></span></summary><p>Vos données sont chiffrées en transit, hébergées sur des serveurs sécurisés, et jamais partagées sans votre autorisation. Seuls vous, votre cabinet sous mandat et les personnes que vous autorisez y ont accès.</p></details>
+      <details><summary>AXINA fonctionne-t-il sans connexion ?<span class="pm" aria-hidden="true"></span></summary><p>AXINA privilégie un fonctionnement local. Les modules compatibles continuent de fonctionner hors ligne et se synchronisent au retour de la connexion.</p></details>
+      <details><summary>Comment démarrer ?<span class="pm" aria-hidden="true"></span></summary><p>Créez votre compte avec l'offre Essentiel, gratuite, configurez votre entreprise, et passez à Business ou Premium quand vous en avez besoin.</p></details>
+      <details><summary>Puis-je changer de formule ?<span class="pm" aria-hidden="true"></span></summary><p>Oui, vous pouvez passer à une formule supérieure à tout moment. Les modalités de facturation figurent dans vos conditions d'abonnement.</p></details>
+      <details><summary>Puis-je reprendre mes données existantes ?<span class="pm" aria-hidden="true"></span></summary><p>Oui. AXINA importe vos données comptables existantes. La migration est un service à part, chiffré selon le volume et la complexité.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="sec dark on-dark final">
+  <div class="wrap">
+    <div class="final-inner">
+      <h2>Votre entreprise mérite d'être comprise. Et financée.</h2>
+      <div class="final-side">
+        <p>Comptabilité OHADA tenue au fil de l'eau. Score de l'entreprise en temps réel. Dossier bancaire prêt à soumettre.</p>
+        <div class="hero-ctas">
+          <button class="btn btn-seal" type="button" data-open="m-contact" data-preset="Créer mon compte AXINA">Créer mon compte gratuit</button>
+          <a class="btn btn-ghost" href="/demo.html">Voir la démo</a>
+        </div>
+      </div>
+    </div>
+    <div class="facts">
+      <div><strong>17</strong><span>pays de l'espace OHADA</span></div>
+      <div><strong>6</strong><span>univers connectés</span></div>
+      <div><strong>1</strong><span>grand livre scellé pour tous</span></div>
+    </div>
+  </div>
+</section>
+
+</main>
