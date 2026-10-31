@@ -744,3 +744,12 @@ details.more[open] summary svg { transform: rotate(180deg); }
   .post-nav a.next { text-align: left; }
   .prose { font-size: 17px; }
 }
+
+/* ---------- Langues ---------- */
+.lang { display: inline-flex; gap: 2px; padding: 3px; border-radius: 999px; border: 1px solid var(--line-dark-2); }
+.lang a { color: var(--mist); text-decoration: none; font-size: 12.5px; font-weight: 600; padding: 4px 8px; border-radius: 999px; letter-spacing: .02em; }
+.lang a:hover { color: var(--white); }
+.lang a[aria-current="true"] { background: rgba(255, 255, 255, .12); color: var(--white); }
+.mobile-menu .lang { align-self: flex-start; margin: 4px 0 8px; }
+.mobile-menu .lang a { padding: 6px 12px; font-size: 14px; border: 0; }
+@media (max-width: 1080px) { .nav-right > .lang { display: none; } }

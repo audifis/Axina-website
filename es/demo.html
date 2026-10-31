@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Demo de AXINA: panel, factura sellada, libro mayor, expediente bancario</title>
+<meta name="description" content="Recorra AXINA en cuatro pantallas: panel del director, factura sellada con código QR, libro mayor encadenado y armado del expediente bancario.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#060d1a">
+<link rel="canonical" href="https://axina.pro/es/demo">
+<link rel="alternate" hreflang="fr" href="https://axina.pro/demo">
+<link rel="alternate" hreflang="en" href="https://axina.pro/en/demo">
+<link rel="alternate" hreflang="es" href="https://axina.pro/es/demo">
+<link rel="alternate" hreflang="x-default" href="https://axina.pro/demo">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AXINA">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Demo de AXINA — del panel al expediente bancario">
+<meta property="og:description" content="Recorra AXINA en cuatro pantallas: panel del director, factura sellada con código QR, libro mayor encadenado y armado del expediente bancario.">
+<meta property="og:url" content="https://axina.pro/es/demo">
+<meta property="og:image" content="https://axina.pro/assets/img/og-axina.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AXINA: contabilidad SYSCOHADA sellada, pilotaje y financiación">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Demo de AXINA — del panel al expediente bancario">
+<meta name="twitter:description" content="Recorra AXINA en cuatro pantallas: panel del director, factura sellada con código QR, libro mayor encadenado y armado del expediente bancario.">
+<meta name="twitter:image" content="https://axina.pro/assets/img/og-axina.jpg">
+<meta name="twitter:image:alt" content="AXINA: contabilidad SYSCOHADA sellada, pilotaje y financiación">
+<link rel="icon" href="/favicon.ico?v=3" sizes="48x48">
+<link rel="icon" href="/assets/img/axina-icon.svg?v=3" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png?v=3">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/axina.css?v=c8efe430">
+<script defer src="/assets/axina.js?v=c8efe430"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://axina.pro/#organisation","name":"AXINA","url":"https://axina.pro/","logo":"https://axina.pro/assets/img/icon-512.png","description":"Infraestructura financiera de confianza para las empresas y los despachos contables del espacio OHADA.","areaServed":"Espace OHADA","contactPoint":{"@type":"ContactPoint","contactType":"customer support","telephone":"+240222619606","availableLanguage":["fr"]}},{"@type":"WebSite","@id":"https://axina.pro/#site","name":"AXINA","url":"https://axina.pro/","inLanguage":"es","publisher":{"@id":"https://axina.pro/#organisation"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"AXINA","item":"https://axina.pro/es/"},{"@type":"ListItem","position":2,"name":"Demo","item":"https://axina.pro/es/demo"}]}]}</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="currentColor" opacity=".14"/><path d="m7.5 12.4 3 3 6-6.4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="currentColor" opacity=".12"/><path d="M8 12h8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 3v5h5M10 13h6M10 17h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-gauge" viewBox="0 0 24 24"><path d="M4 16a8 8 0 1 1 16 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="m12 16 4-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 9.5 12 4l9 5.5M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-pass" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M9 16h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35M12.05 21.8h-.01a9.9 9.9 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.89 9.89-9.89 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 7c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41"/></symbol>
+</svg>
+<a class="skip" href="#main">Ir al contenido</a>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/es/" aria-label="AXINA, inicio"><img src="/assets/img/axina-logo-white.svg" width="109" height="30" alt="AXINA"></a>
+    <nav class="nav-links" aria-label="Navegación principal"><div class="dd"><button class="dd-btn" type="button" aria-expanded="false" aria-controls="dd-0">Empresas<svg aria-hidden="true"><use href="#i-chev"/></svg></button><div class="dd-panel" id="dd-0"><a href="/es/entreprises/comptabilite-syscohada"><b>Contabilidad SYSCOHADA</b><span>Diarios, libro mayor, estados, cierre</span></a><a href="/es/entreprises/facturation"><b>Facturación</b><span>Facturas, notas de crédito, recordatorios, código QR</span></a><a href="/es/entreprises/tresorerie"><b>Tesorería y pilotaje</b><span>Tesorería, impagos, alertas, puntuación</span></a><a href="/es/entreprises/paie"><b>Nómina</b><span>Recibos, cotizaciones, asientos</span></a><a href="/es/entreprises/ia-locale"><b>IA local</b><span>Desactivada por defecto, fuera de la contabilidad</span></a><a href="/es/bank-ready"><b>Expediente bancario</b><span>Bank Ready, incluido en Premium</span></a></div></div><div class="dd"><button class="dd-btn" type="button" aria-expanded="false" aria-controls="dd-1">Despachos<svg aria-hidden="true"><use href="#i-chev"/></svg></button><div class="dd-panel" id="dd-1"><a href="/es/cabinets/production"><b>Producción y bandeja</b><span>Preparación, revisión, visado, sellado</span></a><a href="/es/cabinets/revision-visa-correction"><b>Revisión, visado, corrección</b><span>Anulación, visado nominativo, corrección</span></a><a href="/es/cabinets/mandats-et-acces"><b>Mandatos y accesos</b><span>Alcance, revocación, trazabilidad</span></a><a href="/es/#tarifs"><b>Planes para despachos</b><span>De 5 a 60 empresas</span></a></div></div><div class="dd"><button class="dd-btn" type="button" aria-expanded="false" aria-controls="dd-2">Recursos<svg aria-hidden="true"><use href="#i-chev"/></svg></button><div class="dd-panel" id="dd-2"><a href="/blog"><b>Blog</b><span>Fiscalidad, reformas, financiación</span></a><a href="/es/ressources/glossaire"><b>Glosario</b><span>La contabilidad en palabras sencillas</span></a><a href="/es/ressources/verification-dip"><b>Verificación DIP</b><span>Verificar un documento por código QR</span></a><a href="/es/demo"><b>Demo</b><span>Del panel al expediente bancario</span></a><a href="/es/#faq"><b>Preguntas frecuentes</b><span>Antes de empezar</span></a></div></div><a href="/blog">Blog</a><a href="/es/#tarifs">Precios</a></nav>
+    <div class="nav-right">
+      <div class="lang" role="navigation" aria-label="Idioma"><a href="/demo" hreflang="fr" lang="fr">FR</a><a href="/en/demo" hreflang="en" lang="en">EN</a><a href="/es/demo" hreflang="es" lang="es" aria-current="true">ES</a></div>
+      <button class="nav-verify" type="button" data-open="m-verify"><svg aria-hidden="true"><use href="#i-search"/></svg>Verificar un documento</button>
+      <button class="btn btn-seal btn-sm" type="button" data-open="m-contact" data-preset="Crear mi cuenta AXINA">Solicitar acceso</button>
+      <button class="burger" type="button" aria-label="Menú" aria-expanded="false" aria-controls="mobile-menu"><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu" id="mobile-menu">
+  <div class="lang" role="navigation" aria-label="Idioma"><a href="/demo" hreflang="fr" lang="fr">FR</a><a href="/en/demo" hreflang="en" lang="en">EN</a><a href="/es/demo" hreflang="es" lang="es" aria-current="true">ES</a></div>
+  <details class="mm-group"><summary>Empresas</summary><a href="/es/entreprises/comptabilite-syscohada">Contabilidad SYSCOHADA</a><a href="/es/entreprises/facturation">Facturación</a><a href="/es/entreprises/tresorerie">Tesorería y pilotaje</a><a href="/es/entreprises/paie">Nómina</a><a href="/es/entreprises/ia-locale">IA local</a><a href="/es/bank-ready">Expediente bancario</a></details>
+  <details class="mm-group"><summary>Despachos</summary><a href="/es/cabinets/production">Producción y bandeja</a><a href="/es/cabinets/revision-visa-correction">Revisión, visado, corrección</a><a href="/es/cabinets/mandats-et-acces">Mandatos y accesos</a><a href="/es/#tarifs">Planes para despachos</a></details>
+  <details class="mm-group"><summary>Recursos</summary><a href="/blog">Blog</a><a href="/es/ressources/glossaire">Glosario</a><a href="/es/ressources/verification-dip">Verificación DIP</a><a href="/es/demo">Demo</a><a href="/es/#faq">Preguntas frecuentes</a></details>
+  <a href="/blog">Blog</a>
+  <a href="/es/#tarifs">Precios</a>
+  <button class="mm" type="button" data-open="m-verify">Verificar un documento</button>
+  <button class="btn btn-seal" type="button" data-open="m-contact" data-preset="Crear mi cuenta AXINA">Solicitar acceso</button>
+</div>
+<main id="main">
+<section class="page-hero" style="padding-bottom:64px">
+  <div class="hero-glow"></div>
+  <div class="wrap">
+    <div class="crumbs"><a href="/es/">AXINA</a> / Demo</div>
+    <h1 class="h-hero" style="font-size:clamp(40px,5.6vw,72px);max-width:16ch">Del panel al expediente bancario.</h1>
+    <p class="lead" style="margin-top:22px">Cuatro pantallas, en el orden en que una empresa las vive. Empiece por el panel y termine por el expediente.</p>
+  </div>
+</section>
+
+<section class="sec-tight">
+  <div class="wrap">
+    <div class="demo-flag">Demostración con datos de ejemplo: Diallo &amp; Frères SARL no es un cliente real.</div>
+    <div class="tabs demo-tabs" role="tablist" data-tabs aria-label="Pantallas de la demo">
+      <button class="tab" role="tab" id="d-1" aria-controls="dp-1" aria-selected="true">1. Panel</button>
+      <button class="tab" role="tab" id="d-2" aria-controls="dp-2" aria-selected="false" tabindex="-1">2. Factura sellada</button>
+      <button class="tab" role="tab" id="d-3" aria-controls="dp-3" aria-selected="false" tabindex="-1">3. Libro mayor</button>
+      <button class="tab" role="tab" id="d-4" aria-controls="dp-4" aria-selected="false" tabindex="-1">4. Expediente bancario</button>
+    </div>
+    <div class="demo-stage">
+      <div class="demo-bar"><i></i><i></i><i></i><span>AXINA · Diallo &amp; Frères SARL</span></div>
+      <div class="demo-body">
+
+        <div class="demo-panel" role="tabpanel" id="dp-1" aria-labelledby="d-1">
+          <div class="demo-grid">
+            <div>
+              <div class="kpis">
+                <div class="kpi"><span>Facturación del mes</span><strong>8,4 M</strong><em>+18 % en un mes</em></div>
+                <div class="kpi"><span>Cuentas por cobrar</span><strong>2,1 M</strong><em class="down">de ellos 1,25 M vencidos</em></div>
+                <div class="kpi"><span>Tesorería</span><strong>4,8 M</strong><em>estable</em></div>
+              </div>
+              <svg class="spark" style="height:150px" viewBox="0 0 400 150" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="dg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3e7bfa" stop-opacity=".22"/><stop offset="1" stop-color="#3e7bfa" stop-opacity="0"/></linearGradient></defs><path d="M0 120 L40 110 L80 114 L120 92 L160 98 L200 72 L240 80 L280 56 L320 62 L360 38 L400 42 L400 150 L0 150Z" fill="url(#dg)"/><path d="M0 120 L40 110 L80 114 L120 92 L160 98 L200 72 L240 80 L280 56 L320 62 L360 38 L400 42" fill="none" stroke="#3e7bfa" stroke-width="2.4"/></svg>
+              <p class="tiny muted">Facturación mensual durante 11 meses. Importes en FCFA.</p>
+            </div>
+            <div class="radar" style="box-shadow:none">
+              <div class="ui-head"><b>Alertas del día</b><span class="ui-tag amber">3</span></div>
+              <div class="alert"><i class="sev" style="background:#d64545"></i><div><b>Dos facturas vencidas hace más de 60 días</b><p>Ndiaye SARL: 1 250 000 FCFA.</p></div></div>
+              <div class="alert"><i class="sev" style="background:#f5a524"></i><div><b>Margen bruto en baja</b><p>34 % frente a 37 % el mes pasado.</p></div></div>
+              <div class="alert"><i class="sev" style="background:#3e7bfa"></i><div><b>IVA a declarar en 6 días</b><p>Importe indicativo: 340 000 FCFA.</p></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-panel" role="tabpanel" id="dp-2" aria-labelledby="d-2" hidden>
+          <div class="demo-grid">
+            <div class="invoice">
+              <div class="ui-head"><b>Factura FV-2026-0418</b><span class="ui-tag">Sellada DIP</span></div>
+              <p class="small muted" style="margin:0">Diallo &amp; Frères SARL → Ndiaye Distribution · 31/10/2026</p>
+              <table>
+                <thead><tr><th>Descripción</th><th class="r">Cant.</th><th class="r">Importe sin IVA</th></tr></thead>
+                <tbody>
+                  <tr><td>Arroz perfumado, saco de 50 kg</td><td class="r">40</td><td class="r">1 200 000</td></tr>
+                  <tr><td>Aceite vegetal, caja de 12 L</td><td class="r">25</td><td class="r">800 000</td></tr>
+                  <tr><td>IVA 18 %</td><td class="r"></td><td class="r">360 000</td></tr>
+                  <tr><td><b>Total con IVA</b></td><td class="r"></td><td class="r"><b>2 360 000</b></td></tr>
+                </tbody>
+              </table>
+              <p class="tiny muted" style="margin:0">Tipo de IVA de ejemplo. El tipo aplicable depende del país y del producto.</p>
+            </div>
+            <div class="card" style="text-align:center">
+              <svg class="qr" style="margin:0 auto 14px" viewBox="0 0 21 21" shape-rendering="crispEdges" aria-label="Código QR de ejemplo"><rect width="21" height="21" fill="#fff"/><path fill="#0d1729" d="M0 0h7v7H0zM14 0h7v7h-7zM0 14h7v7H0z"/><path fill="#fff" d="M1 1h5v5H1zM15 1h5v5h-5zM1 15h5v5H1z"/><path fill="#0d1729" d="M2 2h3v3H2zM16 2h3v3h-3zM2 16h3v3H2zM9 1h1v2H9zM11 2h2v1h-2zM8 4h2v2H8zM12 5h1v3h-1zM9 8h3v1H9zM14 9h2v2h-2zM17 8h3v1h-3zM8 10h1v3H8zM10 11h3v1h-3zM18 10h2v3h-2zM15 12h2v2h-2zM9 14h2v2H9zM12 14h1v4h-1zM14 15h3v1h-3zM18 15h2v2h-2zM9 17h2v3H9zM14 17h1v3h-1zM16 18h4v2h-4zM1 8h2v1H1zM4 9h2v2H4zM1 11h1v2H1z"/></svg>
+              <h4>Verificable por todos</h4>
+              <p>El cliente, su banco o un auditor escanea el código QR y encuentra el emisor, el importe y la huella del registro.</p>
+              <p class="mono tiny muted" style="margin-top:12px">huella 4b1e7c2a90d3…</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-panel" role="tabpanel" id="dp-3" aria-labelledby="d-3" hidden>
+          <div style="overflow-x:auto">
+            <table class="gl-table">
+              <thead><tr><th>N°</th><th>Fecha</th><th>Concepto</th><th>Cuentas</th><th class="r" style="text-align:right">Importe</th><th>Huella</th></tr></thead>
+              <tbody>
+                <tr><td>1183</td><td>30/10</td><td>Factura FV-0417 · Kaba Services</td><td>411 / 701</td><td class="r">590 000</td><td class="h">9c4d8f3a7b…</td></tr>
+                <tr><td>1184</td><td>31/10</td><td>Cobro por transferencia</td><td>521 / 411</td><td class="r">1 180 000</td><td class="h">2e8b1d5c4f…</td></tr>
+                <tr><td>1185</td><td>31/10</td><td>Compra de mercancías</td><td>601 / 401</td><td class="r">845 000</td><td class="h">7f3a9e12d6…</td></tr>
+                <tr><td>1186</td><td>31/10</td><td>Anulación del n.º 1185 (cuenta errónea)</td><td>401 / 601</td><td class="r">-845 000</td><td class="h">b850b74906…</td></tr>
+                <tr><td>1187</td><td>31/10</td><td>Compra de mercancías, corregida</td><td>6021 / 401</td><td class="r">845 000</td><td class="h">53053072b1…</td></tr>
+                <tr><td>1188</td><td>31/10</td><td>Factura FV-0418 · Ndiaye Distribution</td><td>411 / 701</td><td class="r">2 360 000</td><td class="h">4b1e7c2a90…</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="small muted" style="margin:16px 0 0">El asiento n.º 1185 no se borró. Se anula con un asiento inverso (n.º 1186) y se vuelve a escribir (n.º 1187). Cada huella depende de la anterior: la cadena se lee de principio a fin.</p>
+        </div>
+
+        <div class="demo-panel" role="tabpanel" id="dp-4" aria-labelledby="d-4" hidden>
+          <div class="demo-grid">
+            <div>
+              <h3 class="h-card">Armar el expediente de financiación</h3>
+              <ul class="gen-steps" id="gen-steps">
+                <li><i></i>Balance y cuenta de resultados, 3 ejercicios</li>
+                <li><i></i>Estado de flujos de tesorería</li>
+                <li><i></i>Ratios de liquidez, solvencia, endeudamiento</li>
+                <li><i></i>Libro mayor y balance, con sus huellas</li>
+                <li><i></i>Visado del despacho, si se ha dado</li>
+                <li><i></i>Código QR de verificación</li>
+              </ul>
+              <button class="btn btn-ink" type="button" id="gen-btn">Armar el expediente</button>
+              <div id="gen-out" class="note-box" style="margin-top:18px" hidden><b>Expediente listo (demostración).</b> En AXINA Premium, lo descarga en PDF y lo envía a su banco. La decisión de financiación sigue siendo suya.</div>
+            </div>
+            <div class="card">
+              <h4>Lo que ve el banco</h4>
+              <ul class="doc-list" style="margin-top:12px">
+                <li><span>Liquidez general</span><span>1,62</span></li>
+                <li><span>Autonomía financiera</span><span>41 %</span></li>
+                <li><span>Margen bruto</span><span>34 %</span></li>
+                <li><span>Balance cuadrado</span><span>Sí</span></li>
+              </ul>
+              <p class="tiny muted" style="margin-top:12px">Valores de ejemplo.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark on-dark final">
+  <div class="wrap">
+    <div class="final-inner">
+      <h2>El mismo recorrido, con sus cifras.</h2>
+      <div class="final-side">
+        <p>Empiece gratis con Essentiel y pase a Premium para armar sus expedientes bancarios.</p>
+        <div class="hero-ctas">
+          <button class="btn btn-seal" type="button" data-open="m-contact" data-preset="Crear mi cuenta AXINA">Crear mi cuenta gratis</button>
+          <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://wa.me/240222619606?text=Bonjour%20AXINA">Escribir por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="/es/" aria-label="AXINA, inicio"><img src="/assets/img/axina-logo-white.svg" width="109" height="30" alt="AXINA" loading="lazy"></a>
+        <p style="margin-top:16px;max-width:34ch">Infraestructura financiera de confianza para las empresas y los despachos contables del espacio OHADA.</p>
+        <a class="btn btn-ghost btn-sm" style="display:inline-flex;margin-top:6px" href="https://wa.me/240222619606?text=Bonjour%20AXINA" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
+      </div>
+      <div>
+        <h5>Empresas</h5>
+        <a href="/es/entreprises/comptabilite-syscohada">Contabilidad SYSCOHADA</a>
+        <a href="/es/entreprises/facturation">Facturación</a>
+        <a href="/es/entreprises/tresorerie">Tesorería y pilotaje</a>
+        <a href="/es/entreprises/paie">Nómina</a>
+        <a href="/es/entreprises/ia-locale">IA local</a>
+        <a href="/es/bank-ready">Expediente bancario</a>
+      </div>
+      <div>
+        <h5>Despachos</h5>
+        <a href="/es/cabinets/production">Producción y bandeja</a>
+        <a href="/es/cabinets/revision-visa-correction">Revisión, visado, corrección</a>
+        <a href="/es/cabinets/mandats-et-acces">Mandatos y accesos</a>
+        <button class="fl" type="button" data-open="m-contact" data-preset="Alianza comercial">Hacerse despacho asociado</button>
+        <h5 style="margin-top:22px">Instituciones</h5>
+        <a href="/es/#solutions">ONG, bancos, sector público</a>
+      </div>
+      <div>
+        <h5>Recursos</h5>
+        <a href="/blog">Blog</a>
+        <a href="/es/ressources/glossaire">Glosario</a>
+        <a href="/es/ressources/verification-dip">Verificación DIP</a>
+        <a href="/es/demo">Demo interactiva</a>
+        <a href="/es/#tarifs">Precios</a>
+        <a href="/es/#faq">Preguntas frecuentes</a>
+        <button class="fl" type="button" data-open="m-contact" data-preset="Solicitud de información general">Escríbanos</button>
+        <button class="fl" type="button" data-open="m-contact" data-preset="Soporte técnico">Soporte</button>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span data-year>2026</span> AXINA. Todos los derechos reservados.</span>
+      <span>Diseñado para el SYSCOHADA revisado, en los 17 países del espacio OHADA.</span>
+    </div>
+  </div>
+</footer>
+<div class="modal" id="m-contact" role="dialog" aria-modal="true" aria-labelledby="m-contact-t">
+  <div class="modal-bg"></div>
+  <div class="modal-card">
+    <button class="modal-close" type="button" aria-label="Cerrar"><svg aria-hidden="true"><use href="#i-x"/></svg></button>
+    <h3 id="m-contact-t">Solicitar acceso a AXINA</h3>
+    <p class="muted small" style="margin:0">Díganos quién es. Un miembro del equipo le responde por correo o WhatsApp.</p>
+    <form class="form" id="contact-form" action="https://formspree.io/f/mnjgbwea" method="POST">
+      <div class="two">
+        <label>Nombre completo<input name="nom" required autocomplete="name"></label>
+        <label>Correo electrónico<input name="email" type="email" required autocomplete="email"></label>
+      </div>
+      <div class="two">
+        <label>Teléfono o WhatsApp<input name="telephone" type="tel" autocomplete="tel"></label>
+        <label>País
+          <select name="pays" required>
+            <option value="">Elegir</option>
+            <option>Senegal</option><option>Costa de Marfil</option><option>Malí</option><option>Burkina Faso</option><option>Togo</option><option>Benín</option><option>Níger</option><option>Guinea-Bisáu</option><option>Guinea</option><option>Camerún</option><option>Gabón</option><option>Congo</option><option>RD del Congo</option><option>Chad</option><option>República Centroafricana</option><option>Guinea Ecuatorial</option><option>Comoras</option><option>Santo Tomé y Príncipe</option><option>Marruecos</option><option>Argelia</option><option>Túnez</option><option>Francia</option><option>Otro país</option>
+          </select>
+        </label>
+      </div>
+      <div class="two">
+        <label>Usted es
+          <select name="type_entreprise" required>
+            <option value="">Elegir</option>
+            <option>Microempresa (0–5 empleados)</option><option>Pequeña empresa (6–20 empleados)</option><option>Mediana empresa (21–100 empleados)</option><option>Gran empresa (más de 100 empleados)</option><option>Despacho contable</option><option>Firma de auditoría</option><option>Banco / Microfinanzas</option><option>Seguros</option><option>ONG / Asociación</option><option>Administración pública</option><option>Inversor / Fondo</option><option>Otro</option>
+          </select>
+        </label>
+        <label>Su solicitud
+          <select name="objet" id="f-objet" required>
+            <option value="">Elegir</option>
+            <option>Crear mi cuenta AXINA</option><option>Obtener un expediente Bank Ready</option><option>Probar AXINA Despachos (contador)</option><option>Solicitar acceso API (banco)</option><option>Alianza comercial</option><option>Solicitud de información general</option><option>Soporte técnico</option><option>Otro</option>
+          </select>
+        </label>
+      </div>
+      <label>Mensaje (opcional)<textarea name="message"></textarea></label>
+      <input type="hidden" name="_replyto" value="">
+      <input type="hidden" name="_subject" value="Nouvelle demande AXINA (axina.pro)">
+      <button class="btn btn-ink" type="submit">Enviar mi solicitud</button>
+      <div class="status" role="status" aria-live="polite"></div>
+      <p class="form-foot">Sus datos solo sirven para responderle.</p>
+    </form>
+  </div>
+</div>
+
+<div class="modal" id="m-verify" role="dialog" aria-modal="true" aria-labelledby="m-verify-t">
+  <div class="modal-bg"></div>
+  <div class="modal-card">
+    <button class="modal-close" type="button" aria-label="Cerrar"><svg aria-hidden="true"><use href="#i-x"/></svg></button>
+    <h3 id="m-verify-t">Verificar un documento AXINA</h3>
+    <p class="muted small" style="margin:0">Escanee el código QR del documento con su teléfono, o pegue aquí el enlace del código QR o el código de verificación. No hace falta cuenta.</p>
+    <form class="form" id="verify-form" novalidate>
+      <label>Enlace o código de verificación<input id="verify-input" placeholder="https://…/?token=… o 8f2c…-…" autocomplete="off" spellcheck="false"></label>
+      <button class="btn btn-ink" type="submit">Verificar en el registro</button>
+      <div class="status" id="verify-status" role="status" aria-live="polite"></div>
+      <p class="form-foot">La verificación compara el documento con el registro sellado de AXINA: emisor, número, importe, fecha y huella.</p>
+    </form>
+  </div>
+</div>
+</body>
+</html>

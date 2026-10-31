@@ -18,6 +18,7 @@
     <a class="brand" href="/" aria-label="AXINA, accueil"><img src="/assets/img/axina-logo-white.svg" width="109" height="30" alt="AXINA"></a>
     {{menu}}
     <div class="nav-right">
+      {{langs}}
       <button class="nav-verify" type="button" data-open="m-verify"><svg aria-hidden="true"><use href="#i-search"/></svg>Vérifier un document</button>
       <button class="btn btn-seal btn-sm" type="button" data-open="m-contact" data-preset="Créer mon compte AXINA">Demander l'accès</button>
       <button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu"><span></span></button>
@@ -25,6 +26,7 @@
   </div>
 </header>
 <div class="mobile-menu" id="mobile-menu">
+  {{langs}}
 {{mobilemenu}}
   <button class="mm" type="button" data-open="m-verify">Vérifier un document</button>
   <button class="btn btn-seal" type="button" data-open="m-contact" data-preset="Créer mon compte AXINA">Demander l'accès</button>
