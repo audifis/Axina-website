@@ -16,14 +16,7 @@
 <header class="nav"{{navsolid}}>
   <div class="wrap">
     <a class="brand" href="/" aria-label="AXINA, accueil"><img src="/assets/img/axina-logo-white.svg" width="109" height="30" alt="AXINA"></a>
-    <nav class="nav-links" aria-label="Navigation principale">
-      <a href="/#plateforme">Plateforme</a>
-      <a href="/#solutions">Solutions</a>
-      <a href="/#cabinets">Cabinets</a>
-      <a href="/bank-ready.html">Bank Ready</a>
-      <a href="/#tarifs">Tarifs</a>
-      <a href="/demo.html">Démo</a>
-    </nav>
+    {{menu}}
     <div class="nav-right">
       <button class="nav-verify" type="button" data-open="m-verify"><svg aria-hidden="true"><use href="#i-search"/></svg>Vérifier un document</button>
       <button class="btn btn-seal btn-sm" type="button" data-open="m-contact" data-preset="Créer mon compte AXINA">Demander l'accès</button>
@@ -32,13 +25,7 @@
   </div>
 </header>
 <div class="mobile-menu" id="mobile-menu">
-  <a href="/#plateforme">Plateforme</a>
-  <a href="/#solutions">Solutions</a>
-  <a href="/#cabinets">Cabinets</a>
-  <a href="/bank-ready.html">Bank Ready</a>
-  <a href="/#tarifs">Tarifs</a>
-  <a href="/demo.html">Démo</a>
-  <a href="/#faq">Questions fréquentes</a>
+{{mobilemenu}}
   <button class="mm" type="button" data-open="m-verify">Vérifier un document</button>
   <button class="btn btn-seal" type="button" data-open="m-contact" data-preset="Créer mon compte AXINA">Demander l'accès</button>
 </div>

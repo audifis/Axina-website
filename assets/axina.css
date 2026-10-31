@@ -632,3 +632,59 @@ details.more[open] summary svg { transform: rotate(180deg); }
   .fund-grid { grid-template-columns: 1fr; }
   .fund-grid div:nth-child(2n) { padding-left: 0; border-left: 0; }
 }
+
+/* ---------- Menu déroulant ---------- */
+.nav-links { align-items: center; }
+.dd { position: relative; }
+.dd-btn { display: inline-flex; align-items: center; gap: 6px; background: none; border: 0; cursor: pointer; color: var(--mist); font-size: 15px; font-weight: 500; padding: 8px 12px; border-radius: 8px; }
+.dd-btn svg { width: 14px; height: 14px; transition: transform .2s; }
+.dd-btn:hover, .dd.open .dd-btn { color: var(--white); background: rgba(255, 255, 255, .06); }
+.dd.open .dd-btn svg { transform: rotate(180deg); }
+.dd-panel { position: absolute; top: calc(100% + 10px); left: -8px; min-width: 320px; padding: 8px; border-radius: 16px; background: var(--white); box-shadow: 0 24px 60px -20px rgba(6, 13, 26, .55), 0 0 0 1px rgba(13, 23, 41, .06); display: none; }
+.dd.open .dd-panel { display: grid; }
+.dd-panel a { display: grid; gap: 2px; padding: 11px 12px; border-radius: 10px; text-decoration: none; color: var(--ink); }
+.dd-panel a:hover, .dd-panel a:focus-visible { background: var(--paper); }
+.dd-panel b { font-weight: 600; font-size: 15px; }
+.dd-panel span { font-size: 13.5px; color: var(--ink-3); }
+@media (hover: hover) and (min-width: 1081px) {
+  .dd:hover .dd-panel { display: grid; }
+  .dd::after { content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 12px; }
+}
+.mm-group { border-bottom: 1px solid var(--line-dark); }
+.mm-group summary { list-style: none; cursor: pointer; color: var(--white); padding: 13px 4px; font-size: 17px; }
+.mm-group summary::-webkit-details-marker { display: none; }
+.mm-group summary::after { content: "+"; float: right; color: var(--mist-2); }
+.mm-group[open] summary::after { content: "–"; }
+.mm-group a { display: block; color: var(--mist) !important; border: 0 !important; padding: 9px 4px 9px 14px !important; font-size: 16px !important; }
+.mobile-menu { max-height: calc(100dvh - 68px); overflow: auto; }
+
+/* ---------- Pages modules ---------- */
+.mod-hero { display: grid; grid-template-columns: 1.25fr .75fr; gap: clamp(28px, 5vw, 64px); align-items: end; }
+.status-card { background: rgba(255, 255, 255, .04); border: 1px solid var(--line-dark-2); border-radius: var(--r-l); padding: 22px; }
+.status-card b { display: block; margin-bottom: 12px; font-size: 15px; }
+.status-card ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.status-card li { display: flex; justify-content: space-between; gap: 14px; align-items: center; padding: 10px 0; border-top: 1px solid var(--line-dark); font-size: 14.5px; color: var(--mist); }
+.st { font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+.st-ok { background: rgba(23, 168, 101, .16); color: #6fdcaa; }
+.st-pilot { background: rgba(62, 123, 250, .18); color: #9dbbff; }
+.st-part { background: rgba(255, 255, 255, .08); color: var(--mist); }
+.st-plan { background: rgba(245, 165, 36, .14); color: var(--seal-2); }
+.rels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.rel { display: grid; gap: 4px; padding: 18px 20px; border-radius: var(--r-m); background: var(--white); border: 1px solid var(--line); text-decoration: none; transition: border-color .2s; }
+.rel:hover { border-color: var(--ink-3); }
+.rel span { font-size: 13px; color: var(--ink-3); }
+.rel b { font-weight: 600; font-size: 17px; }
+
+/* ---------- Glossaire ---------- */
+.gl-index { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 36px; }
+.gl-index a { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 10px; border: 1px solid var(--line); text-decoration: none; font-weight: 600; }
+.gl-index a:hover { border-color: var(--ink-3); }
+.gl { margin: 0; max-width: 860px; }
+.gl-letter { font-size: 30px; margin: 36px 0 6px; color: var(--ink-3); scroll-margin-top: 90px; }
+.gl-item { padding: 18px 0; border-top: 1px solid var(--line); scroll-margin-top: 90px; }
+.gl-item dt { font-weight: 600; font-size: 18px; margin-bottom: 6px; }
+.gl-item dd { margin: 0; color: var(--ink-2); max-width: 70ch; }
+@media (max-width: 900px) {
+  .mod-hero { grid-template-columns: 1fr; }
+  .rels { grid-template-columns: 1fr; }
+}

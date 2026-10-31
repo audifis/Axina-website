@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
-"""Assemble les pages du site : src/pages/*.html + src/partials -> *.html à la racine,
-plus sitemap.xml. Données structurées (JSON-LD) générées depuis le contenu des pages.
+"""Assemble le site statique.
 
-Usage : python3 tools/build.py
-Le site reste 100 % statique ; Vercel sert les fichiers générés tels quels.
+- src/pages/**/*.html (en-tête YAML)            -> pages au même chemin à la racine
+- tools/content.py : MODULES, GLOSSARY          -> entreprises/*.html, cabinets/*.html, ressources/glossaire.html
+- src/partials : en-tête, navigation, pied de page, fenêtres
+- sitemap.xml ; données structurées JSON-LD générées depuis le contenu.
+
+Usage : python3 tools/build.py   (Vercel sert les fichiers générés, URL propres via cleanUrls)
 """
 import datetime
 import hashlib
@@ -11,20 +14,23 @@ import html
 import json
 import pathlib
 import re
+import sys
+import unicodedata
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "tools"))
+from content import GLOSSARY, MODULES, STATUS_CLASS  # noqa: E402
+
 SRC = ROOT / "src"
 SITE = "https://axina.pro/"
 PART = {p.stem: p.read_text(encoding="utf-8") for p in (SRC / "partials").glob("*.html")}
 VERSION = hashlib.sha1(
     (ROOT / "assets/axina.css").read_bytes() + (ROOT / "assets/axina.js").read_bytes()
 ).hexdigest()[:8]
+E = html.escape
 
 ORG = {
-    "@type": "Organization",
-    "@id": SITE + "#organisation",
-    "name": "AXINA",
-    "url": SITE,
+    "@type": "Organization", "@id": SITE + "#organisation", "name": "AXINA", "url": SITE,
     "logo": SITE + "assets/img/icon-512.png",
     "description": "Infrastructure financière de confiance pour les entreprises et les cabinets de l'espace OHADA.",
     "areaServed": "Espace OHADA",
@@ -34,72 +40,228 @@ ORG = {
 WEBSITE = {"@type": "WebSite", "@id": SITE + "#site", "name": "AXINA", "url": SITE,
            "inLanguage": "fr", "publisher": {"@id": SITE + "#organisation"}}
 APP = {
-    "@type": "SoftwareApplication",
-    "name": "AXINA",
-    "applicationCategory": "BusinessApplication",
-    "applicationSubCategory": "Comptabilité SYSCOHADA",
-    "operatingSystem": "Web",
-    "url": SITE,
+    "@type": "SoftwareApplication", "name": "AXINA", "applicationCategory": "BusinessApplication",
+    "applicationSubCategory": "Comptabilité SYSCOHADA", "operatingSystem": "Web", "url": SITE,
     "publisher": {"@id": SITE + "#organisation"},
     "description": "Comptabilité SYSCOHADA tenue en temps réel, écritures scellées et chaînées, pilotage, dossier bancaire et collaboration avec le cabinet comptable.",
-    "offers": {"@type": "AggregateOffer", "priceCurrency": "XOF", "lowPrice": "0", "highPrice": "90000",
-               "offerCount": "9"},
+    "offers": {"@type": "AggregateOffer", "priceCurrency": "XOF", "lowPrice": "0", "highPrice": "90000", "offerCount": "9"},
 }
 
+# ------------------------------------------------------------------ navigation
+EXTRA = {
+    "Entreprises": [("/bank-ready", "Dossier bancaire", "Bank Ready, inclus dans Premium")],
+    "Cabinets": [("/#tarifs", "Formules Cabinet", "De 5 à 60 entreprises")],
+}
+RESSOURCES = [
+    ("/ressources/glossaire", "Glossaire", "La comptabilité en mots simples"),
+    ("/ressources/verification-dip", "Vérification DIP", "Vérifier un document par QR code"),
+    ("/demo", "Démo", "Du cockpit au dossier bancaire"),
+    ("/#faq", "Questions fréquentes", "Avant de commencer"),
+]
 
-def text(s: str) -> str:
+
+def menu_groups():
+    groups = {}
+    for m in MODULES:
+        groups.setdefault(m["group"], []).append(("/" + m["slug"], m["menu"], m["menu_hint"]))
+    for g, items in EXTRA.items():
+        groups[g] += items
+    groups["Ressources"] = RESSOURCES
+    return groups
+
+
+def render_menu():
+    out = ['<nav class="nav-links" aria-label="Navigation principale">']
+    for i, (g, items) in enumerate(menu_groups().items()):
+        out.append(f'<div class="dd"><button class="dd-btn" type="button" aria-expanded="false" aria-controls="dd-{i}">{g}'
+                   f'<svg aria-hidden="true"><use href="#i-chev"/></svg></button><div class="dd-panel" id="dd-{i}">')
+        out += [f'<a href="{u}"><b>{E(n)}</b><span>{E(h)}</span></a>' for u, n, h in items]
+        out.append("</div></div>")
+    out.append('<a href="/#tarifs">Tarifs</a></nav>')
+    return "".join(out)
+
+
+def render_mobile_menu():
+    out = []
+    for g, items in menu_groups().items():
+        out.append(f'  <details class="mm-group"><summary>{g}</summary>' +
+                   "".join(f'<a href="{u}">{E(n)}</a>' for u, n, _ in items) + "</details>")
+    out.append('  <a href="/#tarifs">Tarifs</a>')
+    return "\n".join(out)
+
+
+# ------------------------------------------------------------------ pages générées
+def label_for(slug):
+    fixed = {"bank-ready": ("Dossier bancaire", "Bank Ready"),
+             "ressources/glossaire": ("Glossaire", "Ressources"),
+             "ressources/verification-dip": ("Vérification DIP", "Ressources")}
+    if slug in fixed:
+        return fixed[slug]
+    m = next(x for x in MODULES if x["slug"] == slug)
+    return m["menu"], m["group"]
+
+
+def module_body(m):
+    grp_url = "/#cabinets" if m["group"] == "Cabinets" else "/#solutions"
+    does = "".join(f"<div><dt>{E(t)}</dt><dd>{E(d)}</dd></div>" for t, d in m["does"])
+    steps = ""
+    if m["steps"]:
+        steps = ('<section class="sec"><div class="wrap"><h2 class="h-sec" style="margin-bottom:28px">Comment ça marche.</h2><ol class="steps">' +
+                 "".join(f"<li><div><h4>{E(t)}</h4><p>{E(d)}</p></div></li>" for t, d in m["steps"]) + "</ol></div></section>")
+    status = "".join(f'<li><span>{E(t)}</span><span class="st st-{STATUS_CLASS[s]}">{E(s)}</span></li>' for t, s in m["status"])
+    faq = "".join(f'<details><summary>{E(q)}<span class="pm" aria-hidden="true"></span></summary><p>{E(a)}</p></details>' for q, a in m["faq"])
+    rel = ""
+    for s in m["related"]:
+        name, grp = label_for(s)
+        rel += f'<a class="rel" href="/{s}"><span>{E(grp)}</span><b>{E(name)}</b></a>'
+    return f"""<main id="main">
+<section class="page-hero">
+  <div class="hero-glow"></div>
+  <div class="wrap mod-hero">
+    <div>
+      <div class="crumbs"><a href="/">AXINA</a> / <a href="{grp_url}">{m['group']}</a> / {E(m['menu'])}</div>
+      <h1 class="h-hero" style="font-size:clamp(38px,5.2vw,68px)">{E(m['h1'])}</h1>
+      <p class="lead" style="margin:22px 0 32px">{E(m['lead'])}</p>
+      <div class="hero-ctas">
+        <button class="btn btn-seal" type="button" data-open="m-contact" data-preset="{'Tester AXINA Cabinet (comptable)' if m['group'] == 'Cabinets' else 'Créer mon compte AXINA'}">{'Tester AXINA Cabinet' if m['group'] == 'Cabinets' else 'Créer mon compte gratuit'}</button>
+        <a class="btn btn-ghost" href="/#tarifs">Voir les tarifs</a>
+      </div>
+    </div>
+    <div class="status-card">
+      <b>Où en est ce module</b>
+      <ul>{status}</ul>
+    </div>
+  </div>
+</section>
+<section class="sec white"><div class="wrap">
+  <h2 class="h-sec">Ce que vous y faites.</h2>
+  <dl class="fund-grid">{does}</dl>
+</div></section>
+{steps}
+<section class="sec white"><div class="wrap">
+  <h2 class="h-sec" style="margin-bottom:28px">Questions fréquentes.</h2>
+  <div class="faq">{faq}</div>
+</div></section>
+<section class="sec-tight"><div class="wrap">
+  <h2 class="h-card" style="margin-bottom:16px">Explorez aussi</h2>
+  <div class="rels">{rel}</div>
+</div></section>
+<section class="sec dark on-dark final"><div class="wrap"><div class="final-inner">
+  <h2>Essayez avec vos propres chiffres.</h2>
+  <div class="final-side"><p>Essentiel est gratuit. Business commence à 5 000 FCFA par mois, Cabinet Start à 15 000 FCFA.</p>
+  <div class="hero-ctas"><button class="btn btn-seal" type="button" data-open="m-contact" data-preset="Créer mon compte AXINA">Demander l'accès</button><a class="btn btn-ghost" href="/demo">Voir la démo</a></div></div>
+</div></div></section>
+</main>
+"""
+
+
+def base(s):
+    return unicodedata.normalize("NFD", s).encode("ascii", "ignore").decode()
+
+
+def glossary_body():
+    letters = sorted({base(t[0][0]).upper() for t in GLOSSARY})
+    idx = "".join(f'<a href="#l-{l}">{l}</a>' for l in letters)
+    items, cur = [], None
+    for term, d in sorted(GLOSSARY, key=lambda x: base(x[0]).lower()):
+        l = base(term[0]).upper()
+        if l != cur:
+            items.append(f'<h2 class="gl-letter" id="l-{l}">{l}</h2>')
+            cur = l
+        anchor = re.sub(r"[^a-z0-9]+", "-", base(term).lower()).strip("-")
+        items.append(f'<div class="gl-item" id="{anchor}"><dt>{E(term)}</dt><dd>{E(d)}</dd></div>')
+    return f"""<main id="main">
+<section class="page-hero">
+  <div class="hero-glow"></div>
+  <div class="wrap">
+    <div class="crumbs"><a href="/">AXINA</a> / Ressources / Glossaire</div>
+    <h1 class="h-hero" style="font-size:clamp(40px,5.6vw,72px);max-width:16ch">La comptabilité OHADA, en mots simples.</h1>
+    <p class="lead" style="margin-top:22px">Les termes que vous croisez dans AXINA, chez votre comptable ou à la banque, expliqués sans jargon.</p>
+  </div>
+</section>
+<section class="sec white"><div class="wrap">
+  <nav class="gl-index" aria-label="Lettres">{idx}</nav>
+  <dl class="gl">{''.join(items)}</dl>
+</div></section>
+</main>
+"""
+
+
+# ------------------------------------------------------------------ assemblage
+def text(s):
     return " ".join(html.unescape(re.sub(r"<[^>]+>", " ", s)).split())
 
 
-def faq_schema(body: str):
-    qa = re.findall(r"<details><summary>(.*?)<span class=\"pm\"[^>]*></span></summary><p>(.*?)</p></details>", body, re.S)
+def faq_schema(body):
+    qa = re.findall(r'<details><summary>(.*?)<span class="pm"[^>]*></span></summary><p>(.*?)</p></details>', body, re.S)
     if not qa:
         return None
     return {"@type": "FAQPage", "mainEntity": [
         {"@type": "Question", "name": text(q), "acceptedAnswer": {"@type": "Answer", "text": text(a)}} for q, a in qa]}
 
 
-def build(page: pathlib.Path) -> str:
-    raw = page.read_text(encoding="utf-8")
-    m = re.match(r"---\n(.*?)\n---\n", raw, re.S)
-    meta = {k.strip(): v.strip() for k, v in (l.split(":", 1) for l in m.group(1).splitlines() if ":" in l)}
-    body = raw[m.end():]
+def write(rel_path, meta, body, extra_graph=None):
     canonical = meta.get("canonical", "")
     graph = [ORG, WEBSITE]
-    if page.stem == "index":
+    if rel_path == "index.html":
         graph.append(APP)
     else:
-        graph.append({"@type": "BreadcrumbList", "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "AXINA", "item": SITE},
-            {"@type": "ListItem", "position": 2, "name": meta.get("crumb", meta["title"]), "item": SITE + canonical}]})
+        crumbs = [{"@type": "ListItem", "position": 1, "name": "AXINA", "item": SITE}]
+        if meta.get("group"):
+            crumbs.append({"@type": "ListItem", "position": 2, "name": meta["group"],
+                           "item": SITE + ("#cabinets" if meta["group"] == "Cabinets" else "#solutions")})
+        crumbs.append({"@type": "ListItem", "position": len(crumbs) + 1, "name": meta.get("crumb", meta["title"]),
+                       "item": SITE + canonical})
+        graph.append({"@type": "BreadcrumbList", "itemListElement": crumbs})
     faq = faq_schema(body)
     if faq:
         graph.append(faq)
+    if extra_graph:
+        graph.append(extra_graph)
     jsonld = '<script type="application/ld+json">' + json.dumps(
-        {"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False, separators=(",", ":")) + "</script>"
+        {"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/") + "</script>"
     fields = {
-        "title": meta["title"],
-        "description": meta["description"],
-        "canonical": canonical,
-        "ogtitle": meta.get("ogtitle", meta["title"]),
-        "ogimage": meta.get("ogimage", "og-axina.jpg"),
+        "title": meta["title"], "description": meta["description"], "canonical": canonical,
+        "ogtitle": meta.get("ogtitle", meta["title"]), "ogimage": meta.get("ogimage", "og-axina.jpg"),
         "ogalt": meta.get("ogalt", "AXINA : comptabilité SYSCOHADA scellée, pilotage et financement"),
     }
     head = PART["head"]
     for k, v in fields.items():
-        head = head.replace("{{%s}}" % k, v.replace('"', "&quot;"))
+        head = head.replace("{{%s}}" % k, E(v, quote=True))
     head = head.replace("{{v}}", VERSION).replace("{{jsonld}}", jsonld)
-    out = head + "<body>\n" + PART["nav"] + body + PART["footer"] + PART["modals"] + "</body>\n</html>\n"
-    (ROOT / page.name).write_text(out, encoding="utf-8")
-    print(f"{page.name}: {len(out.encode()) / 1024:.1f} Ko")
+    nav = PART["nav"].replace("{{navsolid}}", "").replace("{{menu}}", render_menu()).replace("{{mobilemenu}}", render_mobile_menu())
+    out = head + "<body>\n" + nav + body + PART["footer"] + PART["modals"] + "</body>\n</html>\n"
+    dest = ROOT / rel_path
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    dest.write_text(out, encoding="utf-8")
+    print(f"{rel_path}: {len(out.encode()) / 1024:.1f} Ko")
     return canonical
 
 
-urls = [build(p) for p in sorted((SRC / "pages").glob("*.html"))]
+urls = []
+for page in sorted((SRC / "pages").rglob("*.html")):
+    raw = page.read_text(encoding="utf-8")
+    mm = re.match(r"---\n(.*?)\n---\n", raw, re.S)
+    meta = {k.strip(): v.strip() for k, v in (l.split(":", 1) for l in mm.group(1).splitlines() if ":" in l)}
+    urls.append(write(str(page.relative_to(SRC / "pages")), meta, raw[mm.end():]))
+
+for m in MODULES:
+    meta = {"title": m["title"], "description": m["description"], "canonical": m["slug"],
+            "crumb": m["menu"], "group": m["group"], "ogtitle": f"AXINA — {m['h1']}"}
+    urls.append(write(m["slug"] + ".html", meta, module_body(m)))
+
+terms = {"@type": "DefinedTermSet", "name": "Glossaire AXINA de la comptabilité OHADA", "url": SITE + "ressources/glossaire",
+         "hasDefinedTerm": [{"@type": "DefinedTerm", "name": t, "description": d} for t, d in GLOSSARY]}
+urls.append(write("ressources/glossaire.html", {
+    "title": "Glossaire de la comptabilité OHADA et SYSCOHADA en mots simples | AXINA",
+    "description": "Balance, grand livre, extourne, liasse, DSF, TVA collectée, visa : les termes de la comptabilité OHADA expliqués simplement.",
+    "canonical": "ressources/glossaire", "crumb": "Glossaire",
+    "ogtitle": "La comptabilité OHADA, en mots simples"}, glossary_body(), terms))
+
 today = datetime.date.today().isoformat()
-sitemap = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-for u in sorted(urls, key=lambda x: (x != "", x)):
-    sitemap.append(f"  <url><loc>{SITE}{u}</loc><lastmod>{today}</lastmod><priority>{'1.0' if u == '' else '0.8'}</priority></url>")
-sitemap.append("</urlset>")
-(ROOT / "sitemap.xml").write_text("\n".join(sitemap) + "\n", encoding="utf-8")
-print("sitemap.xml:", len(urls), "URL")
+sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+for u in sorted(set(urls), key=lambda x: (x != "", x)):
+    sm.append(f"  <url><loc>{SITE}{u}</loc><lastmod>{today}</lastmod><priority>{'1.0' if u == '' else '0.8'}</priority></url>")
+sm.append("</urlset>")
+(ROOT / "sitemap.xml").write_text("\n".join(sm) + "\n", encoding="utf-8")
+print("sitemap.xml:", len(set(urls)), "URL")

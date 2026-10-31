@@ -1,0 +1,51 @@
+---
+title: Vérifier une facture ou un document AXINA par QR code | Protocole DIP
+ogtitle: Vérifier un document AXINA en quelques secondes
+description: Scannez le QR code d'une facture ou d'un dossier AXINA pour vérifier l'émetteur, le montant, la date et l'empreinte dans le registre. Gratuit, sans compte.
+canonical: ressources/verification-dip
+crumb: Vérification DIP
+---
+<main id="main">
+<section class="page-hero">
+  <div class="hero-glow"></div>
+  <div class="wrap">
+    <div class="crumbs"><a href="/">AXINA</a> / <a href="/ressources/glossaire">Ressources</a> / Vérification DIP</div>
+    <h1 class="h-hero" style="font-size:clamp(40px,5.6vw,72px);max-width:18ch">Un document AXINA se vérifie en quelques secondes.</h1>
+    <p class="lead" style="margin:22px 0 32px">Banque, client, bailleur, contrôleur : scannez le QR code et comparez le document au registre scellé d'AXINA. Gratuit, sans compte.</p>
+    <div class="hero-ctas">
+      <button class="btn btn-seal" type="button" data-open="m-verify">Vérifier un document</button>
+      <a class="btn btn-ghost" href="/#dip">Comprendre le protocole DIP</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec white">
+  <div class="wrap dip-wrap">
+    <div>
+      <h2 class="h-sec">Ce que montre la vérification.</h2>
+      <p class="lead" style="margin:18px 0 28px">La fiche de vérification compare le document que vous avez entre les mains à ce qui est enregistré dans le registre.</p>
+      <ol class="steps">
+        <li><div><h4>Scannez le QR code</h4><p>Avec l'appareil photo de votre téléphone, ou collez le lien dans la fenêtre de vérification.</p></div></li>
+        <li><div><h4>Comparez</h4><p>Émetteur, numéro, montant, date d'émission et statut de paiement. Ils doivent correspondre au document reçu.</p></div></li>
+        <li><div><h4>Lisez l'empreinte</h4><p>Un document scellé affiche son empreinte DIP. Un document enregistré sans scellement est signalé comme tel.</p></div></li>
+      </ol>
+    </div>
+    <div class="card-list">
+      <div class="card"><h4>Le document correspond</h4><p>Les informations affichées sont celles du registre. Le document n'a pas été modifié depuis son émission.</p></div>
+      <div class="card"><h4>Le document ne correspond pas</h4><p>Un montant ou une date diffèrent : le document reçu n'est pas celui qui a été enregistré. Contactez l'émetteur.</p></div>
+      <div class="card"><h4>Document non reconnu</h4><p>Le code est incomplet, le document a été supprimé par son émetteur, ou il ne vient pas d'AXINA.</p></div>
+      <p class="small muted" style="margin:6px 0 0">La vérification établit qu'un document correspond au registre. Elle ne dit rien de la solvabilité de l'émetteur ni de la régularité de l'opération.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="faq">
+      <details><summary>Faut-il un compte AXINA pour vérifier ?<span class="pm" aria-hidden="true"></span></summary><p>Non. La vérification est publique et gratuite. Elle est limitée en fréquence pour protéger le registre des requêtes automatisées.</p></details>
+      <details><summary>Quels documents portent un QR code ?<span class="pm" aria-hidden="true"></span></summary><p>Les factures émises depuis AXINA, et les dossiers produits par AXINA comme le dossier bancaire.</p></details>
+      <details><summary>Que veut dire « scellé DIP » ?<span class="pm" aria-hidden="true"></span></summary><p>Que l'écriture ou le document a reçu une empreinte SHA-256 chaînée à la précédente au moment de son enregistrement. Toute modification ultérieure casserait la correspondance.</p></details>
+    </div>
+  </div>
+</section>
+</main>

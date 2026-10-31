@@ -24,6 +24,20 @@
     $$('a, button', menu).forEach(function (a) { a.addEventListener('click', closeMenu); });
   }
 
+  /* Menus déroulants : clic (tactile, clavier) ; survol géré en CSS */
+  var dds = $$('.dd');
+  dds.forEach(function (d) {
+    var b = $('.dd-btn', d);
+    b.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = !d.classList.contains('open');
+      dds.forEach(function (x) { x.classList.remove('open'); $('.dd-btn', x).setAttribute('aria-expanded', 'false'); });
+      d.classList.toggle('open', open);
+      b.setAttribute('aria-expanded', String(open));
+    });
+  });
+  document.addEventListener('click', function () { dds.forEach(function (x) { x.classList.remove('open'); $('.dd-btn', x).setAttribute('aria-expanded', 'false'); }); });
+
   /* Modales */
   var lastFocus = null;
   function openModal(id, preset) {
@@ -122,14 +136,14 @@
       t: 'Préparer un dossier de financement solide.',
       p: 'AXINA tient votre comptabilité OHADA au fil de l\'eau et assemble un dossier bancaire à partir de chiffres scellés et vérifiables. La décision reste à la banque, mais elle lit un dossier propre.',
       l: ['États financiers SYSCOHADA à jour', 'Ratios et indicateurs déjà calculés', 'Dossiers bancaires illimités avec l\'offre Premium'],
-      cta: 'Voir le dossier Bank Ready', href: 'bank-ready.html',
+      cta: 'Voir le dossier Bank Ready', href: '/bank-ready',
       wa: 'Bonjour%2C%20je%20veux%20pr%C3%A9parer%20un%20dossier%20de%20financement%20avec%20AXINA'
     },
     score: {
       t: 'Comprendre ce que disent vos chiffres.',
       p: 'Le score AXINA se calcule à partir de votre trésorerie, de la régularité de vos écritures et de l\'intégrité de votre grand livre. C\'est un indicateur, pas une note de crédit.',
       l: ['Trésorerie, marges et dettes en temps réel', 'Alertes quand un indicateur se dégrade', 'Explication de chaque alerte en langage clair'],
-      cta: 'Voir la démo', href: 'demo.html',
+      cta: 'Voir la démo', href: '/demo',
       wa: 'Bonjour%2C%20je%20veux%20comprendre%20mon%20score%20AXINA'
     },
     cabinet: {
