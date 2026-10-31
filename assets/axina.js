@@ -4,7 +4,7 @@
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var VERIFY_URL = 'https://axina-verify.vercel.app/?token=';
+  var VERIFY_URL = 'https://verify.axina.online/?token=';
   var WA = 'https://wa.me/240222619606?text=';
 
   /* Navigation */
