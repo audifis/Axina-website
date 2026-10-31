@@ -77,11 +77,12 @@
 <main id="main">
 
 <!-- HERO -->
-<section class="hero hero-blue">
+<section class="hero">
   <div class="hero-glow"></div>
+  <div class="hero-grid-bg"></div>
   <div class="wrap">
     <div class="hero-inner">
-      <div>
+      <div class="hero-anim">
         <div class="hero-badge"><b>Nouveau</b>AXINA Cabinet relie le cabinet à ses clients, en temps réel</div>
         <h1 class="h-hero">Structurez.<br>Scellez.<br>Pilotez.</h1>
         <p class="lead">AXINA tient votre comptabilité SYSCOHADA au fil de l'eau, scelle chaque écriture dans un grand livre chaîné et vous donne les chiffres pour décider. Le financement devient la suite logique.</p>
@@ -95,18 +96,37 @@
           <div><strong>0 FCFA</strong>pour démarrer avec Essentiel</div>
         </div>
       </div>
-      <div class="device-stage">
-        <div class="laptop">
-          <div class="laptop-lid">
-            <img src="/assets/screenshots/cockpit.webp" width="1400" height="650" alt="Cockpit AXINA sur ordinateur">
+
+      <div class="hero-anim">
+        <div class="ledger" aria-label="Démonstration : grand livre scellé en direct">
+          <div class="ledger-top">
+            <span class="t"><i class="live-dot" aria-hidden="true"></i>Grand livre</span>
+            <span class="co">Sahel Négoce SARL · exemple</span>
           </div>
-          <div class="laptop-base" aria-hidden="true"><i></i></div>
+          <div class="ledger-list" id="ledger-list" aria-live="off"></div>
+          <div class="ledger-foot">
+            <span class="ok"><svg width="14" height="14" aria-hidden="true"><use href="#i-check"/></svg>Chaîne intacte jusqu'à l'écriture n° <span id="ledger-count">1185</span></span>
+            <span>DIP v1.0.2</span>
+          </div>
+          <svg class="stamp" id="stamp" viewBox="0 0 120 120" aria-hidden="true">
+            <circle cx="60" cy="60" r="52" fill="none" stroke="#f5a524" stroke-width="3"/>
+            <circle cx="60" cy="60" r="44" fill="none" stroke="#f5a524" stroke-width="1.2" stroke-dasharray="3 4"/>
+            <path id="arc" d="M60 60m-36 0a36 36 0 1 1 72 0a36 36 0 1 1-72 0" fill="none"/>
+            <text font-family="Geist, sans-serif" font-size="10.5" font-weight="700" fill="#f5a524" letter-spacing="2.4"><textPath href="#arc">SCELLÉ DIP · CHAÎNÉ · HORODATÉ ·</textPath></text>
+            <path d="m46 61 9 9 19-20" fill="none" stroke="#f5a524" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </div>
-        <div class="tablet">
-          <img src="/assets/screenshots/depenses.webp" width="900" height="418" alt="Dépenses AXINA sur tablette">
-        </div>
+        <p class="ledger-note">Données d'exemple. L'empreinte de chaque écriture est calculée en direct dans votre navigateur, à partir de l'écriture précédente.</p>
       </div>
     </div>
+  </div>
+  <div class="countries">
+    <div class="wrap"><div class="countries-label">Conçu pour le SYSCOHADA révisé, dans les 17 pays de l'espace OHADA</div></div>
+    <div class="marquee" aria-hidden="true">
+      <span>Bénin</span><span>Burkina Faso</span><span>Cameroun</span><span>Centrafrique</span><span>Comores</span><span>Congo</span><span>Côte d'Ivoire</span><span>Gabon</span><span>Guinée</span><span>Guinée-Bissau</span><span>Guinée équatoriale</span><span>Mali</span><span>Niger</span><span>RD Congo</span><span>Sénégal</span><span>Tchad</span><span>Togo</span>
+      <span>Bénin</span><span>Burkina Faso</span><span>Cameroun</span><span>Centrafrique</span><span>Comores</span><span>Congo</span><span>Côte d'Ivoire</span><span>Gabon</span><span>Guinée</span><span>Guinée-Bissau</span><span>Guinée équatoriale</span><span>Mali</span><span>Niger</span><span>RD Congo</span><span>Sénégal</span><span>Tchad</span><span>Togo</span>
+    </div>
+    <p class="sr-only">Bénin, Burkina Faso, Cameroun, Centrafrique, Comores, Congo, Côte d'Ivoire, Gabon, Guinée, Guinée-Bissau, Guinée équatoriale, Mali, Niger, RD Congo, Sénégal, Tchad, Togo.</p>
   </div>
 </section>
 
