@@ -53,6 +53,7 @@ EXTRA = {
     "Cabinets": [("/#tarifs", "Formules Cabinet", "De 5 à 60 entreprises")],
 }
 RESSOURCES = [
+    ("/blog", "Blog", "Fiscalité, réformes, financement"),
     ("/ressources/glossaire", "Glossaire", "La comptabilité en mots simples"),
     ("/ressources/verification-dip", "Vérification DIP", "Vérifier un document par QR code"),
     ("/demo", "Démo", "Du cockpit au dossier bancaire"),
@@ -77,7 +78,7 @@ def render_menu():
                    f'<svg aria-hidden="true"><use href="#i-chev"/></svg></button><div class="dd-panel" id="dd-{i}">')
         out += [f'<a href="{u}"><b>{E(n)}</b><span>{E(h)}</span></a>' for u, n, h in items]
         out.append("</div></div>")
-    out.append('<a href="/#tarifs">Tarifs</a></nav>')
+    out.append('<a href="/blog">Blog</a><a href="/#tarifs">Tarifs</a></nav>')
     return "".join(out)
 
 
@@ -86,6 +87,7 @@ def render_mobile_menu():
     for g, items in menu_groups().items():
         out.append(f'  <details class="mm-group"><summary>{g}</summary>' +
                    "".join(f'<a href="{u}">{E(n)}</a>' for u, n, _ in items) + "</details>")
+    out.append('  <a href="/blog">Blog</a>')
     out.append('  <a href="/#tarifs">Tarifs</a>')
     return "\n".join(out)
 
@@ -257,6 +259,23 @@ urls.append(write("ressources/glossaire.html", {
     "description": "Balance, grand livre, extourne, liasse, DSF, TVA collectée, visa : les termes de la comptabilité OHADA expliqués simplement.",
     "canonical": "ressources/glossaire", "crumb": "Glossaire",
     "ogtitle": "La comptabilité OHADA, en mots simples"}, glossary_body(), terms))
+
+# ------------------------------------------------------------------ blog
+import blog  # noqa: E402
+posts = blog.load(ROOT)
+urls.append(write("blog.html", {
+    "title": "Blog AXINA : comptabilité, fiscalité et financement dans l'espace OHADA",
+    "description": "Réformes, facture électronique, TVA, crédit bancaire, métier du cabinet : des articles courts et sourcés pour les dirigeants et comptables de l'espace OHADA.",
+    "canonical": "blog", "crumb": "Blog", "ogtitle": "Blog AXINA — la comptabilité OHADA, chaque semaine"}, blog.list_body(posts),
+    {"@type": "Blog", "name": "Blog AXINA", "url": SITE + "blog", "inLanguage": "fr"}))
+for i, p in enumerate(posts):
+    nxt = posts[i - 1] if i > 0 else None          # plus récent
+    prev = posts[i + 1] if i + 1 < len(posts) else None  # plus ancien
+    urls.append(write(f"blog/{p['slug']}.html", {
+        "title": p["title"] + " | Blog AXINA", "description": p["description"], "canonical": f"blog/{p['slug']}",
+        "crumb": p["title"], "ogtitle": p["title"]}, blog.post_body(p, prev, nxt, SITE, label_for), blog.schema(p, SITE)))
+(ROOT / "blog").mkdir(exist_ok=True)
+(ROOT / "blog/feed.xml").write_text(blog.feed(posts, SITE), encoding="utf-8")
 
 today = datetime.date.today().isoformat()
 sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']

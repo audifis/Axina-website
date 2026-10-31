@@ -291,6 +291,31 @@
     }
   }
 
+  /* Blog : recherche et catégories */
+  var bq = $('#blog-q');
+  if (bq) {
+    var cards = $$('#blog-list .post-card'), cat = '';
+    var norm = function (t) { return t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); };
+    var filter = function () {
+      var words = norm(bq.value).split(/\s+/).filter(Boolean), n = 0;
+      cards.forEach(function (c) {
+        var hay = norm(c.getAttribute('data-search'));
+        var ok = (!cat || c.getAttribute('data-cat') === cat) && words.every(function (w) { return hay.indexOf(w) >= 0; });
+        c.hidden = !ok; if (ok) n++;
+      });
+      $('#blog-count').textContent = n + (n > 1 ? ' articles' : ' article');
+      $('#blog-empty').hidden = n > 0;
+    };
+    bq.addEventListener('input', filter);
+    $$('.chip').forEach(function (b) {
+      b.addEventListener('click', function () {
+        cat = b.getAttribute('data-cat');
+        $$('.chip').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+        filter();
+      });
+    });
+  }
+
   /* Année du pied de page */
   $$('[data-year]').forEach(function (y) { y.textContent = new Date().getFullYear(); });
 })();
