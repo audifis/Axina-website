@@ -32,7 +32,7 @@
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png?v=3">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/axina.css?v=c8efe430">
+<link rel="stylesheet" href="/assets/axina.css?v=devices-blue-1">
 <script defer src="/assets/axina.js?v=c8efe430"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://axina.pro/#organisation","name":"AXINA","url":"https://axina.pro/","logo":"https://axina.pro/assets/img/icon-512.png","description":"Infrastructure financière de confiance pour les entreprises et les cabinets de l'espace OHADA.","areaServed":"Espace OHADA","contactPoint":{"@type":"ContactPoint","contactType":"customer support","telephone":"+240222619606","availableLanguage":["fr"]}},{"@type":"WebSite","@id":"https://axina.pro/#site","name":"AXINA","url":"https://axina.pro/","inLanguage":"fr","publisher":{"@id":"https://axina.pro/#organisation"}},{"@type":"SoftwareApplication","name":"AXINA","applicationCategory":"BusinessApplication","applicationSubCategory":"Comptabilité SYSCOHADA","operatingSystem":"Web","url":"https://axina.pro/","publisher":{"@id":"https://axina.pro/#organisation"},"description":"Comptabilité SYSCOHADA tenue en temps réel, écritures scellées et chaînées, pilotage, dossier bancaire et collaboration avec le cabinet comptable.","offers":{"@type":"AggregateOffer","priceCurrency":"XOF","lowPrice":"0","highPrice":"90000","offerCount":"9"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Qu'est-ce que le Data Integrity Protocol (DIP) ?","acceptedAnswer":{"@type":"Answer","text":"Le DIP est la couche d'intégrité d'AXINA. Il horodate chaque écriture, en calcule une empreinte SHA-256 et la chaîne à la précédente. Factures et dossiers portent un QR code qui permet de vérifier, en quelques secondes, qu'ils correspondent au registre. Le DIP établit que les chiffres n'ont pas bougé. Il ne remplace pas le visa d'un professionnel du chiffre."}},{"@type":"Question","name":"AXINA remplace-t-il le comptable ou le cabinet ?","acceptedAnswer":{"@type":"Answer","text":"Non. AXINA est conçu pour travailler avec les professionnels du chiffre. Le cabinet reste le garant de la validation comptable et fiscale, et son visa est nominatif. AXINA automatise les tâches répétitives pour que le comptable se concentre sur le conseil."}},{"@type":"Question","name":"AXINA respecte-t-il le SYSCOHADA ?","acceptedAnswer":{"@type":"Answer","text":"AXINA est conçu pour l'espace OHADA. Le plan comptable, les journaux et les états financiers suivent le SYSCOHADA révisé, dans les 17 pays membres. Les spécificités fiscales nationales sont paramétrées par pays."}},{"@type":"Question","name":"Les banques acceptent-elles les dossiers AXINA ?","acceptedAnswer":{"@type":"Answer","text":"La décision appartient toujours à la banque. Les dossiers AXINA suivent les formats et indicateurs financiers qu'elle utilise, et le QR code lui permet de vérifier l'origine des chiffres. Un dossier propre facilite l'instruction ; il ne garantit pas l'accord."}},{"@type":"Question","name":"Qui peut vérifier un document scellé DIP ?","acceptedAnswer":{"@type":"Answer","text":"N'importe qui. En scannant le QR code, une banque, un investisseur, un partenaire ou une administration consulte la fiche de vérification du document, sans compte AXINA."}},{"@type":"Question","name":"Mon cabinet peut-il travailler sur mon dossier ?","acceptedAnswer":{"@type":"Answer","text":"Oui, à partir de l'offre Business. Vous autorisez votre cabinet, vous définissez le périmètre de son mandat, et vous pouvez le révoquer. Le cabinet paie son propre abonnement AXINA Cabinet ; il ne remplace pas le vôtre."}},{"@type":"Question","name":"Comment fonctionne l'IA ?","acceptedAnswer":{"@type":"Answer","text":"Elle est désactivée par défaut. Vous pouvez utiliser un modèle local sur votre poste, ou votre propre clé API. Un service IA dans le cloud n'est possible qu'avec le consentement du dirigeant, daté et révocable. Dans tous les cas, l'IA commente des chiffres déjà calculés et n'écrit jamais dans votre comptabilité."}},{"@type":"Question","name":"Mes données sont-elles sécurisées ?","acceptedAnswer":{"@type":"Answer","text":"Vos données sont chiffrées en transit, hébergées sur des serveurs sécurisés, et jamais partagées sans votre autorisation. Seuls vous, votre cabinet sous mandat et les personnes que vous autorisez y ont accès."}},{"@type":"Question","name":"AXINA fonctionne-t-il sans connexion ?","acceptedAnswer":{"@type":"Answer","text":"AXINA privilégie un fonctionnement local. Les modules compatibles continuent de fonctionner hors ligne et se synchronisent au retour de la connexion."}},{"@type":"Question","name":"Comment démarrer ?","acceptedAnswer":{"@type":"Answer","text":"Créez votre compte avec l'offre Essentiel, gratuite, configurez votre entreprise, et passez à Business ou Premium quand vous en avez besoin."}},{"@type":"Question","name":"Puis-je changer de formule ?","acceptedAnswer":{"@type":"Answer","text":"Oui, vous pouvez passer à une formule supérieure à tout moment. Les modalités de facturation figurent dans vos conditions d'abonnement."}},{"@type":"Question","name":"Puis-je reprendre mes données existantes ?","acceptedAnswer":{"@type":"Answer","text":"Oui. AXINA importe vos données comptables existantes. La migration est un service à part, chiffré selon le volume et la complexité."}}]}]}</script>
 </head>
@@ -77,32 +77,34 @@
 <main id="main">
 
 <!-- HERO -->
-<section class="hero" style="background: linear-gradient(160deg, #0b1e3a 0%, #122a4a 50%, #0a1628 100%);">
+<section class="hero hero-blue">
   <div class="hero-glow"></div>
   <div class="wrap">
-    <div class="hero-inner" style="display:grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; padding: 70px 0 50px;">
+    <div class="hero-inner">
       <div>
-        <div class="hero-badge"><b>Nouveau</b> AXINA Cabinet · production en temps réel</div>
-        <h1 class="h-hero" style="font-size: clamp(46px, 5.5vw, 68px); line-height: .95; margin: 14px 0 18px;">
-          Structurez.<br>Scellez.<br>Pilotez.
-        </h1>
-        <p class="lead" style="font-size: 17.5px; max-width: 400px; color: rgba(255,255,255,.85);">
-          Votre comptabilité SYSCOHADA en temps réel, scellée et prête pour le financement.
-        </p>
-        <div class="hero-ctas" style="margin-top: 24px;">
+        <div class="hero-badge"><b>Nouveau</b>AXINA Cabinet relie le cabinet à ses clients, en temps réel</div>
+        <h1 class="h-hero">Structurez.<br>Scellez.<br>Pilotez.</h1>
+        <p class="lead">AXINA tient votre comptabilité SYSCOHADA au fil de l'eau, scelle chaque écriture dans un grand livre chaîné et vous donne les chiffres pour décider. Le financement devient la suite logique.</p>
+        <div class="hero-ctas">
           <button class="btn btn-seal" type="button" data-open="m-contact" data-preset="Créer mon compte AXINA">Créer mon compte gratuit</button>
           <a class="btn btn-ghost" href="/demo">Voir la démo</a>
         </div>
-        <div class="hero-proof" style="margin-top: 28px; gap: 20px;">
-          <div><strong>17 pays</strong> OHADA</div>
-          <div><strong>DIP</strong> SHA-256 chaîné</div>
-          <div><strong>0 FCFA</strong> pour démarrer</div>
+        <div class="hero-proof">
+          <div><strong>17 pays</strong>de l'espace OHADA</div>
+          <div><strong>SHA-256</strong>empreinte chaînée par écriture</div>
+          <div><strong>0 FCFA</strong>pour démarrer avec Essentiel</div>
         </div>
       </div>
-
-      <div style="display: flex; flex-direction: column; gap: 16px; align-items: flex-end;">
-        <img src="/assets/screenshots/cockpit.webp" alt="Cockpit AXINA" style="width: 78%; border-radius: 14px; box-shadow: 0 20px 50px -15px rgba(0,0,0,.6);">
-        <img src="/assets/screenshots/journaux.webp" alt="Journaux DIP" style="width: 62%; border-radius: 12px; box-shadow: 0 15px 40px -12px rgba(0,0,0,.7); margin-right: 8%;">
+      <div class="device-stage">
+        <div class="laptop">
+          <div class="laptop-lid">
+            <img src="/assets/screenshots/cockpit.webp" width="1400" height="650" alt="Cockpit AXINA sur ordinateur">
+          </div>
+          <div class="laptop-base" aria-hidden="true"><i></i></div>
+        </div>
+        <div class="tablet">
+          <img src="/assets/screenshots/depenses.webp" width="900" height="418" alt="Dépenses AXINA sur tablette">
+        </div>
       </div>
     </div>
   </div>
@@ -230,21 +232,24 @@
 
     <!-- Entreprises -->
     
-          <div class="ss-grid" style="margin-top:28px">
-            <figure class="ss-card">
-              <img src="/assets/screenshots/journaux.png" alt="Journaux scellés DIP" loading="lazy">
-              <figcaption>Journaux · 100 % scellés DIP</figcaption>
-            </figure>
-            <figure class="ss-card">
-              <img src="/assets/screenshots/tresorerie.png" alt="Trésorerie en temps réel" loading="lazy">
-              <figcaption>Trésorerie consolidée · flux 12 mois</figcaption>
-            </figure>
-            <figure class="ss-card">
-              <img src="/assets/screenshots/bilan.png" alt="Bilan SYSCOHADA" loading="lazy">
-              <figcaption>Bilan · ratios et verdict</figcaption>
-            </figure>
-          </div>
     <div class="panel" role="tabpanel" id="p-ent" aria-labelledby="u-ent">
+      <div class="device-row">
+        <figure>
+          <div class="mini-lid"><img src="/assets/screenshots/journaux.webp" width="1000" height="465" alt="Journaux scellés DIP" loading="lazy"></div>
+          <div class="mini-base" aria-hidden="true"></div>
+          <figcaption>Journaux · 100 % scellés DIP</figcaption>
+        </figure>
+        <figure>
+          <div class="mini-lid"><img src="/assets/screenshots/tresorerie.webp" width="1000" height="465" alt="Trésorerie en temps réel" loading="lazy"></div>
+          <div class="mini-base" aria-hidden="true"></div>
+          <figcaption>Trésorerie consolidée · flux 12 mois</figcaption>
+        </figure>
+        <figure>
+          <div class="mini-lid"><img src="/assets/screenshots/bilan.webp" width="1000" height="465" alt="Bilan SYSCOHADA" loading="lazy"></div>
+          <div class="mini-base" aria-hidden="true"></div>
+          <figcaption>Bilan · ratios et verdict</figcaption>
+        </figure>
+      </div>
       <div>
         <h3>Pilotez votre activité. Préparez votre financement.</h3>
         <p class="lead">Vos chiffres en temps réel, votre comptabilité OHADA tenue au fil de l'eau, votre dossier bancaire prêt à partir.</p>
@@ -445,17 +450,18 @@
     <div class="sec-head">
       <div class="kicker">AXINA Cabinet</div>
       <h2 class="h-sec">L'atelier de production du cabinet.</h2>
-      <div class="ss-grid">
-        <figure class="ss-card">
-          <img src="/assets/screenshots/cabinet-portefeuille.png" alt="Portefeuille clients AXINA Cabinet" loading="lazy">
-          <figcaption>Portefeuille multi-clients · scores · pipeline Prépa → Scellé</figcaption>
-        </figure>
-        <figure class="ss-card">
-          <img src="/assets/screenshots/cabinet-bannette.png" alt="Bannette de production cabinet" loading="lazy">
-          <figcaption>Bannette · tickets · cycle et couverture DIP 100 %</figcaption>
-        </figure>
-      </div>
       <p class="lead">Chaque dossier client avance dans une bannette, du premier rapprochement au scellement. Qui a fait quoi, quand et à quel titre : tout est tracé.</p>
+    </div>
+    <div class="device-stage device-stage-light">
+      <div class="laptop">
+        <div class="laptop-lid">
+          <img src="/assets/screenshots/cabinet-bannette.webp" width="1200" height="558" alt="Bannette de production AXINA Cabinet" loading="lazy">
+        </div>
+        <div class="laptop-base" aria-hidden="true"><i></i></div>
+      </div>
+      <div class="tablet">
+        <img src="/assets/screenshots/messages.webp" width="900" height="418" alt="Messages cabinet et entreprise sur tablette" loading="lazy">
+      </div>
     </div>
     <div class="pipeline">
       <div class="stage"><span class="n">Étape 1</span><h4>Préparation</h4><p>Le collaborateur rassemble les pièces, lie les écritures, demande ce qui manque au client.</p><div class="who">Collaborateur</div></div>
