@@ -29,7 +29,7 @@ def fr_date(d):
 
 def load(root):
     posts = []
-    for f in sorted((root / "content/blog").glob("*.md")):
+    for f in sorted((root / "content/blog").glob("[0-9][0-9][0-9][0-9]-*.md")):
         raw = f.read_text(encoding="utf-8")
         m = re.match(r"---\n(.*?)\n---\n", raw, re.S)
         meta = {k.strip(): v.strip() for k, v in (l.split(":", 1) for l in m.group(1).splitlines() if ":" in l)}
