@@ -32,8 +32,8 @@
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png?v=3">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/axina.css?v=c8efe430">
-<script defer src="/assets/axina.js?v=c8efe430"></script>
+<link rel="stylesheet" href="/assets/axina.css?v=b3ab4378">
+<script defer src="/assets/axina.js?v=b3ab4378"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://axina.pro/#organisation","name":"AXINA","url":"https://axina.pro/","logo":"https://axina.pro/assets/img/icon-512.png","description":"Trusted financial infrastructure for companies and accounting firms in the OHADA area.","areaServed":"Espace OHADA","contactPoint":{"@type":"ContactPoint","contactType":"customer support","telephone":"+240222619606","availableLanguage":["fr"]}},{"@type":"WebSite","@id":"https://axina.pro/#site","name":"AXINA","url":"https://axina.pro/","inLanguage":"en","publisher":{"@id":"https://axina.pro/#organisation"}},{"@type":"SoftwareApplication","name":"AXINA","applicationCategory":"BusinessApplication","applicationSubCategory":"Comptabilité SYSCOHADA","operatingSystem":"Web","url":"https://axina.pro/en/","publisher":{"@id":"https://axina.pro/#organisation"},"description":"SYSCOHADA accounting kept in real time, sealed and chained entries, steering, bank file and collaboration with the accounting firm.","offers":{"@type":"AggregateOffer","priceCurrency":"XOF","lowPrice":"0","highPrice":"90000","offerCount":"9"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the Data Integrity Protocol (DIP)?","acceptedAnswer":{"@type":"Answer","text":"DIP is AXINA's integrity layer. It time-stamps each entry, computes its SHA-256 fingerprint and chains it to the previous one. Invoices and files carry a QR code that lets anyone check in seconds that they match the register. DIP establishes that the figures have not moved. It does not replace an accounting professional's sign-off."}},{"@type":"Question","name":"Does AXINA replace the accountant or the firm?","acceptedAnswer":{"@type":"Answer","text":"No. AXINA is designed to work with accounting professionals. The firm remains responsible for accounting and tax approval, and its sign-off is named. AXINA automates repetitive tasks so the accountant can focus on advice."}},{"@type":"Question","name":"Does AXINA follow SYSCOHADA?","acceptedAnswer":{"@type":"Answer","text":"AXINA is built for the OHADA area. The chart of accounts, journals and financial statements follow the revised SYSCOHADA in all 17 member countries. National tax rules are set up country by country."}},{"@type":"Question","name":"Do banks accept AXINA files?","acceptedAnswer":{"@type":"Answer","text":"The decision always rests with the bank. AXINA files follow the formats and financial indicators it uses, and the QR code lets it check where the figures come from. A clean file makes the review easier; it does not guarantee approval."}},{"@type":"Question","name":"Who can verify a DIP-sealed document?","acceptedAnswer":{"@type":"Answer","text":"Anyone. By scanning the QR code, a bank, investor, partner or authority sees the document's verification record, without an AXINA account."}},{"@type":"Question","name":"Can my firm work on my file?","acceptedAnswer":{"@type":"Answer","text":"Yes, from the Business plan. You authorise your firm, set the scope of its mandate, and can revoke it. The firm pays for its own AXINA for Firms subscription; it does not replace yours."}},{"@type":"Question","name":"How does the AI work?","acceptedAnswer":{"@type":"Answer","text":"It is off by default. You can use a local model on your computer, or your own API key. A cloud AI service is only possible with the company head's dated, revocable consent. In every case, the AI comments on figures that are already calculated and never writes to your accounts."}},{"@type":"Question","name":"Is my data secure?","acceptedAnswer":{"@type":"Answer","text":"Your data is encrypted in transit, hosted on secure servers, and never shared without your permission. Only you, your firm under mandate and the people you authorise have access."}},{"@type":"Question","name":"Does AXINA work offline?","acceptedAnswer":{"@type":"Answer","text":"AXINA works locally first. Compatible modules keep working offline and sync when the connection returns."}},{"@type":"Question","name":"How do I get started?","acceptedAnswer":{"@type":"Answer","text":"Create your account on the free Essential plan, set up your company, and move to Business or Premium when you need to."}},{"@type":"Question","name":"Can I change plan?","acceptedAnswer":{"@type":"Answer","text":"Yes, you can move to a higher plan at any time. Billing terms are set out in your subscription conditions."}},{"@type":"Question","name":"Can I bring in my existing data?","acceptedAnswer":{"@type":"Answer","text":"Yes. AXINA imports your existing accounting data. Migration is a separate service, priced on volume and complexity."}}]}]}</script>
 </head>
 <body>
@@ -98,25 +98,7 @@
       </div>
 
       <div class="hero-anim">
-        <div class="ledger" aria-label="Demo: live sealed ledger">
-          <div class="ledger-top">
-            <span class="t"><i class="live-dot" aria-hidden="true"></i>General ledger</span>
-            <span class="co">Sahel Négoce SARL · example</span>
-          </div>
-          <div class="ledger-list" id="ledger-list" aria-live="off"></div>
-          <div class="ledger-foot">
-            <span class="ok"><svg width="14" height="14" aria-hidden="true"><use href="#i-check"/></svg>Chain intact up to entry no. <span id="ledger-count">1185</span></span>
-            <span>DIP v1.0.2</span>
-          </div>
-          <svg class="stamp" id="stamp" viewBox="0 0 120 120" aria-hidden="true">
-            <circle cx="60" cy="60" r="52" fill="none" stroke="#f5a524" stroke-width="3"/>
-            <circle cx="60" cy="60" r="44" fill="none" stroke="#f5a524" stroke-width="1.2" stroke-dasharray="3 4"/>
-            <path id="arc" d="M60 60m-36 0a36 36 0 1 1 72 0a36 36 0 1 1-72 0" fill="none"/>
-            <text font-family="Geist, sans-serif" font-size="10.5" font-weight="700" fill="#f5a524" letter-spacing="2.4"><textPath href="#arc">DIP SEALED · CHAINED · TIME-STAMPED ·</textPath></text>
-            <path d="m46 61 9 9 19-20" fill="none" stroke="#f5a524" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <p class="ledger-note">Sample data. Each entry's fingerprint is computed live in your browser, from the previous entry.</p>
+        <img class="hero-devices" src="/assets/img/hero-devices.webp" width="679" height="460" alt="AXINA on laptop and tablet: executive cockpit and expense tracking" fetchpriority="high">
       </div>
     </div>
   </div>

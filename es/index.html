@@ -32,8 +32,8 @@
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png?v=3">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/axina.css?v=c8efe430">
-<script defer src="/assets/axina.js?v=c8efe430"></script>
+<link rel="stylesheet" href="/assets/axina.css?v=b3ab4378">
+<script defer src="/assets/axina.js?v=b3ab4378"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://axina.pro/#organisation","name":"AXINA","url":"https://axina.pro/","logo":"https://axina.pro/assets/img/icon-512.png","description":"Infraestructura financiera de confianza para las empresas y los despachos contables del espacio OHADA.","areaServed":"Espace OHADA","contactPoint":{"@type":"ContactPoint","contactType":"customer support","telephone":"+240222619606","availableLanguage":["fr"]}},{"@type":"WebSite","@id":"https://axina.pro/#site","name":"AXINA","url":"https://axina.pro/","inLanguage":"es","publisher":{"@id":"https://axina.pro/#organisation"}},{"@type":"SoftwareApplication","name":"AXINA","applicationCategory":"BusinessApplication","applicationSubCategory":"Comptabilité SYSCOHADA","operatingSystem":"Web","url":"https://axina.pro/es/","publisher":{"@id":"https://axina.pro/#organisation"},"description":"Contabilidad SYSCOHADA en tiempo real, asientos sellados y encadenados, pilotaje, expediente bancario y colaboración con el despacho contable.","offers":{"@type":"AggregateOffer","priceCurrency":"XOF","lowPrice":"0","highPrice":"90000","offerCount":"9"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Qué es el Data Integrity Protocol (DIP)?","acceptedAnswer":{"@type":"Answer","text":"El DIP es la capa de integridad de AXINA. Pone fecha y hora a cada asiento, calcula su huella SHA-256 y la encadena a la anterior. Facturas y expedientes llevan un código QR que permite verificar en segundos que coinciden con el registro. El DIP establece que las cifras no se han movido. No sustituye el visado de un profesional contable."}},{"@type":"Question","name":"¿AXINA sustituye al contador o al despacho?","acceptedAnswer":{"@type":"Answer","text":"No. AXINA está diseñado para trabajar con los profesionales contables. El despacho sigue siendo el garante de la validación contable y fiscal, y su visado es nominativo. AXINA automatiza las tareas repetitivas para que el contador se centre en el asesoramiento."}},{"@type":"Question","name":"¿AXINA cumple el SYSCOHADA?","acceptedAnswer":{"@type":"Answer","text":"AXINA está diseñado para el espacio OHADA. El plan de cuentas, los diarios y los estados financieros siguen el SYSCOHADA revisado en los 17 países miembros. Las particularidades fiscales nacionales se configuran por país."}},{"@type":"Question","name":"¿Los bancos aceptan los expedientes AXINA?","acceptedAnswer":{"@type":"Answer","text":"La decisión siempre es del banco. Los expedientes AXINA siguen los formatos e indicadores financieros que utiliza, y el código QR le permite verificar el origen de las cifras. Un expediente limpio facilita el estudio; no garantiza la aprobación."}},{"@type":"Question","name":"¿Quién puede verificar un documento sellado DIP?","acceptedAnswer":{"@type":"Answer","text":"Cualquiera. Al escanear el código QR, un banco, un inversor, un socio o una administración consulta la ficha de verificación del documento, sin cuenta AXINA."}},{"@type":"Question","name":"¿Puede mi despacho trabajar en mi expediente?","acceptedAnswer":{"@type":"Answer","text":"Sí, a partir del plan Business. Usted autoriza a su despacho, define el alcance de su mandato y puede revocarlo. El despacho paga su propia suscripción AXINA Despachos; no sustituye la suya."}},{"@type":"Question","name":"¿Cómo funciona la IA?","acceptedAnswer":{"@type":"Answer","text":"Está desactivada por defecto. Puede usar un modelo local en su equipo, o su propia clave API. Un servicio de IA en la nube solo es posible con el consentimiento del director, fechado y revocable. En todos los casos, la IA comenta cifras ya calculadas y nunca escribe en su contabilidad."}},{"@type":"Question","name":"¿Mis datos están seguros?","acceptedAnswer":{"@type":"Answer","text":"Sus datos están cifrados en tránsito, alojados en servidores seguros y nunca se comparten sin su autorización. Solo usted, su despacho bajo mandato y las personas que usted autorice tienen acceso."}},{"@type":"Question","name":"¿AXINA funciona sin conexión?","acceptedAnswer":{"@type":"Answer","text":"AXINA prioriza el funcionamiento local. Los módulos compatibles siguen funcionando sin conexión y se sincronizan cuando vuelve la conexión."}},{"@type":"Question","name":"¿Cómo empiezo?","acceptedAnswer":{"@type":"Answer","text":"Cree su cuenta con el plan Essentiel, gratuito, configure su empresa y pase a Business o Premium cuando lo necesite."}},{"@type":"Question","name":"¿Puedo cambiar de plan?","acceptedAnswer":{"@type":"Answer","text":"Sí, puede pasar a un plan superior en cualquier momento. Las condiciones de facturación figuran en sus condiciones de suscripción."}},{"@type":"Question","name":"¿Puedo recuperar mis datos existentes?","acceptedAnswer":{"@type":"Answer","text":"Sí. AXINA importa sus datos contables existentes. La migración es un servicio aparte, presupuestado según el volumen y la complejidad."}}]}]}</script>
 </head>
 <body>
@@ -98,25 +98,7 @@
       </div>
 
       <div class="hero-anim">
-        <div class="ledger" aria-label="Demostración: libro mayor sellado en directo">
-          <div class="ledger-top">
-            <span class="t"><i class="live-dot" aria-hidden="true"></i>Libro mayor</span>
-            <span class="co">Sahel Négoce SARL · ejemplo</span>
-          </div>
-          <div class="ledger-list" id="ledger-list" aria-live="off"></div>
-          <div class="ledger-foot">
-            <span class="ok"><svg width="14" height="14" aria-hidden="true"><use href="#i-check"/></svg>Cadena intacta hasta el asiento n.º <span id="ledger-count">1185</span></span>
-            <span>DIP v1.0.2</span>
-          </div>
-          <svg class="stamp" id="stamp" viewBox="0 0 120 120" aria-hidden="true">
-            <circle cx="60" cy="60" r="52" fill="none" stroke="#f5a524" stroke-width="3"/>
-            <circle cx="60" cy="60" r="44" fill="none" stroke="#f5a524" stroke-width="1.2" stroke-dasharray="3 4"/>
-            <path id="arc" d="M60 60m-36 0a36 36 0 1 1 72 0a36 36 0 1 1-72 0" fill="none"/>
-            <text font-family="Geist, sans-serif" font-size="10.5" font-weight="700" fill="#f5a524" letter-spacing="2.4"><textPath href="#arc">SELLADO DIP · ENCADENADO · FECHADO ·</textPath></text>
-            <path d="m46 61 9 9 19-20" fill="none" stroke="#f5a524" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <p class="ledger-note">Datos de ejemplo. La huella de cada asiento se calcula en directo en su navegador, a partir del asiento anterior.</p>
+        <img class="hero-devices" src="/assets/img/hero-devices.webp" width="679" height="460" alt="AXINA en ordenador y tableta: panel del director y seguimiento de gastos" fetchpriority="high">
       </div>
     </div>
   </div>

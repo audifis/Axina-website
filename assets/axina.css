@@ -5,9 +5,9 @@
 @font-face { font-family: "Geist"; font-style: normal; font-display: swap; font-weight: 100 900; src: url("/assets/fonts/geist.woff2") format("woff2-variations"), url("/assets/fonts/geist.woff2") format("woff2"); }
 
 :root {
-  --night: #060d1a;
-  --night-2: #0b1628;
-  --night-3: #12213a;
+  --night: #10275a;
+  --night-2: #163273;
+  --night-3: #1c3b82;
   --ink: #141b3a;
   --brand: #222c56;
   --ink-2: #3a4659;
@@ -860,3 +860,5 @@ details.more[open] summary svg { transform: rotate(180deg); }
   .device-row { overflow-x: auto; padding-bottom: 8px; }
   .device-row figure { flex: 0 0 78%; }
 }
+
+.hero-devices{width:100%;height:auto;border-radius:18px;box-shadow:0 30px 80px rgba(0,0,0,.35)}
